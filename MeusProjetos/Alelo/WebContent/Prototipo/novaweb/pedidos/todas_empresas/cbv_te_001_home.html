@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../../../../js/jquery.imagetick.js"></script>   
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    <link href="../../_css/jScrollPane.css" rel="stylesheet" />
+
+    <style type="text/css" title="currentStyle">
+        @import "../../../../media/css/demo_page.css";
+        @import "../../_css/fi_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="http://www.kelvinluck.com/assets/jquery/jScrollPane/scripts/jquery.mousewheel.js"></script>
+	<script type="text/javascript" language="javascript" src="../../../../js/jScrollPane.js"></script>
+    <script>
+	$(document).ready(function() {
+		$('.caixaEntrada').css("cursor","pointer");
+		$('.caixaEntrada').click(function(){
+			location.href="cbv_te_002_enviar.html";
+		})
+    	
+		$("#acessoRapido").change(function(){
+			var url = $(this).val();
+			if (url != '') {
+				window.location = url;
+			}
+		});
+	});
+    </script>
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body>
+<div id="home_te">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p><a href="#" class="link_cinza">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#" class="link_cinza">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#" class="link_cinza">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#" class="link_cinza">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#" class="link_cinza">Atendimento</a></p>
+								<p class="prt8"><a href="#" class="link_cinza">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+        <div id="main">
+			<div id="home_te">
+            <div class="caixaEntrada left">
+                <h3><span class="ico block left">&nbsp;</span>Caixa de Entrada</h3>
+
+                
+                    <ul class="margin_caixa" style="margin-top:210px">
+                        <li><a href="javascript:;"><p class="txt_al_left">Arquivos Enviados com Rejeições</p> </a><strong>(99)</strong></li>
+                        <li><a  href="javascript:;"><p class="txt_al_left">Troque sua senha</p> </a><strong>&nbsp;</strong></li>
+                        <li><a  href="javascript:;"><p class="txt_al_left">Ela vai expirar em <b>X</b> dias</p></a><strong>&nbsp;</strong></li>
+                    </ul>
+                
+
+            </div>
+			</div>
+            <div class="right">
+            	<img src="../../_img/fake_banner_pedidos.jpg" width="566" height="223">
+            </div>
+			<div id="home_te">
+				<div class="rounded with title and shadow right width580 height245">
+					<h3 class="left w114">Acesso Rápido</h3>
+					<div class="right z2">
+						<select id="acessoRapido">
+							 <option value="">Acesso em um clique</option>
+							<option value="cbv_te_002_enviar.html">Pedido de Benefício ou novos cartões</option>
+							<option value="../acompanhamento_pedidos/cbv_ap_001.html">Acompanhamento de Pedidos</option>
+							<option value="">Boletos de Pagamento</option>
+						</select>
+					</div>
+					<div class="content">
+						<dl>
+							<dt class="pedido"><span class="ico block left">&nbsp;</span>Pedido</dt>
+							<dd>
+								<ul>
+									<li><a href="cbv_te_002_enviar.html">Pedido de Benefício ou novos cartões</a></li>
+									<li><a href="../acompanhamento_pedidos/cbv_ap_001.html">Acompanhamento de Pedidos</a></li>
+								</ul>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="financeiro"><span class="ico block left">&nbsp;</span>Financeiro</dt>
+							<dd>
+								<ul>
+									<li><a href="javascript:;">Boletos de Pagamento</a></li>
+									<li><a href="javascript:;">Notas Fiscais e Documentos de Faturamento</a></li>
+								</ul>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="cartoes"><span class="ico block left">&nbsp;</span><p  class="link_cinza">Cartões</p></dt>
+							<dd>
+								<ul>
+									<li><a href="javascript:;" class="link_cinza">Reemissão de Cartões</a></li>
+									<li><a href="javascript:;" class="link_cinza">Cancelamento de Cartões</a></li>
+								</ul>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="atendimento"><span class="ico block left">&nbsp;</span>Atendimento</dt>
+							<dd>
+								<ul>
+									<li><a href="../atendimento.html">Dúvidas Frequentes</a></li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				
+				
+				<div class="noticias rounded_box left mg_top_15" style="width:238px">
+					<h3><span class="ico block left">&nbsp;</span>Notícias</h3>
+					<dl>
+						<dt>
+							<font>jan/12 - </font>
+							 <a href="../noticias/template_0.html">Sed ut lorem ipsum dolor site amet</a>
+						</dt>
+						<dd>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</dd>
+						<dt>
+							<font>jan/12 - </font>
+							<a href="../noticias/template_1_interna.html">Sed ut lorem ipsum dolor site amet</a>
+						</dt>
+						<dd>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</dd>
+					</dl>
+					<span class="aux_01">&nbsp;</span>
+					<span class="aux_02">&nbsp;</span>
+					<span class="aux_03">&nbsp;</span>
+					<span class="aux_04">&nbsp;</span>
+				</div>
+			</div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+        </div>
+</div>
+</div>
+</body>
+</html>

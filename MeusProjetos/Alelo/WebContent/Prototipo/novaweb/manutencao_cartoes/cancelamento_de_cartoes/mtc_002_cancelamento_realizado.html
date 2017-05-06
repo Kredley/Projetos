@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+		<style type="text/css" title="currentStyle">
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+			var tdToFilter = 2;
+			$(document).ready(function() {
+
+				var  oTable = $('.display').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+				});
+
+				$("#tb1").hide();
+					$('#teste1').hide();
+					$('#teste2').show();
+					$('#linha5').show();
+				$('#top1, .plusminus').click(function(){
+					$("#tb1").hide();
+					$('#teste1').hide();
+					$('#teste2').show();
+					$('#linha5').show();
+				});
+				$('#top2, #plusminus1').click(function(){
+					$("#tb1").show();
+					$('#teste2').hide();
+					$('#linha5').hide();
+					$('#teste1').show();
+				});
+				
+			});
+		</script>
+
+
+		<title></title>
+	</head>
+	<body id="cancelamento2">
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+	        	<h2>Cancelamento de cartões</h2>
+				<div class="box_sucesso_ok">
+					<p style="color:#008568; font-size:20px;"><img src="../../_img/ok.png" width="33" height="33" alt=" "><strong>Cancelamento de cartões realizado</strong></p>
+				</div>
+				<div class="content_reemissao cantos">
+				<span style="display:inline-block; float:right; margin-right:40px;"><a href="#" class="imprimir" style="padding-left:22px; font-size:12px; color:#989898;">Imprimir</a></span>
+				<p class="titulo_peq">Confira os dados a seguir:</p>
+				<table class="simple_table" style="margin-left:20px;">
+					<tr>
+						<td><strong>Produto e N°de contrato:</strong></td>
+						<td class="last_child txt_normal">Refeição Visa Vale (00010005811)</td>
+					</tr>
+					<tr>
+						<td><strong>Quantidade de Cartões:</strong></td>
+						<td class="last_child txt_normal">3</td>
+					</tr>
+					<tr>
+						<td><strong>Data e hora da solicitação:</strong></td>
+						<td class="last_child txt_normal">00/00/0000 às 00:00</td>
+					</tr>
+					<tr>
+						<td><strong>Nome da empresa:</strong></td>
+						<td class="last_child txt_normal">SPEED CALÇADOS - 45.523.366-0001-83</td>
+					</tr>
+					<tr>
+						<td><strong>Interlocutor solicitante:</strong></td>
+						<td class="last_child txt_normal">Luiz Fernando Alvez</td>
+					</tr>
+				</table>
+				<p class="estiliza">Para solicitar cartões acesse <span style="text-decoration:underline">Pedidos > Novo Pedido</span></p>
+				<div class="top_pddo normal2" id="teste1">
+					<img class="plusminus" id="plusminus2" src="../../_img/backgrounds/minus.png" alt="" />
+					<a href="javascript: void(0)" class="a_top_pddo" id="top1">Lista de Protocolos</a>
+				</div>
+				<div class="top_pddo normal2" id="teste2">
+					<img class="plusminus" id="plusminus1" src="../../_img/backgrounds/plus.png" alt="" />
+					<a href="javascript: void(0)" class="a_top_pddo" id="top2">Lista de Protocolos</a>
+				</div>
+				<hr class="cinza" id="linha5" />
+				<div id="tb1" class="tb_mg_top">
+				<table class="display" id="example">
+					<thead>
+						<tr>
+							<th>Protocolo</th>
+							<th>Nome e CPF</th>
+							<th>Local de Entrega</th>
+							<th width="150px">Nº do Cartão</th>
+							<th>Motivo do Cancelamento</th>
+							<th class="lastChild">Reemissão do cartão</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><p>123456789</p></td>
+							<td><p>Fernando da Silva 123.411.201-52</p></td>
+							<td><p>Rua Brasil, 255 São Paulo/SP</p></td>
+							<td><p>5646 6548 3212 6548</p></td>
+							<td><p>Roubo</p></td>
+							<td class="linkP lastChild"><p>Sim</p></td>
+						</tr>
+						<tr>
+							<td><p>875445689</p></td>
+							<td><p>Maria Fernanda Santos 280.546.546.98</p></td>
+							<td><p>Rua Alvarez Cabral, 1024 São Caetano do Sul/SP</p></td>
+							<td><p>5569 6544 6889 4541</p></td>
+							<td><p>Roubo</p></td>
+							<td class="linkP lastChild"><p>Sim</p></td>
+						</tr>
+						<tr>
+							<td><p>115578987</p></td>
+							<td><p>Marcos Almeida 684.654.654-22</p></td>
+							<td><p>Av. Dr. Baeta Neves, 55 São Bernardo do Campo/SP</p></td>
+							<td><p>5466 6548 6549 7879</p></td>
+							<td><p>Roubo</p></td>
+							<td class="linkP lastChild"><p>Sim</p></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td class="lastChild">&nbsp;</td>
+						</tr>
+					</tfoot>
+				</table>
+				<br class="clear" />
+				</div>
+				</div>
+			</div>
+            <div class="search-footer">
+                <div style="margin-top:-20px">
+                    <a id="button_remove" class="button remove" href="javascript:void(0);//ca_005_01.htm">Excluir selecionados</a>
+                </div>	
+            </div>
+			<div class="rounded_box">
+				<span class="aux_01">&nbsp;</span>
+				<span class="aux_02">&nbsp;</span>
+				<span class="aux_03">&nbsp;</span>
+				<span class="aux_04">&nbsp;</span>
+				<ul class="form_al_left_list clearfix" id="btn_exp">
+					<li><strong>Mais ações:</strong></li>
+					<li><a href="javascript:void(0);" class="btn_pdf" onClick="alert('Operação realizada com sucesso')">Salvar arquivo em PDF</a></li>
+					<li><a href="javascript:void(0);" class="btn_imprimir" onClick="alert('Operação realizada com sucesso')">Imprimir lista</a></li>
+				</ul>
+				<span class="clearfix_2">&nbsp;</span>
+			</div>			 
+			<a class="bt_inicio" href="index.html" title="inicio" style="margin-top:20px;">inicio</a>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

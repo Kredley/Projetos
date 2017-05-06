@@ -1,0 +1,10 @@
+package br.com.provaEntrevista;
+
+public class Interface1 implements Interface2, Interface3{
+	
+	
+	public void metodo(Interface1 i1){
+		System.out.println("Interface 1");
+	}
+	
+	}

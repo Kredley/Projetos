@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="../../_css/ped_ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<script type="text/javascript" src="../../_js/jquery-1.7.js"></script>
+	<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="../../_js/wa_functions.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+	<script type="text/javascript" src="../../_js/jscal_src/js/jscal2.js"></script>
+    <script type="text/javascript" src="../../_js/jscal_src/js/lang/pt.js"></script>
+	<link rel="stylesheet" href="../../_css/wa_datatables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/steel/steel.css" />
+	<link rel="stylesheet" href="../../_css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/ped_general.css" type="text/css" media="screen" />
+	<script type="text/javascript" charset="utf-8">
+	<!--
+		var tdToFilter = 5;
+        var tdResults="";
+
+		$(document).ready( function() {
+	
+			
+			var heightDefine = 0;
+			$('.default_table tbody td').each(function(index) {
+				if(heightDefine < $(this).find('p').height()){
+					heightDefine = $(this).find('p').height();
+				}
+			});
+			$('.default_table tbody td p').height(heightDefine);
+
+			var  oTable = $('.default_table').dataTable({
+				"bJQueryUI": true,
+				"aaSorting": [],
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});
+			
+			$(".filters .tip1").hide();
+
+			$(".filtering").click( function () {
+				var arrFilterValues = new Array();
+				$(".filters input").each(function(){
+					if(this.value!='')arrFilterValues.push(this.value);
+				})
+				$(".filters select").each(function(){
+					if(this.value!='')arrFilterValues.push(this.value);
+				})
+
+				if(arrFilterValues.length==2){
+					$(".tip1").show()
+				}else{
+					$(".tip1").hide()
+				};
+									
+				oTable.fnFilter( $("#ncontrato").val(),6 );
+				oTable.fnFilter( $("#cpf").val(), 4 );
+				oTable.fnFilter( $("#ncartao").val(), 5 );
+				var sele = $("#situacao").find('option:selected').val();
+				if(sele=="Todos"){
+					sele= "";
+				}
+				oTable.fnFilter( sele, 3 );
+				var sele = $("#prodCont").find('option:selected').val();
+				if(sele=="Todos"){
+					sele= "";
+				}
+				oTable.fnFilter( sele, 6 );
+			} );
+
+			$(".more_options").click(function(){
+				$(".moreOptions").show();
+				$('.btn_buscar').removeClass('marg_top_1');
+				$('.btn_buscar').addClass('marg_top');
+			});
+			$(".moreOptions").hide();
+			
+			var cal = Calendar.setup({
+				onSelect: function(cal) { cal.hide() },
+				weekNumbers : false,
+				showTime: true
+			});
+			cal.manageFields("a_btn1", "logDe", "%d/%m/%Y"); 
+			cal.manageFields("a_btn2", "logAte", "%d/%m/%Y");
+			
+			$("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+		});
+		-->	
+	</script>
+</head>
+<body id="acompanhamento">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="index.html">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Acompanhamento de reemissões e cancelamentos</li>
+			</ul>
+		</div><!--.header-->
+		<div id="main">
+        	<h2>Acompanhamento de reemissões e cancelamentos</h2>
+            <p class="sub_title">Confira abaixo os protocolos das solicitações:</p>
+			<div class="rounded_box">
+				<form class="filterConfig">
+                	<div class="pesquisar">Pesquisar por:</div>
+					<fieldset class="al_left w_600">
+						<ul class="form_al_left_list filters filtros_log">
+							<li>
+								<label class="mg">Data de solicitação</label>
+								<label for="logDe" id="lblde" class="al_left mg_top_10">De</label> <input type="text" id="logDe" class="w_80 al_left mg_top_5" />
+								<a href="javascript:void(0);" class="btn_calendar al_left" id="a_btn1" ><span class="screen_reader_text">Cal</span></a>
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<label for="logAte" id="lblate" class="al_left mg_top_10">Até</label>
+								<input type="text" id="logAte" class="w_80 al_left mg_top_5" />
+								<a href="javascript:void(0);" class="btn_calendar al_left" id="a_btn2" ><span class="screen_reader_text">Cal</span></a>
+							</li>
+							<li style="position:relative;">
+								<label for="ncontrato">N° do Contrato:</label>
+								<input type="text" id="ncontrato" class="w_100" />
+								<span class="tip1">
+									<strong>Dica:</strong>
+									Preencha um ou mais campos da pesquisa
+								</span>	
+							</li>
+							<li>
+								<label for="situacao">Situação:</label>
+								<select name="situacao" id="situacao" class="w_150">
+									<option>Todos</option>
+									<option>Cancelamento de cartão</option>
+									<option>Reemissão de cartão</option>
+								</select>
+							</li>
+							<li class="moreOptions">
+								<ul>
+									<li>
+										<label for="cpf">CPF:</label>
+										<input type="text" id="cpf" class="w_160" />
+									</li>
+									<li>
+										<label for="ncartao">Número do Cartão:</label>
+										<input type="text" id="ncartao" class="w_150" />
+									</li>
+									<li>
+										<label for="prodCont">Produto e Contrato:</label>
+										<select name="prodCont" id="prodCont" class="w_220">
+											<option>Todos</option>
+											<option>Cesta Natal Alimentação Visa Vale n° 22321</option>
+											<option>Refeição Visa Vale n° 58468</option>
+										</select>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</fieldset>
+					<div class="al_right">
+						<a href="javascript:void(0);" class="btn_buscar filtering marg_top_1"><span class="screen_reader_text">Buscar</span></a>
+						<a class="more_options" href="javascript:void(0);">Mais opções</a>
+					</div>
+				</form>
+				<span class="aux_01">&nbsp;</span>
+				<span class="aux_02">&nbsp;</span>
+				<span class="aux_03">&nbsp;</span>
+				<span class="aux_04">&nbsp;</span>
+				<span class="clearfix_2">&nbsp;</span>
+			</div>			
+			<div class="search-result-header hide">
+				<p class="searh-message1">&nbsp;</p>
+            </div>
+			<table class="default_table">
+				<thead>
+					<tr>
+                    	<th><input type="checkbox" id="checkall" name="checkbox" /></th>
+                    	<th>Data de Solicitação</th>
+                    	<th>Número do protocolo</th>
+                    	<th>Tipo de Solicitação</th>
+                    	<th>Nome e CPF</th>
+                    	<th>Número do cartão</th>
+                    	<th class="last_child">Produto e contrato</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						<th class="last_child">&nbsp;</th>
+					</tr>
+				</tfoot>
+				<tbody>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox1" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>01/02/2012</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Cancelamento de cartão</p></td>
+                        <td><p>Luiz Fernando Alves <br><span class="no_wrap">228.569.321-85</span></p></td>
+                        <td><p>222.854.964.414</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox2" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">6512789653</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox3" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">6512789653</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox4" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox5" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox6" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>01/02/2012</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Cancelamento de cartão</p></td>
+                        <td><p>Luiz Fernando Alves <br><span class="no_wrap">228.569.321-85</span></p></td>
+                        <td><p>222.854.964.414</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox7" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">6512789653</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox8" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">6512789653</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox9" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">6512789653</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox10" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox11" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>01/02/2012</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Cancelamento de cartão</p></td>
+                        <td><p>Luiz Fernando Alves <br><span class="no_wrap">228.569.321-85</span></p></td>
+                        <td><p>222.854.964.414</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox12" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox13" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox14" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Cesta Natal Alimentação Visa Vale n° 22321 - Cartão Boas Vindas</p></td>
+                    </tr>
+                	<tr>
+                   	  	<td width="40" class="txt_al_center"><p><input name="checkbox" type="checkbox" id="checkbox15" title="Não visualizar mais esta mensagem" value="checkbox" /></p></td>
+                    	<td><p>10/12/2011</p></td>
+                        <td><p><a href="mtc_004_protocolo_realizado.html">1254789352</a></p></td>
+                        <td><p>Reemissão de cartão</p></td>
+                        <td><p>João Silva<br><span class="no_wrap">585.516.855-22</span></p></td>
+                        <td><p>458.988.554.874</p></td>
+                        <td class="last_child"><p>Refeição Visa Vale n° 58468</p></td>
+                    </tr>
+				</tbody>
+			</table>
+			<ul class="al_left_list">
+				<li><a href="javascript:void(0);" onclick="alert('Operação realizada com sucesso');" class="btn btn_salvar_relatorio"><span class="screen_reader_text">Salvar Relatório</span></a></li>
+				<li><a href="javascript:void(0);" onclick="alert('Operação realizada com sucesso');" class="btn btn_imprimir_relatorio"><span class="screen_reader_text">Imprimir Relatório</span></a></li>
+			</ul>
+		</div><!--#main-->
+		<div class="footer">
+			<ul>
+				<li class="content">
+					<p>Alelo © Copyright 2012</p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Quem Somos</a></p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Opine sobre o site</a></p>
+					<p class="prtSeparacao">|</p>
+					<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+				</li>
+			</ul>
+		</div><!--.footer-->
+	</div><!--#wrapper-->
+</body>
+</html>

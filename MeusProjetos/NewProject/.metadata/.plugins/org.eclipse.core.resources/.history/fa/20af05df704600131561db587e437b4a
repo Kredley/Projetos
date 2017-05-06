@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+
+public class Jogo {
+
+
+
+		
+		
+
+		public void inserir(No node, int valor) { 
+			
+			if (valor < node.valor) { 
+				if (node.esquerda != null) {
+					inserir(node.esquerda, valor); 
+				} else { 
+					 System.out.println(" Inserindo " + valor + " a esquerda de " + node.valor); 
+					 node.esquerda = new No(valor); } 
+				} else if (valor > node.valor) { 
+					if (node.direita != null) { 
+						inserir(node.direita, valor); 
+						} else { 
+							System.out.println(" Inserindo " + valor + " a direita de " + node.valor); 
+							node.direita = new No(valor); 
+							} 
+					} 
+			}
+				}
+			}
+		
+
+
+	}
+
+}

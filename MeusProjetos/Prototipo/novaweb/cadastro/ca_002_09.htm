@@ -1,0 +1,283 @@
+ <!doctype html>
+<html>
+<head>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+		<script src="../_js/jquery.colorbox-min.js"></script>		
+		
+		
+		
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body onLoad="$.colorbox({inline:true, href:'.popup', opacity:0.30, transition:'none'});">
+
+		<div id="wrapper">
+
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Locais de Entrega</li>
+			</ul>
+		</div>
+<div id="main">
+        <h2>Cadastrar novo local de entrega</h2>
+        <p class="subtitle">
+            Aqui você poderá cadastrar, alterar e excuir os locais de entrega dos seus cartões CBSS.
+        </p>
+		<form class="deliveryRegister">        
+          <div class="topBox"></div>
+          <div class="text-wrapper-delivery">
+		    <ul>
+			  <li class="sec_01">
+			    <input type="radio" name="radio"/>
+				  <p>
+				    <strong>Filial</strong>
+					Unidade de entrega que possui CNPJ próprio, diferente do da matriz.
+                  </p>
+		      </li>
+			  <li class="sec_02">
+			    <input type="radio" name="radio"/> 
+				  <p>
+				    <strong>Posto de Trabalho</strong>
+					Unidade de entrega que não possui CNPJ próprio. Atrelada a uma filial, pode ser dividida em departamentos.
+                  </p>
+		      </li>
+			  <li class="sec_03">
+			    <input type="radio" name="radio"  checked="checked" />
+				  <p>
+				    <strong>Departamento</strong>
+					Grupo de funcionários ou área da empresa dentro de uma filial ou posto de trabalho.
+                  </p>
+		      </li>
+            </ul>
+          </div>
+          <div class="bottomBox"></div>
+	    </form>          
+	  </div>
+		<h3 id="register_header">Formulário Novo Departamento</h3>
+	<form>
+		<div class="text-wrapper">
+			<h3>
+				Dados Cadastrais
+			</h3>
+			<fieldset class="form-wrapper">
+				<p>
+					<label>Código do Departamento*:<img src="_img/img_-.png" id="question"></label>
+					<input type="text" size="60" /> Ex.:001
+				</p>
+				<p>
+					<label>Nome do Departamento*:</label>
+					<input type="text" size="60" /> Ex.: Posto Coleta Perdizes
+				</p>
+				<p>
+					<label class="label_break">A qual filial os funcionários<br> do posto de trabalho</br>	estão vinculados?*:<img src="_img/img_-.png" id="question"></label>
+					<select class="w86">
+						<option>Selecione</option>
+						<option>Selecione</option>
+						<option>Selecione</option>
+					</select>			
+				</p>
+			</fieldset>			
+			<h3 class="subtitle">
+				Interlocutores Responsáveis pelo Recebimento
+				<span>Informe os autorizados a receber e a distribuir os cartões e as senhas enviadas para esse local de entrega.</span>
+			</h3>			
+			<fieldset class="form-wrapper">
+				<p>
+					<label>Interlocutor de Recebimento 1*:</label>
+					<span class="desc">	
+						<input type="text" size="75" value="Digite o Nome Complemento ou CPF já cadastrado" class="pre" />	
+						<button class="button callers-saved">Lista de Interlocutores Cadastrados</button>
+						<button class="button callers-new">Cadastrar novo interlocutor</button>
+					</span>	
+				</p>
+			</fieldset>
+			<div class="table-footer"></div>			
+		</div>
+		<fieldset class="save-form">
+			<button class="button back">Voltar</button>
+			<button class="button save">Salvar</button>
+		</fieldset>	
+	</form>
+	<div class="none">
+		<div class="popup">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2>
+					Lista de Interlocutores
+					<span class="subtitle">
+					Clique no nome para escolher o interlocutor que deseja incluir como Responsável pelo Faturamento.
+					</span>				
+				</h2>
+				<p class="result-count">
+					<a href="#">TODOS:</a> |
+					<a href="#">A</a>
+					<a href="#">B</a>
+					<a href="#">C</a>
+					<a href="#">D</a>
+					<a href="#">E</a>
+					<a href="#">F</a>
+					<a href="#">G</a>
+					<span>H</span>
+					<a href="#">I</a>
+					<a href="#">J</a>
+					<a href="#">K</a>
+					<a href="#">L</a>
+					<a href="#">M</a>
+					<a href="#">N</a>
+					<a href="#">O</a>
+					<a href="#">P</a>
+					<a href="#">Q</a>
+					<a href="#">R</a>
+					<a href="#">S</a>
+					<a href="#">T</a>
+					<a href="#">U</a>
+					<a href="#">V</a>
+					<a href="#">W</a>
+					<a href="#">X</a>
+					<a href="#">Y</a>
+					<a href="#">Z</a>
+				</p>
+				<div class="table-wrapper">
+					<table valign="center" class="delivery-address">
+						<thead>
+							<tr>
+								<th>
+									<a href="#">Nome</a>
+								</th>
+								<th class="th_cpf">
+									<a href="#">CPF</a>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														<tr>
+								<td>
+									<u>HipsumloremlightLipsumloremlightLipsumloremlightLipsumloremLiporemligoremligoremlig</u>
+								</td>
+								<td>
+									2222.142.778-21
+								</td>
+							</tr>
+														
+						</tbody>
+					</table>
+					<p class="search-navigation">
+						<a class="search-prev-text disabled">anterior</a>
+						<span class="pages">
+							<a href="#" class="active">1</a>
+							<a href="#">2</a>
+							<a href="#">3</a>
+						</span>
+						<a class="search-next-text">próximo</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

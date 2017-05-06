@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="../_css/ped_ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<script type="text/javascript" src="../../_js/jquery-1.7.js"></script>
+	<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="../../_js/wa_functions.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+    <script src="../../_js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="../../_js/jscal_src/js/jscal2.js"></script>
+    <script type="text/javascript" src="../../_js/jscal_src/js/lang/pt.js"></script>
+	<link rel="stylesheet" href="../../_css/wa_datatables.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/steel/steel.css" />
+	<link rel="stylesheet" href="../../_css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/ped_general.css" type="text/css" media="screen" />
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<script type="text/javascript" charset="utf-8">
+	
+		var tdToFilter = 5;
+        var tdResults="";
+
+		$(document).ready( function() {
+			
+			$('.btn_fechar_pequeno').click(function(){
+				$($(this).parents('tr')[0]).hide('slow');
+			});
+
+			
+			$("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+			var heightDefine = 0;
+			$('.default_table tbody td').each(function(index) {
+				if(heightDefine < $(this).find('p').height()){
+					heightDefine = $(this).find('p').height();
+				}
+			});
+			$('.default_table tbody td p').height(heightDefine);
+
+			var  oTable = $('.default_table').dataTable({
+				"bJQueryUI": true,
+				"aaSorting": [],
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});
+			
+			$(".filters .tip1").hide();
+
+			$(".filtering").click( function () {
+				var arrFilterValues = new Array();
+				$(".filters input").each(function(){
+					if(this.value!='')arrFilterValues.push(this.value);
+				})
+				$(".filters select").each(function(){
+					if(this.value!='')arrFilterValues.push(this.value);
+				})
+
+				if(arrFilterValues.length==2){
+					$(".tip1").show()
+				}else{
+					$(".tip1").hide()
+				};
+									
+				oTable.fnFilter( $("#ncontrato").val(), 6 );
+				oTable.fnFilter( $("#cpf").val(), 4 );
+				oTable.fnFilter( $("#ncartao").val(), 6 );
+				var sele = $("#situacao").find('option:selected').val();
+				if(sele=="Todos"){
+					sele= "";
+				}
+				oTable.fnFilter( sele, 3 );
+				var sele = $("#prodCont").find('option:selected').val();
+				if(sele=="Todos"){
+					sele= "";
+				}
+				oTable.fnFilter( sele, 6 );
+			} );
+
+			$(".more_options").click(function(){
+				$(".moreOptions").show();
+				$('.btn_buscar').removeClass('marg_top_1');
+				$('.btn_buscar').addClass('marg_top');
+			});
+			$(".moreOptions").hide();
+			
+			
+			$("#tabela1_wrapper").hide();
+			$(".btn_localizar_cartoes, .btn_adicionar_usuario").click(function(){
+				$("#tabela1_wrapper").show();
+			});
+			
+			$("#esconder,  .btn_continuar, .subtitle").hide();
+			
+			$("#produto").change(function(){
+				var selected = $("#produto option:selected").val();
+				if (selected != 0) {
+					$("#esconder, .btn_continuar, .subtitle").show();
+				}
+				else {
+					$("#esconder, .btn_continuar, .subtitle").hide();
+				}
+			})
+		})			
+	</script>
+</head>
+<body id="reemissao_senha">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="index.html">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Acompanhamento de reemissões e cancelamentos</li>
+			</ul>
+		</div><!--.header-->
+		<div id="main">
+        	<h2>Reemissão de senhas / Códigos de Desbloqueio</h2>
+            <p class="sub_title" style="margin:0 0 10px 12px;">Para pedir a reemissão de senha ou de código de desbloqueio de um ou mais cartões de benefícios, selecione o produto e número do contrato. Em seguida, localize os cartões para os quais deseja pedir a reemissão de senha ou de código de desbloqueio.</p>
+			<span class="alerta_amarelo">
+				<p><img src="../../_img/icons/alert.png" width="17" height="15" alt="Atenção" /><strong>Atenção!</strong> Seu Funcionário já pode fazer a reemissão de senha por telefone. <a href="#" class="al_right" style="*margin-top:-16px;">Ver detalhes</a></p>
+			</span>
+			<div class="text-wrapper">
+				<h3 class="first left"><strong>Produto e N° do Contrato</strong></h3>
+				<select id="produto" style="width:350px; margin:15px;">
+					<option selected="selected" value="0">Selecione</option>
+                    <option value="1">VISA VALE (0138901829041)</option>
+                    <option value="2">VALE REFEICAO (0138901829041)</option>
+				</select>
+				
+				<h3 class="subtitle"><strong>Lista de reemissão de senhas e códigos de desbloqueio</strong><span>Localiza e adicione na lista os cartões para os quais deseja solicitar a reemissão de senha / código de desbloqueio.</span></h3>
+				<div id="esconder"><a href="#" class="btn_localizar_cartoes" onClick="$.colorbox({inline:true, href:'.ab', opacity:0.30, transition:'none'});" style="margin:15px 60px 15px 15px; float:left"><span class="screen_reader_text">Localizar Cartões</span></a>
+				<a class="exc" href="#" style="display:inline-block; padding-left:22px; margin-top:19px; float:left">Importar dados de cancelamento (via tabela excel)</a>
+				<hr class="cinza" />
+				
+				<div class="search-result-header hide">
+					<p class="searh-message1" style="top:1px; left:-5px;">&nbsp;</p>
+            	</div>
+				<table class="default_table" id="tabela1">
+						<thead>
+							<tr>
+								<th>Nome e CPF</th>
+								<th>Número do cartão</th>
+								<th>Local de Entrega</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td class="txt_al_left no_wrap"><p>Ricardo Aparecida da Silva 521.142.589-58</p></td>
+								<td><p class="no_wrap">Rua Brasil, 542 São Paulo/SP</p></td>
+								<td><p class="no_wrap">4568-14XX-XXXX-4123</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Remover</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>Maria Cardoso da Silva 831.776.216-59</p></td>
+								<td><p>Rua America, 20 São Paulo/SP</p></td>
+								<td><p>4568-33XX-XXXX-7654</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Remover</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>José Carlos Freitas 279.691.328-71</p></td>
+								<td><p>Rua Europa, 01 São Paulo/SP</p></td>
+								<td><p>4234-12XX-XXXX-4763</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Remover</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>Gabriela Montonas 346.628.965-33</p></td>
+								<td><p>Rua Estados Unidos, 20 São Paulo/SP</p></td>
+								<td><p>4545-16XX-XXXX-5674</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Remover</span></a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				
+				
+				<a href="#" class="btn_adicionar_usuario" onClick="$.colorbox({inline:true, href:'.ab', opacity:0.30, transition:'none'});"  style="margin:0 0 0 15px;"><span class="screen_reader_text">Adicionar Usuário</span></a> 
+				</div><div class="table-footer"></div>
+			</div>
+			<a href="index.html" class="btn_voltar" style="display:inline-block"><span class="screen_reader_text">Voltar</span></a>
+			<a href="mc_rscd_002_descentralizado.html" class="btn_continuar" style="height:35px; float:right;"><span class="screen_reader_text">Continuar</span></a>
+			
+		</div><!--#main-->
+		<div class="footer">
+			<ul>
+				<li class="content">
+					<p>Alelo © Copyright 2012</p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Quem Somos</a></p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Opine sobre o site</a></p>
+					<p class="prtSeparacao">|</p>
+					<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+				</li>
+			</ul>
+		</div><!--.footer-->
+	</div><!--#wrapper-->
+    <div class="none">
+		<div class="popup popInter ab">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2 class="no-border">Localizar cartões para reemissão de senha.</h2>
+				<div style="padding:0 20px;">
+					<div class="rounded_box" style="width:750px;">
+                    	<form id="filters2">
+							<div class="al_left" style="padding:20px 10px 20px 0">
+								<strong>Pesquisar por:</strong>
+							</div>
+							<ul class="al_left_li">
+								<li>
+									<label for="nome2"><strong>Nome de usuário:</strong></label>
+									<input type="text" id="nome2" class="mg_top_5" style="width:300px;" />
+								</li>
+								<li><span class="block" style="margin-top:20px;">ou</span></li>
+								<li>
+									<label for="cpf2"><strong>CPF:</strong></label>
+									<input type="text" id="cpf2" class="mg_top_5"/>
+								</li>
+								<li><a href="javascript:void(0);" class="btn_buscar" style="margin-top:16px;"><span class="screen_reader_text">Consultar</span></a></li>
+							</ul>
+                    	</form>
+						<span class="clearfix_2">&nbsp;</span>
+						<span class="aux_01">&nbsp;</span>
+						<span class="aux_02">&nbsp;</span>
+						<span class="aux_03">&nbsp;</span>
+						<span class="aux_04">&nbsp;</span>
+					</div>
+					<table class="default_table" id="tabela2">
+						<thead>
+							<tr>
+								<th>Nome e CPF</th>
+								<th>Número do cartão</th>
+								<th>Local de Entrega</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td class="txt_al_left no_wrap"><p>Ricardo Aparecida da Silva 521.142.589-58</p></td>
+								<td><p class="no_wrap">Rua Brasil, 542 São Paulo/SP</p></td>
+								<td><p class="no_wrap">4568-14XX-XXXX-4123</p></td>
+								<td width="10" class="last_child txt_al_center"><p class="no_wrap"><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>Maria Cardoso da Silva 831.776.216-59</p></td>
+								<td><p>Rua America, 20 São Paulo/SP</p></td>
+								<td><p>4568-33XX-XXXX-7654</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>José Carlos Freitas 279.691.328-71</p></td>
+								<td><p>Rua Europa, 01 São Paulo/SP</p></td>
+								<td><p>4234-12XX-XXXX-4763</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td  class="txt_al_left"><p>Gabriela Montonas 346.628.965-33</p></td>
+								<td><p>Rua Estados Unidos, 20 São Paulo/SP</p></td>
+								<td><p>4545-16XX-XXXX-5674</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>

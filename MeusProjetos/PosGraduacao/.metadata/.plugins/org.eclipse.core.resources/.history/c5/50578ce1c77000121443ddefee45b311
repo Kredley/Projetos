@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+
+public abstract class teste {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("Entre com um número inteiro: ");
+		Scanner scanner = new Scanner( System.in );
+		Integer num = scanner.nextInt();
+					
+//		//Instanciando um objeto Fatorial
+//		Fatorial numero = new Fatorial();
+		
+		System.out.print("O fatorial do número " + num + " é: ");
+		
+		num = fatorialRecursivo(num);
+		
+		System.out.println(num);
+	}
+	public static int fatorialRecursivo (int num) { //Método recursivo 
+		if(num == 0) {
+			return 1;
+		} else {
+			return num*fatorialRecursivo(num-1);
+		}
+	}
+
+}

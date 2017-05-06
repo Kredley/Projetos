@@ -1,0 +1,62 @@
+/* --- Layout  */
+body{ text-align:center; background-color:#666;}
+	body .boxAlertContent{ width: 594px; margin: 0 auto; background-color:#fff; text-align:left;}
+/*Layout --- */
+
+/* --- Alert alert_n_arquivos.html  */
+body .arquivos{ position:relative; height: 332px;}
+	body .arquivos h2{ font-family:"Museo Sans 500"; size:29px; color:#008568; float:left; margin: 15px 0 0 35px;}
+	body .arquivos .linha{ width:594px; border-bottom: #e8e8e8 solid 1px; clear:both;}
+	body .arquivos p{ font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; width: 521px; margin: 15px 35px;}
+	body .arquivos .bt_fechar{ background:url(../imgs/alerts/botoes/bt_alerts.png) -33px -40px; top: 27px; left:460px; width: 105px; height:24px; position:absolute; text-indent:-9999em; }
+/*Alert alert_n_arquivos.html --- */
+
+/* --- Alert alert_confirmacao_vizualizacao.html  */
+body .confirmacao_visualizacao{ position:relative; height: 252px; text-align:center;}
+	body .confirmacao_visualizacao h2{ font-family:"museo"; size:29px; color:#008568; float:left; margin: 25px 0 0 35px;}
+	body .confirmacao_visualizacao .linha{ width:594px; border-bottom: #e8e8e8 solid 1px; clear:both;}
+	body .confirmacao_visualizacao p{ font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; padding: 10px 25px 10px 35px; text-align:left;}
+	body .confirmacao_visualizacao .bt_fechar{ background:url(../imgs/alerts/botoes/bt_alerts.png) -33px -40px; top: 27px; left:460px; width: 105px; height:24px; position:absolute; text-indent:-9999em; }
+	body .confirmacao_visualizacao .bt_ok{ background:url(../imgs/alerts/botoes/bt_alerts.png) -175px -30px; width:91px; margin:0px auto; height:43px; text-indent:-9999em;}
+	body .confirmacao_visualizacao .custom_checkbox{ cursor:pointer; padding:15px 0 0; width:295px; margin:0 auto}
+	body .confirmacao_visualizacao .custom_checkbox img{float:left;}
+	body .confirmacao_visualizacao .custom_checkbox p{float:left; width:80%; padding:2px 5px; margin:0px;}
+/*Alert alert_confirmacao_vizualizacao.html --- */
+
+/* --- Alert alert_imprimir_documentos.html  */
+body .imprimir_documentos{ position:relative; height: 332px;}
+	body .imprimir_documentos h2{ font-family:"Museo Sans 500"; size:29px; color:#008568; float:left; margin: 25px 0 0 35px;}
+	body .imprimir_documentos .linha{ width:594px; border-bottom: #e8e8e8 solid 1px; clear:both;}
+	body .imprimir_documentos p{ width:50px; float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; width: 521px; margin: 5px 40px;}
+	body .imprimir_documentos .bt_fechar{ background:url(../imgs/alerts/botoes/bt_alerts.png) -33px -40px; top: 27px; left:460px; width: 105px; height:24px; position:absolute; text-indent:-9999em; }
+	body .imprimir_documentos .custom_checkbox{ cursor:pointer; margin:100px 0 0 140px;}
+	body .imprimir_documentos .text_checkbox{ position:absolute; top:197px; left:170px; font-family:Verdana, Geneva, sans-serif; font-size:12px;}
+
+body .imprimir_documentos ul{ clear:both; *margin-top:20px !important;  padding-top:20px; *padding-top:0 !important; }
+	body .imprimir_documentos ul li{
+		float:left; list-style:none; list-style-type:none;
+		border-top:1px solid #ececec;
+		padding:8px 41px;
+		width:512px;
+		_width:594px !important;}
+		body .imprimir_documentos ul li input, body .imprimir_documentos ul li img{
+			float:left; margin-right:20px;}
+		body .imprimir_documentos ul li p{
+			margin:0px; float:left; width:70%; padding:1px 20px; border-left:1px solid #ececec;}
+		
+/*Alert alert_imprimir_documentos.html ---  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

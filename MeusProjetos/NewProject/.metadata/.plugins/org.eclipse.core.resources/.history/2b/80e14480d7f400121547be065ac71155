@@ -1,0 +1,25 @@
+package br.com.kredley.refinado;
+
+public class Circulo extends FormaGeometrica {
+	private double raio;
+
+	public Circulo( double raio ) {
+		this.raio = raio;
+	}
+
+	public double calcularArea( ) {
+		return Math.PI * raio * raio;
+	}
+
+	public double calcularPerimetro( ) {
+		return 2 * Math.PI * raio;
+	}
+	
+	public static void main(String[] args) {
+		FormaGeometrica f = new Circulo( 5 );
+		 double area = f.calcularArea( );
+		 double perimetro = f.calcularPerimetro( );
+		 Circulo c = (Circulo) f;
+
+	}
+}

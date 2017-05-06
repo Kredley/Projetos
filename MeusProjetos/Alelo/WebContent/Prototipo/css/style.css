@@ -1,0 +1,217 @@
+body{
+	margin:0 auto;
+	border-top:5px solid #C1D82F;
+	font-family:Verdana, Geneva, sans-serif;		
+}
+input{font-family:Verdana, Geneva, sans-serif;}
+div,ul,ol,li,span,p,h1,h2,h3,h4,fieldset,img{
+	font-family:Verdana, Geneva, sans-serif;		
+	list-style:none;
+	margin:0;
+	padding:0;
+	border:0;
+	z-index:1
+}
+@font-face{
+	font-family: 'museo';
+    src: url('museo300-regular-webfont.eot');
+    src: url('museo300-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museo300-regular-webfont.woff') format('woff'),
+         url('museo300-regular-webfont.ttf') format('truetype'),
+         url('museo300-regular-webfont.svg#Museo300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+	font-family: 'museo-sans';
+    src: url('museosans_500-webfont.eot');
+    src: url('museosans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('museosans_500-webfont.woff') format('woff'),
+         url('museosans_500-webfont.ttf') format('truetype'),
+         url('museosans_500-webfont.svg#MuseoSans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+#wrapper{
+	width:900px;
+	height:auto;
+	margin:0 auto;
+}
+/*header*/
+.header{
+	width:900px;
+	height:185px;
+}
+.header li{
+	float:left;
+	text-align:left;	
+}
+.logo a{
+	width:141px;
+	height:93px;
+	text-indent:-999em;
+	display:block;
+	background-image:url(../_img/logo.png);
+	margin:8px 0px 0px 10px;
+}
+.login{
+	width:500px;
+	font-size:11px;
+	margin:20px 0px 0px 22px;	
+}
+.login a{
+	color:#5C5B5A;
+	text-decoration:underline;		
+}
+.login b{color:#00856C}
+.combo select{
+	margin:20px 0px 0px 22px;
+	font-size:10px;
+	width:315px;
+	height:20px;
+	color:#898989;
+	font-family:Verdana, Geneva, sans-serif;			
+}
+.header .description{
+	width:358px;
+	margin:18px 0px 0px 51px;
+	font-size:21px;
+	font-family:'museo';
+	color:#5C5B5A;
+	font-weight:bold
+}
+.btnBusiness a{
+	margin:7px 0px 0px 230px;
+	background-image:url(../_img/img_botton_business.png);
+	width:108px;
+	height:23px;
+	float:left;
+	text-indent:-999em;	
+	display:block;
+}
+.rideMenu{
+	width:880px;
+	height:35px;
+	float:left;
+	margin:7px 0px 0px 10px;
+	font-family:'museo-sans';
+	font-size:11px;
+	font-weight:bold;
+}
+.rideMenu li.sideLeft{
+	background-image:url(../_img/side_left_menu.png);
+	width:20px;
+	height:35px;
+	float:left;
+}
+.rideMenu li.sideRight{
+	background-image:url(../_img/side_right_menu.png);
+	width:20px;
+	height:35px;
+	float:left;
+}
+.rideMenu li.prtText{
+	width:840px;
+	height:35px;
+	background-image:url(../_img/bg_menu.png);
+	background-repeat:repeat-x;
+}
+.rideMenu li.prtText p{
+	height:25px;
+	padding:10px 3px 0px 0px;
+	float:left;
+	text-align:center;	
+	background-image:url(../_img/separation.png);
+	background-repeat:no-repeat;
+	background-position:right;
+}
+.rideMenu li.prtText p a{
+	color:#008265;
+	text-decoration:none;
+}
+.rideMenu li.prtText p a:hover{
+	color:#008265;
+	text-decoration:underline;
+}
+.rideMenu li.prtText p.prt1{
+	width:40px;
+	text-align:left;
+	padding:10px 0px 0px 0px;			
+}
+.rideMenu li.prtText p.prt2{width:58px}
+.rideMenu li.prtText p.prt3{width:155px}
+.rideMenu li.prtText p.prt4{width:135px}
+.rideMenu li.prtText p.prt5{width:66px}
+.rideMenu li.prtText p.prt6{width:72px}
+.rideMenu li.prtText p.prt7{width:88px}
+.rideMenu li.prtText p.prt8{width:178px}
+.rideMenu li.prtText p.prt9{
+	width:20px;
+	padding:10px 0px 0px 2px;				
+	background-image:none;				
+}
+li.navigation{
+	width:880px;
+	float:left;
+	margin:8px 0px 0px 17px;
+	font-size:12px;
+	color:#989898;		
+}
+li.navigation a{
+	color:#989898;
+	text-decoration:underline;	
+}
+/*FOOTER*/
+.footer{
+	width:880px;
+	height:20px;
+	float:left;
+	margin:15px 0px 0px 10px;
+	padding:5px 0px 0px 0px;
+	font-size:11px;
+	color:#5A5B5C;
+	border-top:1px solid #C5C5C5;
+}
+.footer a{
+	text-decoration:underline;
+	color:#5A5B5C;	
+}
+div.footer ul li p{
+	float:left;
+	margin:0px 9px;
+}
+div.footer ul li p.prtSeparacao{
+	float:left;
+	margin:0px 5px;
+}
+/* Generic Content */
+.button{
+	display:inline-block;
+	cursor:pointer;
+	text-indent:-999em;
+	height:24px;
+	border:0;
+	background:#fff
+}
+.right{float: right;}
+/* POP-UP de erros e avisos */
+.none{display:none}
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;background:#000}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:hidden !important;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#cboxClose{
+	background:url('../_img/bt_close.png');
+	width:107px;
+	height:24px;
+	position: absolute;
+	top: 35px;
+	right: 20px;
+	text-indent:-9999em
+}

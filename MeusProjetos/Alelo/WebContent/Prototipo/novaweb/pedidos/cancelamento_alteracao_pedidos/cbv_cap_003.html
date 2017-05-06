@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    <style type="text/css" title="currentStyle">
+        @import "../../../media/css/demo_page.css";
+        @import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script src="../../_js/jscal_src/js/lang/pt.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/jscal2.css" />
+	<link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/border-radius.css" />
+	<link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/steel/steel.css" />
+	<meta charset="utf-8" />	
+	<title></title>
+    <script type="text/javascript" charset="utf-8">
+
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==4){
+							sColValue = $("#produto").find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							
+							$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+					} );
+				} );
+
+				
+				var  oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+            	});
+				
+				$(".search-filters a.button.search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search-filters select").each(function(){
+						if(this.value!='')arrFilterValues.push(this.value);
+					})
+										
+					if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+					
+					oTable.fnFilter( $("#produto").find('option:selected').val(), 4 );
+				} );
+				$(".search-filters .tip1").hide();
+				
+				$("input[name=checkbox]").imageTick({ 
+					tick_image_path: "../../_img/check.gif", 
+					no_tick_image_path: "../../_img/no_check.gif"
+				});
+
+
+			} );
+		</script>
+</head>
+<body id="cancelamento_pedidos">
+<div class="none">
+        <div class="popup popImprimir">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Imprimir documentos</h2>
+                <div class="content imprimir_documentos">
+                	<p class="subtitle">Escolha os documentos que deseja imprimir:</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox1" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Boleto Bancário</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox2" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>RPS</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox3" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Pedidos</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox4" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Tarifas</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox5" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Descontos</p>
+                        </li>
+                    </ul> 
+                    <a class="bt_imprimir_selecionados" href="#" title="Imprimir selecionados" onClick="alert('Operação realizada com sucesso')">Imprimir selecionados</a>
+                    <span class="clearAll">&nbsp;</span>       
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+			</ul>
+        </div>
+        <div id="main">
+        
+            <h2>Cancelamento de Pedidos</h2>
+            <p class="subtitle">Para cancelar um pedido realizado, confira atentamente os dados e informe o motivo do cancelamento. A devolução dos valores creditados será feita segundo as 
+            <a href="#"><strong>Condições para Cancelamento de Pedido.</strong></a></p>
+            <br/>
+            <p class="subtitle"><a href="#">Como é feita a devolução dos valores creditados?</a></p>
+            
+             <div id="main">
+                <form>
+                	<div id="one">
+					<div class="text-wrapper">
+                        <h3 class="first">Dados do Pedido</h3>
+                       	<table border="0" align="left" cellpadding="0" cellspacing="0" class="margin_tb">
+                        	<tr>
+                            	<td width="180" class="txt_align_right"><strong>Produto e N° de Contrato:</strong></td>
+                                <td width="330">Refeição (00010005811) - Boas-vindas</td>
+                                <td width="180" class="txt_align_right"><strong>Data de Envio:</strong></td>
+                                <td width="82"> 09/09/2009</td>
+                            </tr>
+                            <tr>
+                            	<td class="txt_align_right"><strong>N° do Pedido:</strong></td>
+                                <td>1233456789</td>
+                                <td class="txt_align_right"><strong>Mês de Referência:</strong></td>
+                                <td >09/2009</td>
+                            </tr>
+                            <tr>
+                            	<td class="txt_align_right"><strong>N° de Funcionários:</strong></td>
+                                <td>9999</td>
+                                <td class="txt_align_right"><strong>Data de Disponibilização:</strong></td>
+                                <td >09/09/2009</td>
+                            </tr>
+                            <tr>
+                            	<td class="txt_align_right"><strong>Valor Total (R$):</strong></td>
+                                <td>999.999.999.00</td>
+                            </tr>
+                        </table>
+                        </div>	
+                        <div class="table-footer"></div>
+                    </div>
+				</form>
+            </div>
+            
+            <form class="deliveryRegister">
+                <div class="text-wrapper-delivery">
+                	<h3>Motivo do Cancelamento:</h3>
+                    <select id="motivo_cancelamento" style="width:300px;">
+                    	<option>Selecione</option>
+						<option>Cartão Cortesia</option>
+						<option>Crédito Incorreto</option>
+						<option>Dados errados na NF</option>
+						<option>Decurso de Prazo, Demissão de funcionário</option>
+						<option>Fraude</option>
+						<option>Faturamento indevido</option>
+						<option>Pedido Solicitado por Engano</option>
+                    </select>
+                    <img src="../../_img/icons/alert.png" width="17" height="15" alt="Atenção" class="pos_esclamacao"/>
+                    <p class="especifico"><strong>Atenção: O pedido em questão já foi faturado e disponibilizado. A devolução solicitada está vinculada diretamente ao saldo disponível no cartão dos funcionários. O saldo será retirado do cartão dos funcionários em até 3 dias úteis.</strong></p>
+                    <h3>Condição para Cancelamento de Pedidos</h3>
+                    <p>O interlocutor deverá efetuar um novo pedido a partir do 4° dia útil após abertura da ocorrência desde que conste o
+pagamento deste pedido.<br/>Será enviado demonstrativo junto com a Nota Fiscal. Se o cliente não conseguir acessar, o demonstrativo e a nota de crédito serão
+encaminhadas para o endereço de correspondência.</p>
+					<p><strong>Para Produtos Natal e Contratos com Banco do Brasil</strong></p>
+                    <p>A devolução será efetuada através de depósito em conta, no prazo de até 10 (dez) dias úteis, após a conﬁrmação do
+pagamento da cobrança do pedido em questão. Será emitida uma nota de crédito como comprovante, sendo a mesma entregue em até
+07 dias úteis após o depósito ter sido efetuado.</p>
+					<p style="margin:30px 0 0 300px; position:relative"><input type="checkbox" name="checkbox" id="pos_checkbox" class="pos_checkbox">
+					<label for ="pos_checkbox">Li e concordo com as condições</label></p>
+                </div>
+                
+                <div class="topBox"></div>
+                <div class="bottomBox"></div>
+            </form>
+            </div>
+            <a href="index.html" class="bt_voltar left">Voltar</a>
+            <a href="cbv_cap_002.html" class="bt_continuar right"><span class="screen_reader_text">Continuar</span></a>
+            <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+        </div>
+</div>
+</body>
+</html>

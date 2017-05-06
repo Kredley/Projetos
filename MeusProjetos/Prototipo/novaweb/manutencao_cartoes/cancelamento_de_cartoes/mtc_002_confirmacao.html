@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+	<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="../../_css/ped_ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<script type="text/javascript" src="../../_js/jquery-1.7.js"></script>
+	<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+	<script type="text/javascript" src="../../_js/wa_functions.js"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+	<link rel="stylesheet" href="../../_css/wa_datatables.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/ped_general.css" type="text/css" media="screen" />
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../_js/jquery.infieldlabel.min.js"></script>
+	<script type="text/javascript" charset="utf-8">		
+		var tdToFilter = 2;
+		$(document).ready(function() {
+			
+			$("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+			
+			var heightDefine = 0;
+			$('.default_table tbody td').each(function(index) {
+				if(heightDefine < $(this).find('p').height()){
+					heightDefine = $(this).find('p').height();
+				}
+			});
+			
+			var  oTable2 = $('#tabela3').dataTable({
+				"aaSorting": [],
+				"bJQueryUI": true,
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});			
+		
+			$("#tb1").hide();
+				$('#teste1').hide();
+				$('#teste2').show();
+				$('#linha5').show();
+			$('#top1, .plusminus').click(function(){
+				$("#tb1").hide();
+				$('#teste1').hide();
+				$('#teste2').show();
+				$('#linha5').show();
+			});
+			$('#top2, #plusminus1').click(function(){
+				$("#tb1").show();
+				$('#teste2').hide();
+				$('#linha5').hide();
+				$('#teste1').show();
+			});
+			
+		});
+	</script>
+
+	</head>
+	<body id="cancelamento">
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+	        	<h2>Cancelamento de cartões</h2>
+				
+				<div class="rounded_box">
+					<div class="aux_01">&nbsp;</div>
+					<div class="aux_02">&nbsp;</div>
+					<div class="aux_03">&nbsp;</div>
+					<div class="aux_04">&nbsp;</div>
+					<a href="javascript:void(0)" class="btn_alterar_2 al_right"><span class="screen_reader_text">Alterar</span></a>
+					<h4>Confirme os dados do cancelamento de cartões</h4>
+					<table class="simple_table">
+						<tr>
+							<td class="txt_bold">Produto e N° de Contrato:</td>
+							<td>Alimentação Visa Vale (75342108690)</td>
+						</tr>
+						<tr>
+							<td class="txt_bold">Quantidade de Cartões:</td>
+							<td>4</td>
+						</tr>
+					</table>
+					<p style="margin:30px 0 0 0;">Confira os dados antes de concluir a operação:</p>
+					<table class="default_table" id="tabela3">
+						<thead>
+							<tr>
+								<th>Nome e CPF</th>
+								<th>Local de Entrega</th>
+								<th>Número do cartão</th>
+								<th>Motivo do Cancelamento</th>
+								<th class="last_child">Reemissão do cartão</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td><p>Amanda Santos <span class="no_wrap">280.021.545-22</span></p></td>
+								<td style="width:200px;"><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td><p><span class="no_wrap">1235 7899 6544 2321</span></p></td>
+								<td><p class="motivo_copy">&nbsp;</p></td>
+								<td width="10" class="last_child txt_al_center"><p>Sim</p></td>
+							</tr>
+							<tr>
+								<td><p>Carlos Almeida <span class="no_wrap">587.854.264-25</span></p></td>
+								<td style="width:200px;"><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td><p><span class="no_wrap">3254 1126 5445 9856</span></p></td>
+								<td><p class="motivo_copy">&nbsp;</p></td>
+								<td width="10" class="last_child txt_al_center"><p>Não</p></td>
+							</tr>
+							<tr>
+								<td><p>Luan Silva <span class="no_wrap">236.214.542-51</span></p></td>
+								<td style="width:200px;"><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td><p><span class="no_wrap">6546 4561 1321 5154</span></p></td>
+								<td><p class="motivo_copy">&nbsp;</p></td>
+								<td width="10" class="last_child txt_al_center"><p>Sim</p></td>
+							</tr>
+							<tr>
+								<td><p>Marcos Ivanovich <span class="no_wrap">122.548.875-58</span></p></td>
+								<td style="width:200px;"><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td><p><span class="no_wrap">4896 5465 4548 6548</span></p></td>
+								<td><p class="motivo_copy">&nbsp;</p></td>
+								<td width="10" class="last_child txt_al_center"><p>Sim</p></td>
+							</tr>
+						</tbody>
+					</table>					
+				</div>
+				<div class="text-wrapper">
+					<h3 class="first left"><strong>Condições para Cancelamento</strong></h3>
+					<div class="pd_10"><p>Informamos que não nos responsabilizamos por usos indevidos efetuados anteriormente ao cancelamento do mesmo.</p>
+					<p>Após solicitado, o cancelamento de cartão é feito em caráter definitivo. Uma vez cancelado, o cartão não poderá ser novamente ativado.</p>
+					</div>
+					<h3><strong>Condições para Reemissão</strong></h3>
+					<div class="pd_10"><p>O prazo de entrega previsto é de 7 dias úteis, contados a partir do primeiro dia útil posterior à conclusão do pedido.</p>
+					<h4>Para Reemissão por perda ou furto</h4>
+					<p>Informamos que, em casos de roubo ou perda do cartão, não nos responsabilizamos pelos usos indevidos efetuados anteriormente ao cancelamento do mesmo.</p>
+					<h4>Para Reemissão por dano físico</h4>
+					<p>O cartão antigo será desativado imediatamente após o primeiro uso da nova via.</p></div>
+					<div class="table-footer"></div>
+				</div>				
+				
+				<span id="confirmar" class="al_right">
+				<ul class="li_form_list_left">
+					<li>
+						<span id="check_aceitar">
+						<input type="checkbox" name="checkbox" id="aceito" /> <label for="aceito">Li e concordo com as condições</label>
+						</span>
+					</li>
+					<li><a href="mtc_002_cancelamento_realizado.html" class="btn_confirmar" style="height:35px; float:right;"><span class="screen_reader_text">Confirmar</span></a></li>
+				</ul>
+			</span>
+			<a class="bt_inicio" href="index.html" title="inicio" style="margin-top:20px;">inicio</a>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

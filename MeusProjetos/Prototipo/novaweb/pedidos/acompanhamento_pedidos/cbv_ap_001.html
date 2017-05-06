@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+   	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    <style type="text/css" title="currentStyle">
+        @import "../../../media/css/demo_page.css";
+        @import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+    
+	<script type="text/javascript" charset="utf-8">
+
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==0){
+							sColValue1 = $(this).find("p").html();
+							sColValueNoSpace1 = retira_acentos(sColValue1.toLowerCase().replace(/\s/gi,''));
+							$('#situacao').append('<option value='+sColValueNoSpace1+'>'+sColValue1+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace1+"</span>");
+							
+						
+						}else if(i==1){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_envio').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}else if(i==4){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#produto').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}else if(i==3){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_pedido').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}else if(i==5){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_contrato').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}else if(i==6){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#disp').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}else if(i==7){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_vencimento').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+					} );
+				} );
+
+				
+				var  oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+            	});
+				
+				$(".search-filters a.button.search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search-filters input").each(function(){
+						//if(this.value!='')arrFilterValues.push(this.value);
+					})
+					$(".search-filters select").each(function(){
+						if ($(this).attr('id') == 'filial_faturamento' 
+							&& this.value!='') {
+							arrFilterValues.push(this.value);
+						}
+						//if(this.value!='')arrFilterValues.push(this.value);
+					})
+										
+					if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+					//oTable.fnFilter( $(".search-filters input").val(), 1 );
+					oTable.fnFilter( $("#situacao").find('option:selected').val(), 0 );
+					oTable.fnFilter( $("#mes_envio").find('option:selected').val(), 1 );
+					oTable.fnFilter( $("#produto").find('option:selected').val(), 4 );
+					oTable.fnFilter( $("#tipo_pedido").find('option:selected').val(), 3 );
+					oTable.fnFilter( $("#tipo_contrato").find('option:selected').val(), 5 );
+					oTable.fnFilter( $("#disp").find('option:selected').val(), 6 );
+					oTable.fnFilter( $("#mes_vencimento").find('option:selected').val(), 7 );
+					oTable.fnFilter( $("#n_pedido").val(), 2 );
+					oTable.fnFilter( $("#valor_total").val(), 8 );
+					
+				} );
+				$(".search-filters .tip1").hide();
+				$('.mais_opcoes').hide();
+				$('.more_options').click(function(){
+					$('.mais_opcoes').show();
+					$('.threerows').css('height','125px')
+				});
+
+
+			} );
+		</script>
+
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar novo local</li>
+			</ul>
+		</div>
+      	<div id="main">
+        	<h2 title="Acompanhamento de Pedidos">Acompanhamento de Pedidos</h2>
+            <p class="subtitle">Consulte aqui todos os detalhes do pedido clicando no nome do pedido.</p>
+            <form class="search-filters threerows" style="height:60px;">
+            <fieldset>
+            
+              <fieldset>
+                  <label>Pesquisar por:</label>
+                  <div class="divFilters left w_800" style="margin-top:20px">
+                    <div class="n_protocolo">
+                      <p><strong>Situação:</strong></p>
+                      <select name="situacao" id="situacao" style="width:105px" type="text">
+                        <option value="" selected></option>
+                      </select>
+                      <span class="tip-on tip1"><strong>Dica:</strong> Preencha um ou mais campos da pesquisa</span> </div>
+                    <div class="n_protocolo">
+                      <p><strong>Mês de Envio:</strong></p>
+                      <select name="mes_envio" id="mes_envio" style="width:105px" type="text">
+                        <option value="" selected></option>
+                      </select>
+                    </div>
+                    <div class="n_protocolo">
+                      <p><strong>Nº do pedido:</strong></p>
+                      <input type="text" id="n_pedido" style="width:115px" value="" />
+                    </div>
+                    <div class="n_protocolo">
+                      <p><strong>Produto:</strong></p>
+                      <select name="produto" id="produto" style="width:205px" type="text">
+                        <option value="" selected></option>
+                      </select>
+                    </div>
+                    <div class="n_protocolo">
+                      <p><strong>Nº do Contrato:</strong></p>
+                      <input type="text" id="n_contrato" style="width:115px" value="" />
+                    </div>
+                    <span class="clearAll" style="height:10px;">&nbsp;</span>
+					<div class="mais_opcoes">
+						<div class="n_protocolo">
+						  <p><strong>Tipo de Pedido:<br>
+							<br>
+						  </strong></p>
+						  <select name="tipo_pedido" id="tipo_pedido" style="width:155px" type="text">
+							<option value="" selected></option>
+						  </select>
+						</div>
+						<div class="n_protocolo">
+						  <p><strong>Tipo do Contrato:<br>
+							<br>
+						  </strong></p>
+						  <select name="tipo_contrato" id="tipo_contrato" style="width:155px" type="text">
+							<option value="" selected></option>
+						  </select>
+						</div>
+						<div class="n_protocolo">
+						  <p><strong>Mês de<br>
+							Disponibilização:</strong></p>
+						  <select name="disp" id="disp" style="width:115px" type="text">
+							<option value="" selected></option>
+						  </select>
+						</div>
+						<div class="n_protocolo">
+						  <p><strong>Mês de<br>
+							Vencimento:</strong></p>
+						  <select name="mes_vencimento" id="mes_vencimento" style="width:115px" type="text">
+							<option value="" selected></option>
+						  </select>
+						</div>
+						<div class="n_protocolo">
+						  <p><strong>Valor Total(R$)<br>
+							<br>
+						  </strong></p>
+						  <input type="text" id="valor_total" style="width:115px" value="" />
+						</div>
+			      </div>
+                  </div>
+                  <div class="divSearch right w114 text_center"  style="margin-top:-70px;"> <a href="javascript:;" class="button search">Buscar</a> <a class="more_options left" href="javascript:void(0)" title="Mais opções">Mais opções</a> </div>
+              </fieldset>
+                <span class="closer">&nbsp;</span>
+            </fieldset>
+            </form>
+            <div class="search-result-header">
+				<p class="searh-message1">Busca Aplicada: 10.000 resultados encontrados. <a href="#">Desfazer</a> </p>
+            </div>  
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th width="12%">Data de Solicitação</th>
+                        <th>N° do Pedido</th>
+                        <th>Tipo de Pedido</th>
+                        <th>Produto e Contrato</th>
+                        <th>Qtde de Funcionários</th>
+                        <th>Data de Disponibilização</th>
+                        <th>Data de Vencimento</th>
+                        <th class="lastChild">Valor Total (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    	<td><p class="verde">Aprovado</p></td>
+                    	<td><p>29/07/2011</p></td>
+                    	<td><p><a href="cbv_ap_002.html">548932</a></p></td>
+                        <td><p>Pedido Padrão</p></td>
+                        <td><p>Alimentação Visa Vale N°XXXXXXXXX</p></td>
+                        <td><p>250</p></td>
+                        <td><p>08/04/2011</p></td>
+                        <td><p>05/11/2012</p></td>
+                    	<td class="linkP lastChild"><p>200,00</p></td>
+                    </tr>
+                    <tr>
+                    	<td><p class="vermelho">Rejeitado</p></td>
+                    	<td><p>01/01/2011</p></td>
+                    	<td><p><a href="cbv_ap_002.html">1234567890</a></p></td>
+                        <td><p>Recarga Complementar</p></td>
+                        <td><p>Cesta Natal Alimentação Visa Vale N°XXXXXXXXX - Boas-vindas</p></td>
+                        <td><p>1000</p></td>
+                        <td><p>10/01/2011</p></td>
+                        <td><p>01/01/2012</p></td>
+                    	<td class="linkP lastChild"><p>999.999.999</p></td>
+                    </tr>
+                    <tr>
+                    	<td><p class="cinza">Cancelado</p></td>
+                    	<td><p>01/01/2011</p></td>
+                    	<td><p><a href="cbv_ap_002.html">1234567890</a></p></td>
+                        <td><p>Pedido Padrão</p></td>
+                        <td><p>Cesta Natal Alimentação Visa Vale N°XXXXXXXXX - Boas-vindas</p></td>
+                        <td><p>1000</p></td>
+                        <td><p>10/01/2011</p></td>
+                        <td><p>01/01/2012</p></td>
+                    	<td class="linkP lastChild"><p>999.999.999</p></td>
+                    </tr>
+                    <tr>
+                    	<td><p class="amarelo">Cancelado Parcialmente</p></td>
+                    	<td><p>01/01/2011</p></td>
+                    	<td><p><a href="cbv_ap_002.html">1234567890</a></p></td>
+                        <td><p>Pedido Padrão</p></td>
+                        <td><p>Cesta Natal Alimentação Visa Vale N°XXXXXXXXX - Boas-vindas</p></td>
+                        <td><p>1000</p></td>
+                        <td><p>10/01/2011</p></td>
+                        <td><p>01/01/2012</p></td>
+                    	<td class="linkP lastChild"><p>999.999.999</p></td>
+                    </tr>
+                    <tr>
+                    	<td><p class="laranja">Em Análise</p></td>
+                    	<td><p>01/01/2011</p></td>
+                    	<td><p><a href="cbv_ap_002.html">1234567890</a></p></td>
+                        <td><p>Pedido Padrão</p></td>
+                        <td><p>Cesta Natal Alimentação Visa Vale N°XXXXXXXXX - Boas-vindas</p></td>
+                        <td><p>1000</p></td>
+                        <td><p>10/01/2011</p></td>
+                        <td><p>01/01/2012</p></td>
+                    	<td class="linkP lastChild"><p>999.999.999</p></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="lastChild">&nbsp;</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="search-footer">
+            </div>
+      </div>
+
+      <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+      </div>
+</div>
+</body>
+</html>

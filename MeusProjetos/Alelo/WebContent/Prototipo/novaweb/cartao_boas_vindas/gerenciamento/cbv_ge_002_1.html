@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+	<link href="../../_css/fi_style.css" rel="stylesheet" />
+	<link href="../../_css/estilos.css" rel="stylesheet" />		
+	<meta charset="utf-8" />	
+	<title></title>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			$("#extrato, .btn_ocultar_extrato, .pdf, .csv").hide();
+			$(".btn_consultar_extrato").click(function(){
+				$(this).hide();
+				$(".btn_ocultar_extrato").show();
+				$(".pop_modal").css('height', '650px');
+				$("#extrato, .pdf, .csv").show('slow');
+				$.colorbox({inline:true, href:'.pop_modal', opacity:0.30, transition:'none'});
+			});
+			
+			$(".btn_ocultar_extrato").click(function(){ 
+				$(this).hide();
+				$(".btn_consultar_extrato").show();
+				$("#extrato, .pdf, .csv").hide('slow');
+				$(".pop_modal").css('height', '254px');
+				$.colorbox({inline:true, href:'.pop_modal', opacity:0.30, transition:'none'});
+			});
+		});
+    </script>
+</head>
+<body>
+<div class="none">
+  <div class="pop_modal">
+		<div class="content">
+			<h2 class="txt_green">Consulta de saldo do cartão</h2>
+			<div class="content">
+				<table width="500">
+					<tbody>
+						<tr>
+							<td><strong>Nome do Cartão:</strong></td>
+							<td>19 CARACTERES</td>
+						</tr>
+						<tr>
+							<td><strong>ID do Cartão:</strong></td>
+							<td>1234567890</td>
+						</tr>
+						<tr>
+							<td><strong>Portador:</strong></td>
+							<td>Julio Cesar da Silva</td>
+						</tr>
+						<tr>
+							<td><strong>Data e Hora da Consulta:</strong></td>
+							<td>01/11/2011 - 10:57:25</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="box_lightbox">
+					<p style="font-size:15px;"><strong>Saldo Atual: R$ 9,99</strong></p>
+					<p>Saldo para simples conferência - sujeito a alterações</p>
+				</div>
+                <a href="javascript: void(0);" class="btn_consultar_extrato al_center"></a>
+                <a href="javascript: void(0);" class="btn_ocultar_extrato al_center"></a>
+				<div id="extrato" class="rounded_box txt_cinza_1 mg_top_10">
+					<p><label for="periodo">Período:</label>
+					<select name="periodo" id="periodo">
+						<option>Últimos 7 dias</option>
+					</select></p>
+					<table width="100%">
+						<thead class="txt_bold txt_al_left txt_cinza_1">
+							<tr>
+								<th>Data</th>
+								<th>Histórico</th>
+								<th>Valor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>20/10</td>
+								<td>Sagres</td>
+								<td width="60">R$ 2,40</td>
+							</tr>
+							<tr>
+								<td>18/10</td>
+								<td>Lanchonete mamarela</td>
+								<td>R$ 2,80</td>
+							</tr>
+							<tr>
+								<td>18/10</td>
+								<td>Restaurante Zinin</td>
+								<td>R$ 19,48</td>
+							</tr>
+							<tr>
+								<td>17/10</td>
+								<td>Salada Creations</td>
+								<td>R$ 11,00</td>
+							</tr>
+							<tr>
+								<td>15/10</td>
+								<td>Viva Vila Olimpia</td>
+								<td>R$ 24,40</td>
+							</tr>
+							<tr>
+								<td>20/10</td>
+								<td>Sagres</td>
+								<td>R$ 2,40</td>
+							</tr>
+							<tr>
+								<td>18/10</td>
+								<td>Lanchonete mamarela</td>
+								<td>R$ 2,80</td>
+							</tr>
+							<tr>
+								<td>18/10</td>
+								<td>Restaurante Zinin</td>
+								<td>R$ 19,48</td>
+							</tr>
+							<tr>
+								<td>17/10</td>
+								<td>Salada Creations</td>
+								<td>R$ 11,00</td>
+							</tr>
+							<tr>
+								<td>15/10</td>
+								<td>Viva Vila Olimpia</td>
+								<td>R$ 24,40</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="aux_01">&nbsp;</div>
+					<div class="aux_02">&nbsp;</div>
+					<div class="aux_03">&nbsp;</div>
+					<div class="aux_04">&nbsp;</div>
+				</div>
+				<p class="txt_al_center" style="margin:10px 0 0 0;">
+					<a href="javascript:void(0);" class="pdf txt_cinza_1" onClick="alert('Operação realizada com sucesso');" style="padding:2px 0 2px 20px;">Salvar arquivo em PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="javascript:void(0)" class="csv txt_cinza_1" onClick="alert('Operação realizada com sucesso');" style="padding:2px 0px 2px 20px;">Exportar arquivo .csv atual</a>
+				</p>
+			</div>
+		</div>
+		<span class="aux_011">&nbsp;</span>
+		<span class="aux_021">&nbsp;</span>
+		<span class="aux_031">&nbsp;</span>
+		<span class="aux_041">&nbsp;</span>
+		<span class="aux_051">&nbsp;</span>
+	</div>
+</div>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Visualizar Local de Entrega</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>
+		Detalhe do cartão
+	</h2>
+	<a class="button cancelar_cartao al_right" href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')">Cancelar Cartão</a>
+	<form class="pos-buttons" id="form20">
+		<div class="text-wrapper">
+			<h3>Dados Cadastrais</h3>
+			<div class="position_text">
+				<span class="cinza_strong2">Situação:</span><a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="link2">Bloqueado a partir do emissor DF</a>
+			</div>
+			<fieldset class="form-wrapper">
+				<p class="saved_data" style="clear:both">
+					<label>Nome do cartão:</label>
+					<span>19 Caracteres x x x x  x </span>
+				</p>
+				<p class="saved_data">
+					<label>Id do cartão:</label>
+					<span>1234567890987656546</span>
+				</p>
+				<p class="saved_data"> 
+					<label>Produto:</label>
+					<span>Cesta Natal Alimentação Visa vale</span>
+				</p>
+				<p class="saved_data">
+					<label>Local de entrega:</label>
+					<span>40 Caracteres xxxxxxxxxxxx xxxx  x x x x</span>
+				</p>
+				<a class="button alterar_local_entrega" href="javascript:void(0);" onClick="alert('O usuário será encaminhado para o módulo de cadastro')">Alterar local de entrega</a>
+				<a class="button consulta_saldo" href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.pop_modal', opacity:0.30, transition:'none'});">Alterar local de entrega</a>
+			</fieldset>
+			<h3>Portador e Controle Administrativo:</h3>
+			<fieldset class="form-wrapper" >
+			
+				<p class="saved_data" style="clear:both">
+					<label style="width:260px;">Nome do Portador:</label>
+					<span>19 Caracteres x x x x  x </span>
+				</p>
+				<p class="saved_data">
+					<label style="width:260px;">CPF do Portador:</label>
+					<span>1234567890987656546</span>
+				</p>
+				<p class="saved_data"> 
+					<label style="width:260px;">Área:</label>
+					<span>Financiamento</span>
+				</p>
+				<p class="saved_data">
+					<label style="width:260px;">Data de entrega (novo Portador):</label>
+					<span>10/10/2010</span>
+				</p>
+				<p class="saved_data">
+					<label style="width:260px;">Data da devolução (último Portador):</label>
+					<span>10/10/2010</span>
+				</p>
+				<p class="saved_data">
+					<label style="width:260px;">Última atualização: </label>
+					<span>09/09/2011</span>
+				</p>
+				<p class="saved_data">
+					<label style="width:260px;">Saldo do cartão na última atualização: </label>
+					<span>R$ 9.999,99</span>
+				</p>
+				<a href="cbv_ge_004.html" class="button alterar_dados_portador">Alterar dados do portador</a>
+				<div class="al_right">
+					<p class="cinza_strong">Salvar histórico de portadores:</p><a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf2">PDF</a><a href="javascript:void(0);" class="csv2" onClick="alert('Operação realizada com sucesso')">CSV</a>
+				</div>
+			</fieldset>			
+			<div class="table-footer"></div>			
+		</div>
+		<p class="text_peq">Saldo para simples conferência. Sujeito a alterações.</p>
+	</form>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+INDEX VERSION 1.122+C:\Users\Kredley\MeusProjetos\NewProject\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+43903595.index
+3739410219.index
+43903595.index

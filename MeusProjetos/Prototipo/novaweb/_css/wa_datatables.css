@@ -1,0 +1,296 @@
+/**
+ * CSS DATA TABLE
+ * @note    Esta folha de estilo estiliza as tabelas do plugin para jquery Datatable
+ * @info	http://datatables.net/
+ *
+ * @author			Andrea Zambrana [c3] [andrea@c3ai.com]
+ * @media			screen
+ * @tested			ie7+, Chrome 12+, Safari 5.0.5+, Opera 11.11+ and ff 3.6+
+ * @package			web_admin
+ *
+ * @project			Web admin
+ * @customer		Alelo
+ * @date			03-01-2012 11:50 (GMT Brasilia)
+ * @lastmodified	03-01-2012 00:00 (GMT Brasilia)
+ */
+.dataTables_wrapper {
+	position:relative;
+	margin:0 0 1.5em 0;
+	clear:both;
+}
+.dataTables_empty {
+	padding:2em;
+	color:#9b0000;
+	font-weight:bold;
+}
+.dataTables_processing {
+	border:solid 1px #f00;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:250px;
+	height:30px;
+	margin-left:-125px;
+	margin-top:-15px;
+	padding:14px 0 2px 0;
+	border:1px solid #ddd;
+	text-align:center;
+	color:#999;
+	font-size:14px;
+	background-color:white;
+}
+.dataTables_info {
+	font-weight:bold;
+	position:absolute;
+	right:70px;
+	width:120px;
+	margin:0.5em 0 0 0;
+	text-align:right;
+}
+.dataTables_paginate {
+	float:right;
+}
+/**
+ * @section DataTables
+ */
+.default_table {
+	position:relative;
+	clear:both;
+	width:100%;
+}
+.default_table td {
+	word-spacing:-0.1em;
+	line-height:1.3em;
+}
+.default_table thead th {
+	text-align:left;
+	background:url(../_img/backgrounds/table_head.png) no-repeat top;
+	color:#008568;
+	cursor:pointer;
+}
+.default_table thead th * {
+	font-family:'museo-sans', sans-serif;
+	font-weight:normal;
+	font-size:13px;
+}
+.default_table tbody td {
+	background:url(../_img/backgrounds/table_body.png) no-repeat top;
+}
+.default_table tfoot th {
+	background:url(../_img/backgrounds/table_foot.png) no-repeat bottom;
+	padding:5px 0;
+}
+.default_table tbody tr:hover td {
+	background:url(../_img/backgrounds/table_body_hover.png) no-repeat top;
+}
+.disabled td {
+	background:url(../_img/backgrounds/table_body_disable.png) no-repeat top !important;
+	color:#d5d5d5;
+}
+.default_table thead th:first-child {
+	background-position:left top;
+}
+.default_table thead .last_child {
+	background-position:right top;
+}
+.default_table tbody td:first-child, .default_table tbody tr:hover td:first-child, .default_table tbody tr:hover {
+	background-position:left top;
+}
+.default_table tbody .last_child, .default_table tbody tr:hover .last_child {
+	background-position:right top;
+}
+.disabled td:first-child {
+	background-position:left top !important;
+}
+.disabled .last_child {
+	background-position:right top !important;
+}
+.default_table tfoot th:first-child {
+	background-position:left bottom;
+}
+.default_table tfoot .last_child {
+	background-position:right bottom;
+}
+.default_table tbody td p, .default_table tbody td ul {
+	padding:0.5em 0 0.2em 0.4em;
+	margin:0.4em;
+	border-left:solid 1px #CFCFCF;
+}
+.default_table tbody td:first-child p {
+	border:0;
+}
+.default_table thead th:first-child {
+	padding-left:10px;
+}
+.default_table thead .last_child {
+	padding-right:10px;
+}
+/**
+ * @section	Pagination
+ */
+.bottom_table_info .dataTables_paginate .previous.ui-state-disabled, .bottom_table_info .dataTables_paginate .next.ui-state-disabled {
+	color:#D6D6D6 !important;
+}
+/**
+ * @subsection	Top pagination
+ */
+.top_table_info {
+	padding:5px 0;
+}
+.top_table_info .dataTables_paginate {
+	width:50px;
+	float:right;
+}
+.top_table_info .dataTables_paginate .next, .top_table_info .dataTables_paginate .next.ui-state-disabled, .top_table_info .dataTables_paginate .previous, .top_table_info .dataTables_paginate .previous.ui-state-disabled {
+	width:23px;
+	height:23px;
+	line-height:23px;
+	text-indent:-9999em;
+	display:block;
+	float:left;
+}
+.top_table_info .dataTables_paginate .next, .top_table_info .dataTables_paginate .next.ui-state-disabled, .top_table_info .dataTables_paginate .previous, .top_table_info .dataTables_paginate .previous.ui-state-disabled {
+	background:url(../_img/prex-next.png);
+}
+.top_table_info .dataTables_paginate .next.ui-state-disabled, .top_table_info .dataTables_paginate .previous.ui-state-disabled {
+	opacity:.35;
+	filter:Alpha(Opacity=35);
+}
+.top_table_info .dataTables_paginate .next, .top_table_info .dataTables_paginate .next.ui-state-disabled {
+	background-position:right top;
+}
+.top_table_info .dataTables_paginate .previous, .top_table_info .dataTables_paginate .previous.ui-state-disabled {
+	background-position:left top;
+	margin-right:3px;
+}
+/**
+ * @subsection	Bottom Pagination
+ */
+.bottom_table_info .dataTables_paginate .previous, .dataTables_paginate .next {
+	width:67px;
+	height:23px;
+}
+.bottom_table_info .dataTables_paginate .previous, .dataTables_paginate .next, .paging_full_numbers span .ui-button {
+	color:#505050;
+	display:inline-block;
+	line-height:22px;
+}
+.bottom_table_info .dataTables_paginate .previous {
+	background:url(../_img/prex-next-text.png) left top;
+	padding:0 0 0 24px;
+	text-align:left;
+}
+.bottom_table_info .dataTables_paginate .next {
+	background:url(../_img/prex-next-text.png) right top;
+	padding:0 24px 0 0;
+	text-align:right;
+	margin-left:5px;
+}
+.bottom_table_info .dataTables_paginate .previous.ui-state-disabled, .dataTables_paginate .next.ui-state-disable {
+	background:url(../_img/prex-next-text.png);
+}
+.bottom_table_info .dataTables_paginate .next.ui-state-disabled {
+	background-position:right bottom;
+}
+.bottom_table_info .dataTables_paginate .previous.ui-state-disabled {
+	background-position:left bottom;
+}
+.bottom_table_info .paging_full_numbers span .ui-button {
+	background:url(../_img/bg-page-numbers.png) top right;
+	width:23px;
+	height:23px;
+	text-align:center;
+	margin:0 0 0 5px;
+}
+.bottom_table_info .paging_full_numbers span .ui-state-disabled {
+	background:url(../_img/bg-page-numbers.png) left top;
+}
+/**
+ * @section	DataTables sorting
+ */
+.DataTables_sort_wrapper {
+	position:relative;
+	z-index:5000;
+	padding:0.9em 0.7em 0.3em 0.4em;
+	margin-left:0.4em;
+}
+.DataTables_sort_wrapper span {
+	position:absolute;
+	top:50%;
+	margin-top:-5px;
+	right:-0.3em;
+	width:16px;
+	height:16px;
+	z-index:6000;
+}
+/**
+ * @subsection	Sorting icons
+ */
+.ui-icon {
+	background:url(images/ui-icons_888888_256x240.png) no-repeat;
+	background-position:-990px 0;
+}
+.ui-icon-triangle-1-s {
+	background-position:-64px -16px;
+}
+.ui-icon-triangle-1-n {
+	background-position:0 -16px;
+}
+/**
+ * @note	Classes proprias para personalizar o dataTables_info do web admin
+ */
+.top_table_info {
+	margin:0 0.8em 0.5em 0;
+}
+.bottom_table_info {
+	margin:0.5em 0 0 0;
+	text-align:right;
+}
+/**
+ * @note	Classes e IDs de objetos que não devem aparecer no layout
+ */
+.dataTables_length, .dataTables_filter, .bottom_table_info .dataTables_info, .dataTables_wrapper .top_table_info .paging_full_numbers span .ui-button, .dataTables_paginate .first, .dataTables_paginate .last {
+	display:none;
+}
+.default_table caption, .caption {
+	text-align:left;
+	font-weight:bold;
+	padding:0 0 0.5em 5px;
+	color:#008568;
+}
+.result-count-hist99 {
+	position:absolute;
+	left:10px;
+	top:12px;
+	width:200px;
+}
+.search-result-header {
+	position:relative;
+	z-index:9999999;
+	padding-bottom:3px;
+}
+.search-result-header p {
+	position:absolute;
+	top:5px;
+	color:#989898;
+	font-weight:bold !important;
+}
+.search-result-header p a {
+	font-weight:bold !important;
+	color:#989898;
+}
+.searh-message1 {
+	width:490px;
+	background:url('../_img/bg_search_results.png') center center no-repeat;
+	text-align:center;
+	height:29px;
+	line-height:29px;
+	position:absolute;
+	top:10px;
+	left:200px;
+}
+.searh-message1 a {
+	font-size:11px;
+	font-weight:normal;
+	padding:0px 5px;
+}

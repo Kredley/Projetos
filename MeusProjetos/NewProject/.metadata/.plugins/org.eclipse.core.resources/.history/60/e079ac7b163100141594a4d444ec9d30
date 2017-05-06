@@ -1,0 +1,7 @@
+package br.com.provaEntrevista;
+
+public interface Interface4 {
+	
+	public void metodo(Interface4 i3);
+
+}

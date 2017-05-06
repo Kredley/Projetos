@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+    <script src="../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../_js/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript" src="../../js/jquery.imagetick.js"></script>
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+	<style type="text/css" title="currentStyle">
+        @import "../../media/css/demo_page.css";
+        @import "../_css/jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../_css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+        var tdToFilter = 2
+        var tdResults="";
+        $(document).ready(function() {
+            
+            $("table.display tbody tr").each( function () {
+                $(this).find("td").each( function ( i ) {
+                    if(i==3){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('.search-filters select#tipo').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');}
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+                    if(i==5){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('.search-filters select#estado').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');}
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+                    if(i==6){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('.search-filters select#cidade').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');}
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+                } );
+            } );
+                        
+            var  oTable = $('#example').dataTable({
+                "bJQueryUI": true,
+                "sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sLengthMenu": "Display _MENU_ records per page",
+                    "sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+                    "sInfo": "_START_-_END_ de _TOTAL_",
+                    "sInfoEmpty": " ",
+                    "sInfoFiltered": " "
+                }
+            });
+			
+			$(".search-filters input").focus(function(){
+				$(this).val('')	;
+			});
+            $(".search-filters a.button.search").click( function () {
+                var arrFilterValues = new Array();
+                $(".search-filters input").each(function(){
+                    if(this.value!='')arrFilterValues.push(this.value);
+                })
+                $(".search-filters select").each(function(){
+                    if(this.value!='')arrFilterValues.push(this.value);
+                })
+         
+                if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+                oTable.fnFilter( $(".search-filters input#nome_empresa").val(), 1 );
+                oTable.fnFilter( $(".search-filters input#cnpj_empresa").val(), 2 );
+                oTable.fnFilter( $(".search-filters select#tipo").find('option:selected').val(), 3 );
+                oTable.fnFilter( $(".search-filters select#estado").find('option:selected').val(), 5 );
+                oTable.fnFilter( $(".search-filters select#cidade").find('option:selected').val(), 6 );
+            } );
+            $(".search-filters .tip1").hide();
+            $(".search-filters .tip2").hide();
+
+        } );
+    </script>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar novo local</li>
+			</ul>
+		</div>
+        <div id="main">
+            <p class="act-message">Local de entrega adicionado com sucesso.</p>
+            <h2>Locais de Entrega</h2>
+            <p class="subtitle">
+                Aqui você poderá cadastrar, alterar e excluir os locais de entrega dos seus cartões-benefício.
+            </p>
+            <div class="dd_new_delivery">
+                <div class="button add_deliver_address2">Cadastrar novo local de entrega</div>
+                <div class="dropwdown-holder">
+                    <a href="ca_001_01.htm">Adicionar um local por vez (pelo site)</a>
+                    <a href="ca_002_11.htm">Adicionar vários locais (via tabela Excel)</a>
+                </div>
+            </div>
+                    <form class="search-filters">
+                        <fieldset>
+                            <label>Pesquisar por:</label>
+                            <div>
+                              <p><strong>Nome:</strong></p><input type="text" value="" id="nome_empresa" width="w145" /></div>			
+                            <div>
+                                <p><strong>CNPJ:</strong></p>
+                                <input type="text" value="" id="cnpj_empresa" width="w100" />
+                                <span class="tip-on tip1">
+                                    <strong>Dica:</strong>
+                                    Preencha um ou mais campos da pesquisa
+                                </span>	
+                            </div>
+                            <div><p><strong>Tipo:</strong></p>
+                                <select class="w114" id="tipo">
+                                    <option value="" selected></option>
+                                </select>
+                            </div>			
+                            <div>
+                                <p><strong>Estado:</strong></p>
+                                <select id="estado" class="w90">
+                                    <option value="" selected></option>
+                                </select>
+                            </div>			
+                            <div><p><strong>Cidade:</strong></p>
+                                <select id="cidade" class="w125">
+                                    <option value="" selected></option>
+                                </select>
+                                <span class="tip-on tip2">
+                                    Escolha primeiro o estado
+                                </span>					
+                            </div>
+                            <div>
+                                <a href="javascript:;" class="button search">Buscar</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                    
+                    <div class="search-result-header">
+                        <p class="searh-message1">Busca Aplicada: 10.000 resultados encontrados. <a href="#">Desfazer</a> </p>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="checkbox" id="gradeCheck0" value="" /></th>
+                                <th width="24%">Nome</th>
+                                <th width="17%">CNPJ</th>
+                                <th>Tipo</th>
+                                <th width="17%">Código do Local</th>
+                                <th>Estado</th>
+                                <th>Cidade</th>
+                                <th class="lastChild"><font style="visibility:hidden">alterar</font></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr class="gradeX">
+                        <td><input type="checkbox" name="checkbox" id="gradeCheck1" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01.htm" class="desc"><p>Linha de Cosméticos em geral<br><span>Linha Completa</span></p></a></td>
+                        <td><p>34.708.464/0001-73</p></td>
+                        <td><p>Filial</p></td>
+                        <td><p>23.568.734/8888-63</p></td>
+                        <td><p>RN</p></td>
+                        <td><p>Caiçara do Rio dos Ventos</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><img src="_img/img_lock.png" /></td>
+                        <td class="col_2"><a href="ca_004_02.htm" class="desc"><p>Saraiva - <span>Livros e artigos para escritório</span></p></a></td>
+                        <td><p>87.708.464/4564-73</p></td>
+                        <td><p><span class="star">Filial</span></p></td>
+                        <td><p>01.568.865/0001-09</p></td>
+                        <td><p>PE</p></td>
+                        <td><p>Juracema do Litoral</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_05.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck2" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.464/6890-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>23.123.098/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr class="gradeX">
+                        <td><input type="checkbox" name="checkbox" id="gradeCheck3" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_posto.htm" class="desc"><p>Linha de Cosméticos em geral<br><span>Linha Completa</span></p></a></td>
+                        <td><p>34.708.111/0001-73</p></td>
+                        <td><p>Posto de trabalho</p></td>
+                        <td><p>23.568.734/2342-63</p></td>
+                        <td><p>RN</p></td>
+                        <td><p>Caiçara do Rio dos Ventos</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_posto.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><img src="_img/img_lock.png" /></td>
+                        <td class="col_2"><a href="ca_004_02_posto.htm" class="desc"><p>Saraiva - <span>Livros e artigos para escritório</span></p></a></td>
+                        <td><p>87.708.464/4564-73</p></td>
+                        <td><p><span class="star">Posto de trabalho</span></p></td>
+                        <td><p>12.568.234/0001-09</p></td>
+                        <td><p>MG</p></td>
+                        <td><p>Juracema do Litoral</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_05_posto.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><img src="_img/img_lock.png" /></td>
+                        <td class="col_2"><a href="ca_004_02_departamento.htm" class="desc"><p>Saraiva - <span>Livros e artigos para escritório</span></p></a></td>
+                        <td><p>87.708.464/4564-73</p></td>
+                        <td><p><span class="star">Departamento</span></p></td>
+                        <td><p>12.568.234/0001-09</p></td>
+                        <td><p>MG</p></td>
+                        <td><p>Juracema do Litoral</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_05_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+                        <td class="col_2"><a href="ca_004_01_departamento.htm" class="desc"><p>Tudo na lojinha por 1 real</p></a></td>
+                        <td><p>11.708.234/9632-73</p></td>
+                        <td><p>Departamento</p></td>
+                        <td><p>35.123.975/0001-11</p></td>
+                        <td><p>RJ</p></td>
+                        <td><p>Barca do Rio do Sol</p></td>
+                        <td class="col_8 lastChild"><p><a href="ca_004_03_departamento.htm">alterar</a></p></td>
+                    </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td class="lastChild">&nbsp;</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+            <div class="search-footer" style="z-index:999999">
+                <div style="margin-top:-20px">
+                    <a class="button remove" href="ca_005_01.htm">Excluir selecionados</a>
+                </div>	
+                <div class="search-actions">
+                    <p>Mais ações:</p>
+                    <p>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar lista em PDF</a>
+                        <a href="ca_002_11.htm" class="exc">Adicionar vários locais (via tabela Excel)</a>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="csv">Exportar arquivo .csv atual para meu computador</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

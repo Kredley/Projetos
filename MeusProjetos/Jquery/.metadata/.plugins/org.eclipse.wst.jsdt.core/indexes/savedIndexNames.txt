@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+C:\Users\Kredley Magalhães\workspace\Jquery\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3316466471.index
+3372492269.index
+3595966477.index
+935255840.index
+4128260323.index

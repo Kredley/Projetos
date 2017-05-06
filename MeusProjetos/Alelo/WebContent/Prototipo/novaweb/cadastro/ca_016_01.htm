@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+	<script src="_js/table-popup.js"></script>		
+	<link href="_css/style_crosscell.css" rel="stylesheet" />	
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />		
+	<title> Resultado de Simulação - Corporate</title>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#button_proceed-margin').click(function(){
+				// caso interlocutor de decisao
+				if($('#interlocutorDecisao').val().length > 0){
+					location.href = 'ca_013_01.htm';
+				}else{
+					location.href = 'ca_013_01_outro.htm';
+				}
+			});
+		});
+	</script>
+		
+</head>
+<body>
+
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Locais de Entrega</li>
+			</ul>
+		</div>
+	<div id="main">	
+		<h2>Faça cotação on-line e contrate pela internet</h2>		
+		<div id="sidebar">
+			<h3>Olá! Sou a Ana, posso ajudar?</h3>
+			<ul>
+				<li>Na tabela ao lado, escolha os benefícios e bandeiras de seu interesse.</li>
+				<li><a href="#">Quando vou receber meus cartões?</a></li>
+			</ul>
+
+			<p class="sales">
+				<strong>
+					Central de Vendas
+					4003-3663
+				</strong>
+				2ª a 6ª das 9h às 18h.
+			</p>
+				
+			<p class="chat">
+				<a href="#">Atendimento <br/> On-line via Chat</a>
+				2ª a 6ª das 8h às 19h.
+			</p>
+			<span class="sidebar-bottom"></span>
+			<span class="sidebar-top"></span>			
+		</div>  
+		<div id="content">
+			<h4 class="page-instructions">Informe os dados referente ao contrato</h4> 
+			<div class="crosscell-wrapper">
+				<form>
+					<h3>
+						Banco que indicou o produto
+					</h3>
+					<fieldset class="no-strong">
+						<strong>O produto foi indicado por um banco parceiro?</strong>
+						<p>
+							<label>Banco*:</label>
+							<select class="w280">
+								<option>Selecione</option>
+                                <option>Bradesco</option>
+                                <option>Santander</option>
+                                <option>Banco do Brasil</option>
+                                <option>Não foi indicado por um banco</option>
+							</select>
+						</p>
+						<p>
+							<label>Agência do Banco:</label>
+							<span class="desc">
+								<input type="text" size="12" />
+								Nº da agência
+							</span>	
+							<span class="desc">
+								<input class="sep" value="-" />
+								&nbsp;
+							</span>	
+							<span class="desc">
+								<input type="text" size="4" />
+								Dígito
+							</span>	
+						</p>
+						
+					</fieldset>
+					<h3>
+						Responsável pelo contrato
+					</h3>
+					<fieldset class="no-strong">
+						<strong>Escolha quem será responsável pelo contrato do produto:</strong>
+						<p>
+							<label class="star-inside">
+								<span>Interlocutor de Decisão:</span>
+							</label>
+							<select id="interlocutorDecisao" name="interlocutorDecisao" class="w280">
+								<option value="">Selecione</option>
+								<option value="32270855840">Roberto da Silva - 322.708.558-40</option>
+							</select>
+						</p>
+						<p class="need-help">
+							Para adicionar novos interlocutores de decisão, entre em contato com nossa <a href="#">Central de Atendimento</a>
+						</p>
+					</fieldset>
+					<h3>
+						Local de entrega
+					</h3>
+					<fieldset class="no-strong">
+						<strong>Confira o endereço da unidade para a entrega dos cartões:</strong>
+						<p>
+							<label class="star-inside">
+								<span class="star-inside-bold">(Nome da Unidade do Contratante):</span>
+							</label>
+						</p>
+						<p class="need-help-margin">
+							Rua Professor Aprígio Gonzaga, 999 - Vila Nova Conceição - São Paulo / SP<br>
+                            CEP. 99999-999
+						</p>
+                        <a class="button change_data_new">ALTERAR DADOS DA UNIDADE CONTRATANTE</a>
+					</fieldset>
+					<span class="round-bottom"></span>
+				</form>
+			</div>
+           <a id="button_proceed-margin" class="button proceed-margin">Continuar</a>                                
+		</div>
+	</div>
+
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

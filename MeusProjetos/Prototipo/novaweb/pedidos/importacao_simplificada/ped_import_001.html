@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<script src="../../_js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+		<style type="text/css" title="currentStyle">
+			@import "../../../media/css/demo_page.css";
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+
+		<script type="text/javascript">
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				
+				var  oTable = $('.display').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+				});
+
+				$("#tb1").hide();
+				$("#tb_01").css('display', 'block');
+				$('#top1, .plusminus').click(function(){
+					$("#plusminus1").attr('src', "../../_img/backgrounds/minus.png");
+					$("#tb1").show('slow');
+				});
+				$('#tb1 .bottom_pddo').click(function(){
+					$("#plusminus1").attr('src', "../../_img/backgrounds/plus.png");
+					$("#tb1").hide('slow');
+				});
+
+				$('#box22').hide();
+				$('#a_tip1').mouseover(function(){
+					$('#box22').fadeIn('fast');
+					$('#box22').css('position','absolute');
+					$('#box22').css('top','75px');
+					$('#box22').css('left','-25px');
+					$('#box22').css('z-index','200');
+				});
+				$('#a_tip1').mouseout(function(){
+					$('#box22').fadeOut('fast');
+					
+				});
+				var fase = 1;
+				$('#step_2').hide();
+			});
+		</script>
+
+
+		<title></title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+				<div style="position:absolute; top:7px; left:272px;"><a href="#"><img src="../../_img/instrucoes.png" width="104" height="32" alt="Instruções" /></a></div>
+				<div id="andamento_pedido_1"></div>
+				<h2 class="left">Fazer novo Pedido</h2>
+                
+                <span class="clear"></span>
+                <br />
+				<p class="subtitle">Para realizar seu pedido, comece escolhendo qual é o produto e depois os funcionários que farão parte do pedido. Após isso, siga os passos em cada tela, definindo as informações do pedido</p>
+                <p class="txt_alerta normal2 w_100c">Os cartões de novos funcionários serão criados automaticamente após a solicitação de benefícios.</p>
+                <br /><a id="a_tip1" href="javascript:void(0);" class="btn_ajuda absolute mg_top_20 mg_left_270" style="margin-top:121px;"></a><span id="box22"><img src="../../_img/box_22.png" width="365" height="175" /></span>
+				<div class="text-wrapper">
+				<h3 class="first left">Produto e Nº de Contrato</h3>
+					<select class="select_produto" id="produto" style="width:200px; margin:15px 0 15px 20px;">
+                    	<option>Selecione</option>
+						<option>Refeição Visa Vale (00010005811)</option>
+						<option>Alimentação Visa Vale (75342108690)</option>
+					</select>
+				<h3>Selecione o método de pedido</h3>
+				<div class="pd_20">
+                	<form>
+                    	<ul class="normal normal4">
+                        	<li>
+                            	<input type="radio" checked id="sisOnline" name="tipoPedido"/>
+                                <label for="sisOnline">Sistema online de pedidos</label>
+                            </li>
+                        	<li>
+                            	<input type="radio" id="arq" name="tipoPedido"/>
+                                <label for="arq">Pedido via arquivo anexar</label>
+                            </li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="blocoFlex1">
+					<h3>Quais funcionários farão parte do pedido</h3>						
+					<div class="pd_20">
+						<form>
+                    	<ul class="normal normal4">
+                        	<li>
+                            	<input type="radio" id="mesmos" name="func"/>
+                                <label for="mesmos"><strong>Utilizar funcionários que você acabou de cadastrar</strong></label>
+                            </li>
+                            <li>
+                            	<input type="radio" id="recentes" name="func" />
+                                <label for="recentes">Mesmos funcionários de um pedido recente</label>
+                            </li>
+                            <li>
+                            	<input type="radio" id="localizar" name="func" />
+                                <label for="localizar">Localizar e incluir funcionários manualmente</label>
+                            </li>
+                            <li>
+                            	<input type="radio" id="benef" name="func" />
+                                <label for="benef">Somente os funcionários que já possuem esse produto</label>
+                            </li>
+                            <li>
+                            	<input type="radio" id="localentrega" name="func" />
+                                <label for="localentrega">Todos cadastrados em um local de entrega</label>
+                            </li>
+                            <li>
+                            	<input type="radio" id="excel" name="func" />
+                                <label for="excel">Importar dados do pedido via tabela Excel</label>
+                            </li>
+                        </ul>
+                    	</form>
+					</div>
+                    <div class="pd_20 normal4" id="step_2">
+						<hr class="cinza" />
+						<strong class="cor_verde">Escolha o pedido de referência</strong>
+                        <form>
+							<table id="example" class="display">
+								<thead>
+									<tr>
+										<th><p>&nbsp;</p></th>
+										<th><p>Data de Solicitação</p></th>
+										<th><p>Nº do pedido</p></th>
+										<th><p>Tipo de pedido</p></th>
+										<th><p>Nº de funcionários</p></th>
+										<th><p>Data de disponibilização</p></th>
+										<th class="lastChild"><p>Valor total (R$)</p></th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<td><p>&nbsp;</p></td>
+										<td><p>&nbsp;</p></td>
+										<td><p>&nbsp;</p></td>
+										<td><p>&nbsp;</p></td>
+										<td><p>&nbsp;</p></td>
+										<td><p>&nbsp;</p></td>
+										<td class="lastChild"><p>&nbsp;</p></td>
+									</tr>
+								</tfoot>
+								<tbody>
+									<tr>
+										<td><p><input type="radio" name="ref" /></p></td>
+										<td><p>01/03/2011</p></td>
+										<td><p>12345678</p></td>
+										<td><p>Pedido centralizado</p></td>
+										<td><p>1000</p></td>
+										<td><p>10/03/2011</p></td>
+										<td class="lastChild"><p>13.487,11</p></td>
+									</tr>
+									<tr>
+										<td><p><input type="radio" name="ref" /></p></td>
+										<td><p>02/03/2011</p></td>
+										<td><p>12345679</p></td>
+										<td><p>Pedido centralizado</p></td>
+										<td><p>5888</p></td>
+										<td><p>15/03/2011</p></td>
+										<td class="lastChild"><p>899.487,11</p></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="table-footer"></div>
+			</div>
+			<br class="clear" />
+			<a href="ped_import_002.html" class="btn_continuar_pddo right" title="Continuar"><span class="screen_reader_text">Continuar</span></a>
+				
+		</div>
+		<div class="footer">
+			<ul>
+				<li class="content">
+					<p>Alelo © Copyright 2012</p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Quem Somos</a></p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Opine sobre o site</a></p>
+					<p class="prtSeparacao">|</p>
+					<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

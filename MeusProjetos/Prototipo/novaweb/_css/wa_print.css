@@ -1,0 +1,121 @@
+/**
+ * CSS IMPRESSAO
+ * Estiliza o projeto completo para impressão
+ *
+ * @author			Andrea Zambrana [c3] [andrea@c3ai.com]
+ * @media			print
+ * @package			web_admin
+ *
+ * @project			Web admin
+ * @customer		Alelo
+ * @date			27-12-2011 12:00 (GMT -2:00 Brasilia)
+ * @lastmodified
+ */
+/**
+ * @section		BASE
+ * Esta seção atribui propriedades diretamente nas tags e pseudo-classes
+ */
+/**
+ * @subsection	Global
+ */
+body {
+	font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+	background:#fff;
+	font-size:12pt;
+	line-height:1.3em;
+	}
+/**
+ * @subsection	Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+	margin:0.8em 0;
+	font-weight:bold;
+	}
+h1 {
+	font-size:20pt;
+    }
+h2 {
+	font-size:18pt;
+	page-break-after:avoid;
+    }
+h3 {
+	font-size:16pt;
+	page-break-after:avoid;
+    }
+h4 {
+	font-size:15pt;
+	page-break-after:avoid;
+    }
+h5 {
+	font-size:14pt;
+    }
+h6 {
+	font-size:13pt;
+    }
+/**
+ * @subsection	Text format and style tags
+ */
+p {
+	margin:0.5em 0;
+	text-indent:2em;
+	page-break-inside:avoid;
+	}
+/**
+ * @subsection	Links
+ */
+a:link, a:visited {
+	color:#520;
+	background:transparent;
+	font-weight:bold;
+	text-decoration:underline;
+	}
+a:link:after, a:visited:after {
+	content:" (" attr(href) ") ";
+	font-size:90%;
+	}
+/**
+ * @section		LAYOUT
+ * This section sets out the layout of the project
+ */
+/**
+ * @subsection	Wrapper [contains the whole site]
+ */
+#wrapper {
+	width:auto;
+	}
+/**
+ * @subsection	Body [site content]
+ */
+#body_site {
+	width:auto;
+	float:none !important;
+	color:#000;
+	background:transparent;
+	}
+/**
+ * @subsection	Footer
+ */
+#footer .copyright {
+	display:block;
+	font-size:80%;
+	font-style:italic;
+	}
+#hcard-c3ai {
+	display:block;
+	}
+/**
+ * @section		VISIBLE CLASSES and IDs
+ * @note		put below all classes and/or IDs that need only appear for print
+ *				Example: .class_name, .another_class_name, #id {}
+ */
+.screen_reader_text {
+	display:inline-block;
+	}
+/**
+ * @section		HIDDEN CLASSES and IDs
+ * @note		put below all classes and/or IDs that need to be hidden for print
+ *				Example: .class_name, .another_class_name, #id {}
+ */
+#id_example {
+	display:none;
+	}

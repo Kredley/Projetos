@@ -1,0 +1,28 @@
+.modal_content, .modal_msg {display:none;}
+.close {
+	clear:both;
+	background: url('../_img/bt_close.png');
+	width: 107px;
+	height: 24px;
+	position: absolute;
+	top: 25px;
+	right: 20px;
+	text-indent: -9999em;
+	
+	}
+#simplemodal-overlay {
+	border:solid 1px #f00;
+	background-color:#999999;
+	cursor:auto !important;
+}
+#simplemodal-container {
+	background:#FFF !important;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	behavior:url(../../_js/PIE.htc);
+	
+	}
+* {
+	border:solid 1px #f00 !important;
+	}

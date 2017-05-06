@@ -1,0 +1,1058 @@
+/**
+ * CSS CLASSES GERAIS
+ * @note    Esta folha de estilo inclui classes utilizadas em todas as páginas
+ *          do modulo "meu visa vale"
+ *          [cuidado ao modificar, qualquer modificação pode ser catastrofica]
+ *
+ * @author			Andrea Zambrana [c3]
+ * @media			screen
+ * @note            utiliza propriedades CSS2.1 e uma que outra CSS3 suportadas por 
+ * 					alguns navegadores mais atualizados.
+ * @tested			ie7+, Chrome 12+, Safari 5.0.5+, Opera 11.11+ and ff 3.6+
+ * @package			alelo
+ * @subpackage		meu_visa_vale
+ *
+ * @project			Meu Visa Vale
+ * @customer		Alelo
+ * @date			26/01/2012 - 07:50
+ * @lastmodified	
+ * 
+ * @colordef		#fff		branco		(fundo)
+ * @colordef		#989898		cinza		(texto)
+ * @colordef		#505050		cinza esc	(texto rodapé, tooltips)
+ * @colordef		#c5c5c5		cinza claro	(bordas)
+ * @colordef		#c1d82f		verde claro	(borda superior)
+ * @colordef		#008568		verde 		(titulos, sub-titulos)
+ * @colordef		#99ad1c		verde claro	(sub sub-titulos, destaques)
+ */
+/**
+ * @section		BASE
+ * Os estilos abaixo são aplicados diretamente nas tags
+ */
+/**
+ * @subsection	Global
+ */
+html, body {
+	background:#fff;
+	height:100%;
+	}
+body {
+	border-top:solid 5px #c1d82f;
+	font:12px/1.3em Verdana, "Verdana Ref", sans-serif;
+	color:#989898;
+	}
+body img {
+	display:block;
+	}
+/**
+ * @subsection	Títulos
+ */
+h1, h2 {
+	font-family:'Museo500', sans-serif;
+	font-weight:normal;
+	font-size:21px;
+	}
+h3, h4 {
+	line-height:1.3em;
+	color:#008568;
+	}
+h3 {
+	font-family:'MuseoSans500', sans-serif;
+	font-weight:normal;
+	font-size:29px;
+    }
+h4 {
+	font-size:18px;
+	font-weight:bold;
+	font-style:italic;
+    }
+h5 {
+	font-size:12px;
+	font-size:1.2em;
+    }
+h6 {
+	font-size:1.1em;
+    }
+h7 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-weight:bold;
+	font-size:14px;
+	font-style:italic;
+	color:#9fb22b;
+}
+h8 {
+	font-weight:bold;
+	font-size:12px;
+	font-style:italic;
+	color:#008568;
+}
+h9 {
+	color:#008568;
+	font-weight:bold;
+	font-size:12px;	
+}
+h10 {
+	color:#008568;
+	font-weight:bold;
+	font-size:18px;	
+}
+h11 {
+	font-weight:bold;
+	font-size:12px;
+	color:#9fb22b;
+}
+/**
+ * @subsection	Links
+ */
+a {
+	border-bottom:solid 1px;
+	}
+a:link {
+	color:#555;
+    }
+a:visited {
+	color:#999;
+    }
+a:hover, a:active {
+	color:#555;
+	}
+a:focus {
+	color:#008265;
+	}
+/**
+ * @note		Focus não funciona no ie7 ¬¬
+ */
+:focus {
+	outline:solid 1px #c1d82f;
+	}
+/**
+ * @subsection	Forms
+ */
+fieldset {
+    border:0;
+    }
+legend {
+	color:#99ad1b;
+    padding:0 0 0.5em 0;
+    }
+label {
+	margin:0 0.5em 0 0;
+	cursor:pointer; /* to improve accessibility */
+	}
+input[type=text], input[type=password], textarea {
+	color:#989898;
+	border:solid 2px #c4c4c4;
+	padding:2px;
+	height:14px;
+	font-size:10px;
+	font-family:Verdana, Geneva, sans-serif;
+	}
+select {
+	color:#989898;
+	border:2px solid #c4c4c4;
+	}
+select[multiple=multiple] {
+	padding:0.3em;
+	}
+input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus {
+	outline:0;
+	}
+input[type=checkbox], input[type=radio] { /* aligns with the text */
+	position:relative;
+	top:-0.01em;
+	}
+input[type=submit], input[type=button] { /* style for any button */
+	padding:0.2em;
+	cursor:pointer;
+	}
+input[type=submit]:hover, input[type=button]:hover {
+	background:#333;
+	}
+input[type=submit]:focus, input[type=button]:focus {
+	outline:0;
+	border:solid 1px #00f;
+	}
+/**
+ * @subsection	Tabelas
+ */
+table {
+	font-size:1em;
+	}
+td img, th img {
+	vertical-align:middle;
+    }
+.simple_table td {
+	padding:0.5em;
+}
+.margin_txt_elemtent {
+	margin: 0 15px 0 15px;
+}
+.simple_table caption {
+	text-align:left;
+	font-weight:bold;
+	padding:0 0 0.5em 10px;
+	color:#008568;
+}
+.simple_data_table td {
+	text-align:right;
+	padding:0.5em;
+}
+.simple_data_table caption {
+	text-align:center;
+	font-weight:bold;
+	padding:0 0 0.5em 5px;
+	color:#505050;
+}
+.simple_data_table .last_child {
+	text-align:left;
+	font-weight:bold;
+}
+.simple_default_table {
+	position:relative;
+	clear:both;
+	width:100%;
+	margin:0 0 1.5em 0;
+}
+.simple_default_table td {
+	word-spacing:-0.1em;
+	line-height:1.3em;
+}
+.simple_default_table thead th {
+	background:url(../_img/backgrounds/table_head.png) no-repeat top;
+	color:#008568;
+	cursor:pointer;
+	font-weight:normal;
+	height:33px;
+	text-align:left;
+}
+.simple_default_table thead th * {
+	font-family:'museo-sans', sans-serif;
+	font-weight:normal;
+	font-size:13px;
+}
+.simple_default_table tbody td {
+	background:url(../_img/backgrounds/table_body.png) no-repeat top;
+}
+.simple_default_table tfoot th {
+	background:url(../_img/backgrounds/table_foot.png) no-repeat bottom;
+	padding:5px 0;
+}
+.simple_default_table tbody tr:hover td {
+	background:url(../_img/backgrounds/table_body_hover.png) no-repeat top;
+}
+.simple_default_table thead th:first-child {
+	background-position:left top;
+}
+.simple_default_table thead .last_child {
+	background-position:right top;
+}
+.simple_default_table tbody td:first-child, .simple_default_table tbody tr:hover td:first-child, .simple_default_table tbody tr:hover {
+	background-position:left top;
+}
+.simple_default_table tbody .last_child, .simple_default_table tbody tr:hover .last_child {
+	background-position:right top;
+}
+.simple_default_table tfoot th:first-child {
+	background-position:left bottom;
+}
+.simple_default_table tfoot .last_child {
+	background-position:right bottom;
+}
+.simple_default_table tbody td p, .simple_default_table tbody td ul {
+	padding:0.5em 0 0.2em 0.4em;
+	margin:0.4em;
+	border-left:solid 1px #CFCFCF;
+}
+.simple_default_table tbody td:first-child p {
+	border:0;
+}
+.simple_default_table thead th:first-child {
+	padding-left:10px;
+}
+.simple_default_table thead .last_child {
+	padding-right:10px;
+}
+.simple_default_table thead .tr_2 th, .simple_default_table thead .tr_2 th:first-child {
+	background:url(../_img/backgrounds/table_head.png) no-repeat -3em -32px;
+}
+.simple_default_table thead .tr_2 .last_child {
+	background:url(../_img/backgrounds/table_head.png) no-repeat 100% -32px;
+}
+.simple_default_table caption {
+	text-align:left;
+	font-weight:bold;
+	padding:0 0 0.5em 5px;
+	color:#008568;
+}
+/**
+ * @subsection	Listas
+ * @note		Tipos de lista: Lista ordenada <ol>, Lista não ordenada <ul> e Lista de definições <dl>
+ */
+dt {
+	font-weight:bold;
+	margin-bottom:0.2em;
+	padding-bottom:0.2em;
+	}
+dd {
+	margin:0 0 0.5em 0;
+	}
+/**
+ * @subsection	Formatação de textos
+ */
+p {
+	margin:0 0 0.7em 0;
+	}
+strong, b {
+	font-weight:bold;
+	}
+em, i {
+	font-style:italic;
+	}
+sup, sub {
+	height:0;
+	line-height:1em;
+	vertical-align:baseline;
+	position:relative;
+	}
+sup {
+	bottom:1em;
+	}
+sub {
+	top:0.5em;
+	}
+/**
+ * @note		Dentro do possivel não utilize as tags abaixo, no lugar utilize os estilos txt_bold, txt_bold_italic e txt_italic
+ */
+i, b, big, small {
+	background:#f00;
+	}
+big {
+	font-size:1.3em;
+	}
+small {
+	font-size:0.7em;
+	}
+/**
+ * @subsection	Miscelaneos
+ */
+pre, code, kbd, samp, var {
+	font: 1em/1.3em Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+	}
+code, kbd, samp, var {
+	background:url(images/backgrounds/white_70.png) repeat;
+	margin:0.5em 0;
+	padding:0.5em;
+	display:block;
+	border:dotted 1px #aaa;
+	line-height:1em;
+	}
+abbr, acronym {
+	border-bottom:1px dotted #aaa;
+	cursor:help;
+	color:#009ee0;
+	}
+cite, blockquote {
+	position:relative;
+	background:url(images/backgrounds/white_70.png) repeat;
+	width:30em;
+	border:dotted 1px #aaa;
+	font-style:italic;
+	display:block;
+	margin:0.5em auto;
+	font-size:1.2em;
+	}
+cite {
+	padding:0.5em;
+	}
+blockquote {
+	quotes:'"' '"';
+	padding:1.5em 3em;
+	}
+blockquote:before, blockquote:after {
+	font-weight:bold;
+	position:absolute;
+	font-size:6em;
+	color:#ddd;
+	}
+blockquote:before {
+	content:open-quote;
+	top:0.4em;
+	left:0; /* RTL */
+	}
+blockquote:after {
+	content:close-quote;
+	bottom:0;
+	right:0.2em; /* RTL */
+	}
+hr {
+	background:#0fd;
+	border:0;
+	height:1px;
+	margin-bottom:1.5em;
+	clear:both;
+	}
+ins {
+	background:#f00;
+	}
+pre {
+	color:#000;
+	}
+
+/**
+ * @section		CLASSES GERAIS
+ * As classes abaixo podem e devem ser utilizadas em qualquer lugar do módulo
+ */
+/**
+ * @subsection	Formatação de texto
+ */
+.txt_02 {
+	font-size:0.8em;
+	}
+.txt_01 {
+	font-size:0.9em;
+	}
+.txt_1 {
+	font-size:1.1em;
+	}
+.txt_2 {
+	font-size:1.2em;
+	}
+.txt_3 {
+	font-size:1.3em;
+	}
+.txt_4 {
+	font-size:1.4em;
+	}
+.txt_5 {
+	font-size:1.5em;
+	}
+.txt_6 {
+	font-size:1.6em;
+	}
+.txt_bold, .txt_bold td, .txt_bold a { /* texto em negrita */
+	font-weight:bold;
+	}
+.txt_italic, .txt_italic td, .txt_italic a { /* texto em italico */
+	font-style:italic;
+	}
+.txt_bold_italic, .txt_bold_italic td, .txt_bold_italic a { /*texto em negrita e italico */
+	font-weight:bold;
+	font-style:italic;
+	}
+.txt_al_left, .txt_al_left td, .txt_al_left a { /* alinha o texto a esquerda */
+	text-align:left; /* RTL review */
+	}
+.txt_al_right, .txt_al_right td, .txt_al_right a { /* alinha o texto a direita */
+	text-align:right; /* RTL review */
+	}
+.txt_al_center, .txt_al_center td, .txt_al_center a { /* alinha o texto no centro */
+	text-align:center;
+	}
+	
+.txt_al_justify { /* formata o texto */
+	text-align:justify;
+}
+
+.txt_verde {
+	color:#008568!important;
+	}
+.txt_verde_claro {
+	color:#99ad1c!important;
+	}
+
+.txt_alerta {
+	background:url(../img/icons/alert.png) no-repeat left center;
+	padding-left: 22px;
+	height:auto;
+}
+
+/**
+ * @subsection	Linhas
+ */
+.linha_cinza_1 {
+	border-top:1px solid #c5c5c5;
+	height:1px;
+	margin:15px 0;
+	display:block;
+}
+
+/**
+ * @subsection	Box com cantos arredondados
+ * @note		não funciona no ie7 e ie8 
+ */
+.rounded {
+	background:#999;
+	padding:6px;
+	border-radius:6px; /* css3 */
+	-moz-border-radius:6px; /* mozilla's based browser hack */
+	-webkit-border-radius:6px; /* webkit's based browser hack  */
+	}
+/**
+  * @subsection Tabelas
+  */
+.default_table {
+	border:solid 1px #0fd;
+	}
+.default_table caption {
+	font-weight:bold;
+	font-size:1.2em;
+	line-height:1.7em;
+	}
+.default_table thead th {
+	background:#999;
+	color:#fff;
+	text-transform:uppercase;
+	}
+.default_table tfoot td {
+	background:#999;
+	}
+.default_table td, .default_table th {
+	padding:3em 4em;
+	border:solid 1px #0fd;
+	}
+.default_table tr:hover td {
+	background:#f0f;
+	cursor:pointer;
+	}
+.default_table .even, .default_table .even td {
+	background:#f0f0f0;
+	}
+	
+
+/**
+  * @subsection Listas para formularios
+  */
+.default_form_list li {
+	padding:0.2em;
+	float:left; /* RTL */
+	}
+/**
+ * @subsection	Alinhamento de conteúdos [elementos de bloco]
+ */
+.al_left { /* alinha o objeto a esquerda */
+	float:left; /* RTL */
+	}
+.al_right { /* alinha o objeto a direita */
+	float:right; /* RTL */
+	}
+.al_center { /* alinha o objeto no centro */
+	margin:0 auto;
+	}
+/**
+ * @subsection	Miscelaneos
+ */
+.debug, .hard_debug * {
+	border:solid 1px #f00;
+	}
+.show, .block {
+	display:block;
+	}
+.hide {
+	display:none;
+	}
+.hover {
+	background:#f0f;
+	cursor:pointer;
+	}
+.no_border {
+	border:0 !important;
+	}
+.no_border_bt {
+	border-bottom:0 !important;
+	}
+.no_padding {
+	padding:0;
+	}
+.no_margin {
+	margin:0;
+	}
+.clear, .clearfix, .clearfix_2 {
+	clear:both;
+	}
+.margin_top_organization {
+	margin: 10px 0 0 0;
+}
+/**
+ * Arruma o bug de float do FF 3+ e outros navegadores modernos
+ * @bugfix
+ * @affected	ie 7+, ff 3+, Opera 10.10+, Chrome 4+ and Safari 4+
+ * @valid		yes
+ */
+.clearfix:after {
+	content:".";
+	display:inline-block;
+	width:0;
+	height:0;
+	overflow:hidden;
+	}
+.clearfix_2 {
+	display:block;
+	line-height:0;
+	height:0;
+	font-size:0;
+	overflow:hidden;
+	}
+/**
+ * @section		CLASSES ESCONDIDAS
+ * @note		Coloque abaixo as classes e IDs que somente devem aparecer na hora da impressão ou 
+ *				para leitores de tela, separe as classes ou IDs com virgula(,)
+ */
+.screen_reader_text {
+	position:absolute;
+	left:-9000px;
+	}
+/**
+ * @subsection		Medidas de largura
+ * @note 		Medidas expressas em px / Organizados em ordem numérica
+ */
+
+.w_80 {width:80px !important;}
+.w_100 {width:100px !important;}
+.w_110 {width:110px !important;}
+.w_170 {width:170px !important;}
+.w_200 {width:200px !important;}
+.w_230 {width:230px !important;}
+.w_260 {width:260px !important;}
+.w_330 {width:300px !important;}
+.w_340 {width:340px !important;}
+.w_440 {width:440px !important;}
+.w_470 {width:470px !important;}
+.w_490 {width:490px !important;}
+.w_600 {width:600px !important;}
+.w_650 {width:650px !important;}
+.w_870 {width:870px !important;}
+.w_918 {width:918px !important;}
+
+/**
+ * @subsection 	Medidas de largura
+ * @note 		Medidas Expressa em %
+ */
+
+.w_100c {width:100% !important;}
+.w_95c {width:95% !important;}
+.w_90c {width:90%;}
+.w_80c {width:80%;}
+.w_70c {width:70%;}
+.w_60c {width:60%;}
+.w_50c {width:50%;}
+.w_40c {width:40%;}
+.w_30c {width:30%;}
+.w_20c {width:20%;}
+.w_10c {width:10%;}
+
+/**
+ * @subsection	Medidas de altura
+ * @note 		evitar usar alturas definidas, utilizar apenas em casos específicos // Expressos em px
+ */
+
+.h_30 {height:30px !important;}
+
+/**
+ * @subsection 	Margens
+ * @note 		Expressos em px
+ */
+
+/**
+ * @subsection 	margin-top
+ */
+.mg_top_5 {margin-top:5px !important;}
+.mg_top_10 {margin-top:10px !important;}
+.mg_top_20 {margin-top:20px !important;}
+.mg_top_30 {margin-top:30px !important;}
+/*margens negativas*/
+.mg_top_20_m {margin-top:-20px !important;}
+
+
+/**
+ * @subsection 	margin-bottom
+ */
+.mg_bt_30 {margin-bottom:30px !important;}
+
+
+/**
+ * @subsection 	margin-left
+ */
+
+.mg_lf_5 {margin-left: 5px !important;}
+.mg_lf_10 {margin-left: 10px !important;}
+.mg_lf_20 {margin-left: 20px !important;}
+.mg_lf_25 {margin-left:25px !important;}
+
+
+/**
+ * @subsection 	margin-right
+ */
+
+/**
+ * @subsection Paddings
+ * Em Px
+ */
+ 
+.p_10 {padding: 10px;}
+.p_30 {padding: 30px;}
+.p_60 {padding: 60px;}
+.p_100 {padding: 100px;}
+
+/**
+ * @subsection	Box com titulo e subtitulo
+ */
+.box_02 #header_top {
+	background:url(../img/backgrounds/box_2_header_top_left.png) no-repeat top left;
+	height:55px;
+}
+
+.header_top_white {
+	background:url(../img/backgrounds/header_top_white_left.png) no-repeat top left;
+	height:14px;
+}
+
+.header_top_white .right {
+	background:url(../img/backgrounds/header_top_white_right.png) no-repeat top right;
+}
+
+.daddy {
+	position:relative;
+	width:96%;
+	padding:0 0 0 4%;
+	}
+.box_02 #header_top .right {
+	background:url(../img/backgrounds/box_2_header_top_right.png) no-repeat top right;
+	height:55px;
+}
+.right {
+	display:block;
+	width:100%;
+	padding:0 5% 0 0;
+	}
+.middle_content {
+	background:url(../img/backgrounds/box_2_header_border_left.png) repeat-y left;
+}
+.box_02 .middle_content .right {
+	background:url(../img/backgrounds/box_2_header_border_right.png) repeat-y right;
+	}
+
+.header_middle {
+	background:url(../img/backgrounds/box_2_header_middle_left.png) no-repeat top left;
+	height:55px;
+}
+
+.box_02 .header_middle .right {
+	background:url(../img/backgrounds/box_2_header_middle_right.png) no-repeat top right;
+	height:55px;
+}
+
+#footer_box02 {
+	background:url(../img/backgrounds/box_2_bottom_left.png) no-repeat top left;
+}
+
+.box_02 #footer_box02 .right {
+	background:url(../img/backgrounds/box_2_bottom_right.png) no-repeat top right;
+}
+
+#box_verde {
+	background:url(../img/backgrounds/bg_box_verde_left.png) no-repeat top left;
+	height:52px;
+	margin: 10px 0 0 0;
+}
+
+.txt_header {
+	padding: 8px 0 0 30px;
+}
+
+.icoVisto{
+	background:url(../../../imgs/icones.png) -193px -48px;
+	width:33px;
+	height:33px;
+	float:left;
+	margin: 10px 0 0 -20px;		
+}
+
+#box_verde .right {
+	background:url(../img/backgrounds/bg_box_verde_right.png) no-repeat top right;
+}
+/**
+ * @subsection	Box de aviso (amarela)
+ */
+.daddy #alterar_senha_web_nao_pode{
+	position:relative;
+	width:96%;
+	padding:0 0 0 4%;
+}
+
+.right #alterar_senha_web_nao_pode{
+	display:block;
+	width:95%;
+	padding:0 5% 0 0;
+	}
+	
+.box_03 #box_aviso_yellow {
+	background:url(../img/backgrounds/bg_box_aviso_yellow_left.png) no-repeat top left;
+	height:48px;
+}
+
+.box_03 #box_aviso_yellow .right {
+	background:url(../img/backgrounds/bg_box_aviso_yellow_right.png) no-repeat top right;
+	height:48px;
+}
+
+/**
+ * @subsection	Caixa com cantos arredondados
+ */
+.rounded_box {
+	position:relative;
+	background:url(../img/backgrounds/rounded_box_bottom.png) repeat-x bottom left;
+	border-top:solid 1px #ededed;
+	padding:20px 30px 30px 30px;
+}
+#saldoextrato .rounded_box {
+	width:550px !important;
+	padding:0px;
+	line-height:30px;
+	margin: 0 0 0 -5px;
+}
+
+#box_right .rounded_box {
+	width:340px !important;
+}
+	
+.rounded_box.padding20{padding:20px 20px 25px 20px;}
+.rounded_box .aux_01, .rounded_box .aux_02, .rounded_box .aux_03, .rounded_box .aux_04 {
+	background:url(../img/backgrounds/rounded_box_corners.png);
+	position:absolute;
+	width:30px;
+	height:51%;
+	}
+#saldoextrato .rounded_box .aux_01, #saldoextrato .rounded_box .aux_02, #saldoextrato .rounded_box .aux_03, #saldoextrato .rounded_box .aux_04 {
+	z-index: 100;
+}
+.ajuste_rounded_box {
+	position:relative;
+	z-index:110 !important;
+	padding:20px 30px 30px 30px;
+}
+
+#box_right .ajuste_rounded_box {
+	position:relative;
+	z-index:110 !important;
+	padding:0px 10px 20px 20px;
+}
+.rounded_box .aux_01, .rounded_box .aux_02 {
+	top:-1px;
+	}
+.rounded_box .aux_03, .rounded_box .aux_04 {
+	bottom:0;
+	}
+.rounded_box .aux_01, .rounded_box .aux_03 {
+	left:-1px;
+	}
+.rounded_box .aux_02, .rounded_box .aux_04 {
+	right:-1px;
+	}
+.rounded_box span.dgHeader{
+	background: url('../img/bg_large_div_header.png') left top repeat-x;
+	width:99%;
+	height:55px;
+	position:absolute;
+	left:-2px; top:-2px; z-index:1; display:block; }
+.rounded_box span.dgHeader span{
+	background: url('../img/bg_large_div_header.png') right top repeat-x;
+	width:15px;
+	height:55px;
+	position:absolute;
+	right:-3px; top:0px; z-index:1; display:block; }
+	
+.rounded_box.headerDegrade h3{
+	position:relative;
+	z-index:999;
+	font-size: 14px;
+	color: #99AD1B;
+	font-style: italic;}
+#main .rounded_box .content{
+	margin:15px auto 0;}
+	
+.rounded_box .aux_01 {
+	background-position:top left;
+	}
+.rounded_box .aux_02 {
+	background-position:top right;
+	}
+.rounded_box .aux_03 {
+	background-position:bottom left;
+	}
+.rounded_box .aux_04 {
+	background-position:bottom right;
+	}
+.rounded_box p {
+	margin:0 0 1em 0;
+	}
+
+/**
+ * @subsection	Caixa com cantos arredondados e fundo amarelo
+ * @note 		Utiliza CSS3
+ */
+
+.rounded_box_yellow {
+	margin: 0 auto;
+	padding: 15px;
+	height:auto;
+	background:#fdfedf;
+	border:1px solid #e8e8e8;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	behavior: url(../js/PIE.htc); /*Hack para IEs -9 reconhecerem o CSS3; caminho do arquivo ao lado é relativo ao arquivo HTML, e não a este css*/
+}
+/**
+ * @subsection	Caixa com cantos superiores arredondados e fundo white
+ * @note 		Utiliza CSS3
+ */
+.half_rounded_box_white {
+	width:295px; 
+	margin-right:17px; 
+	background:#fff;
+	padding:5px;
+	border:1px solid #e8e8e8;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	behavior: url(../js/PIE.htc); /*Hack para IEs -9 reconhecerem o CSS3; caminho do arquivo ao lado é relativo ao arquivo HTML, e não a este css*/
+}
+/**
+ * @subsection	Caixa com cantos superiores arredondados e fundo verde
+ * @note 		Utiliza CSS3
+ */
+.half_rounded_box_green {
+	margin-left:25px;
+	height:30px;
+	background:#bdd55d;
+	border:1px solid #e8e8e8;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	behavior: url(../js/PIE.htc); /*Hack para IEs -9 reconhecerem o CSS3; caminho do arquivo ao lado é relativo ao arquivo HTML, e não a este css*/
+}
+
+.titulo_verde {
+	margin-left:5px;
+	margin-top:4px;
+	font-weight:bold;
+	font-size:12px;
+	color:#008568;
+	display:block;
+}
+
+/**
+ * @subsection	PopUp
+ */
+
+.none{display:none}
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;background:#000}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:hidden !important;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#cboxClose{
+	background:url('../img/buttons/bt_close.png');
+	width:107px;
+	height:24px;
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	text-indent:-9999em
+}
+.popup {
+	padding:25px;
+	background: #fff;
+	border:1px solid #e8e8e8;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	behavior: url(../js/PIE.htc); /*Hack para IEs -9 reconhecerem o CSS3; caminho do arquivo ao lado é relativo ao arquivo HTML, e não a este css*/
+}
+
+/**
+ * @subsection	Ícones
+ */
+
+.bg_mouse, .bg_cartao {padding: 5px 5px 5px 30px;}
+.bg_mouse {background:url(../img/icons/mouse.png) no-repeat left;}
+.bg_cartao {background:url(../img/icons/cartao.png) no-repeat left center;}
+.bg_cifrao {background:url(../img/icons/cifrao.png) no-repeat center; width:16px; height:22px;}
+.bg_cadeado { background:url(../img/icons/cadeado.png) no-repeat center; width:20px; height:22px;}
+.bg_cartao_cancel {background:url(../img/icons/cartao_cancela.png) no-repeat center; width:31px; height:25px;}
+.bg_cartao_ok {background:url(../img/icons/cartao_ok.png) no-repeat center; width:31px; height:25px;}
+.bg_cifrao, .bg_cadeado, .bg_cartao_cancel, .bg_cartao_ok {
+	float:left;	
+	margin-top: 20px;
+	margin-right:10px;
+	width:31px;
+}
+.ul_icones {
+	float:right;
+	width:390px;
+	margin-top:17px;
+}
+.captcha {
+	background:url(../img/backgrounds/captcha.jpg) 0 0 no-repeat;
+	width:142px;
+	height:55px;
+	display:block;
+}
+
+.captcha_ouvir {background:url(../img/icons/captcha_ouvir.png) 0 0 no-repeat;}
+.captcha_refresh {background:url(../img/icons/captcha_refresh.png) 0 0 no-repeat;}
+.captcha_ouvir, .captcha_refresh{
+	width:23px;
+	height:23px;
+	margin: 3px 2px;
+	display:block;
+	border:none !important;
+}
+	
+/**
+ * @section 	Botões
+ */
+/**
+ * @subsection 	Botões altos
+ * @note Colocar todas as classes de botões dentro da regra a seguir, pois todos os botões compartilham esses atributos
+ */
+.btn_voltar, .btn_continuar, .btn_criar_conta_acesso {
+	display:block;
+	height:35px;
+	border-bottom:none !important;
+}
+
+.btn_print {
+	float:right;
+	display:block;	
+}
+/**
+ * @subsection 	Botões baixos
+ * @note Colocar todas as classes de botões dentro da regra a seguir, pois todos os botões compartilham esses atributos
+ */
+
+.btn_voltar {
+	background:url(../img/buttons/bt_back.png) 0 0 no-repeat;
+	width: 119px;
+}
+
+.btn_continuar {
+	background:url(../img/buttons/btn_continuar2.png) 0 0 no-repeat;
+	width: 154px;
+}
+
+.btn_criar_conta_acesso {
+	background:url(../img/buttons/btn_criar_conta_acesso.png) 0 0 no-repeat;
+	width:235px;
+	height:43px;
+}
+.ul_al_left {
+	padding: 0 0px 0 40px;
+}
+.ul_al_left li {
+	float:left;}

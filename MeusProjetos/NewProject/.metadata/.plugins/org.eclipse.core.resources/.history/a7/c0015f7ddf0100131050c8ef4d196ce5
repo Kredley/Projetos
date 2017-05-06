@@ -1,0 +1,31 @@
+package br.com.kredley.redes;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class ChatCliente extends JFrame{
+	
+	JTextField textoParaEnviar;
+	
+	
+	public ChatCliente(){
+		super("Chat");
+		
+		textoParaEnviar new JTextField();
+		JButton botao = new JButton("Enviar");
+		
+		
+		
+		
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500,500);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new ChatCliente();
+	}
+}

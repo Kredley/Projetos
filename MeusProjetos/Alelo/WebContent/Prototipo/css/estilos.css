@@ -1,0 +1,102 @@
+/*
+a, h1, h2, h3, h4, h5, h6, ul, li, img, dl, dt, dd, span{
+	margin:0px; 
+	padding:0px;
+	border:0px;
+	outline:none;
+	font-family:Verdana, Geneva, sans-serif;
+	display:block;
+	color:#989898;}
+*/	
+
+
+span.clearAll{
+	clear:both; width:100%; display:block; line-height:0px; height:0px; font-size:0px;}
+span.linha{
+	background:#e9e9e9; height:1px;	line-height:0px; font-size:0px; margin:20px -14px}
+
+
+.left{float:left;}	
+.right{float:right;}	
+.bt_voltar{
+	background:url(../imgs/botoes.png) 0 0; width:98px; height:24px; text-indent:-9999em;}
+.bt_confirmar{
+	background:url(../imgs/botoes.png) -114px 0; width:192px; height:43px; text-indent:-9999em;}
+.bt_trocar_empresa{
+	background:url(../imgs/botoes.png) -319px 0; width:109px; height:23px; text-indent:-9999em;}
+
+/* Modal Corner */
+.modalCorner{width:892px; padding:30px 0px 20px; position:relative;}
+	.modalCorner .top{
+		background:url(../imgs/content_top.png); width:100%; height:16px; /*line-height:0px;*/ font-size:0px; float:left;}
+	.modalCorner .middle{
+		background:url(../imgs/content_middle.png); width:auto; _width:892px !important; font-size:12px; padding:0 20px 20px;float:left;}
+		table{
+			font-size:12px;}
+			table tr td{
+				padding:6px 4px;}
+			table tr td.aviso{
+				font-size:11px;}
+	.modalCorner .bottom{
+		background:url(../imgs/content_bottom.png); width:100%; height:19px; line-height:0px; font-size:0px;float:left;}
+		
+/* Content */
+.content{
+	clear:both; padding-top:22px; *padding-top:10px !important; _padding-top:10px !important; color:#989898;}		
+	.content h2{
+		font-family:'museo'; font-size:29px; color:#008568; margin:0px 10px;}		
+	.content p{
+		margin:0; font-size:12px; color:#505050; margin:0px 10px;}		
+	
+/* Consulta de Documentos de Faturamento */	
+
+/* Alert Boleto Bancário */	
+.boxMsgBoletoBancario{
+	background:url(../imgs/boxes.png) 0px 0px; width:274px; height:138px; position:absolute; top:32px; right:5px; _right:2px !important; text-align:center;}	
+	.boxMsgBoletoBancario p, .boxMsgBoletoBancario a, .boxMsgBoletoBancario em{
+		color:#989898; text-align:left; font-size:11px;}	
+	.boxMsgBoletoBancario div.verBoleto{
+		background:url(../imgs/boxes.png) -280px 0px; width:251px; height:29px; margin:15px auto;}	
+		.boxMsgBoletoBancario div.verBoleto p{
+			float:left; padding:6px 3px;}	
+			.boxMsgBoletoBancario div.verBoleto p strong{
+				color:#989898;}	
+		.boxMsgBoletoBancario div.verBoleto a{
+			float:right; padding:6px 0px; margin:0px 15px; font-size:11px;}	
+	
+	.boxMsgBoletoBancario p{font-weight:bold; line-height:17px;}
+		.boxMsgBoletoBancario p strong{color:#008568; word-spacing:-1pt;}
+		.boxMsgBoletoBancario em{word-spacing:-1pt; padding:3px 10px; display:block;}
+
+
+.visualizarDocFaturamento{}
+	.visualizarDocFaturamento p{
+		margin:0px; color:#989898}
+	.visualizarDocFaturamento ul{ padding-top:20px; float:left;}
+		.visualizarDocFaturamento ul li{list-style:none; list-style-type:none; float:left; width:142px; text-align:center;}
+			.visualizarDocFaturamento ul li p{font-weight:bold; padding:5px;}
+				.visualizarDocFaturamento ul li em{font-weight:normal; font-size:11px; word-spacing:-1pt;}
+		
+			.visualizarDocFaturamento ul li.boletoBancario span{background:url(../imgs/icones.png) -21px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.notaFiscal span{background:url(../imgs/icones.png) -77px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoPedidos span{background:url(../imgs/icones.png) -133px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoTarifas span{background:url(../imgs/icones.png) -189px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoDescontos span{background:url(../imgs/icones.png) -245px 0px; width:49px; height:34px; margin:0 auto;}
+	
+	.visualizarDocFaturamento ul.acoes{float:right;}
+		.visualizarDocFaturamento ul.acoes li{padding:0 0 6px;  width:120px; }
+			.visualizarDocFaturamento ul.acoes li a{font-size:11px; text-align:left;}
+			.visualizarDocFaturamento ul.acoes li.bt_salvar span{background:url(../imgs/icones.png) 0px -14px; width:14px; height:16px; float:left; text-indent:-9999em; margin-right:6px;}
+			.visualizarDocFaturamento ul.acoes li.bt_imprimir span{background:url(../imgs/icones.png) 0px -31px; width:17px; height:14px; float:left; text-indent:-9999em; margin-right:2px;}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			

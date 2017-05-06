@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<script src="../../_js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+		<style type="text/css" title="currentStyle">
+			@import "../../../media/css/demo_page.css";
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				$('.btn_continuar_pddo').hide();
+				$('.btn_continuar_pddo').click(function(){
+					if ($('#mesmos').is(':checked')) {
+						window.location.href = 'cbv_pp_007.html';
+					}else{
+						alert('Voce precisa escolher a opção "Utilizar funcinários que você acabou de cadastrar" para continuar')
+					}
+				});
+				$('.btn_continuar').click(function(){
+					$('#cboxClose').click();
+				});
+
+				$('#step_1').hide();
+				$('.select_produto').change(function() {
+					$('#step_1').slideDown('slow');
+					$('.btn_continuar_pddo').show();
+				})
+			});
+		</script>
+	<title></title>
+</head>
+<body>
+	<div class="none">
+		<div class="popup popInter fff">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2 class="no-border">Instruções para realizar um pedido</h2>
+					<div class="mulher_pddo"></div>
+					<div class="lightbox_po mg_top_10" style="padding-left:200px; background:#ededed">
+					<span class="verde_bold">Nesta etapa</span>
+					<span class="passo1 mg_top_30">Escolha o produto que deseja solicitar benefícios;</span>
+					<span class="passo2 mg_top_10">Como prefere selecionar os funcionários para o pedido.</span>
+					</div>
+					<a href="javascript:void(0)" class="btn_continuar al_right mg_top_30 mg_right_20"></a>
+					<br class="clear" /><br />
+			</div>
+		</div>
+	</div>
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+				<div style="position:absolute; top:7px; left:272px;"><a href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.fff', opacity:0.30, transition:'none'});" ><img src="../../_img/instrucoes.png" width="104" height="32" alt="Instruções" /></a></div>
+				<div id="andamento_pedido_1"></div>
+				<h2 class="left">Fazer novo Pedido</h2>
+                
+                <span class="clear"></span>
+                <br />
+				<p class="subtitle">Para realizar seu pedido, comece escolhendo qual é o produto e depois os funcionários que farão parte do pedido. Após isso, siga os passos em cada tela, definindo as informações do pedido</p>
+                <p class="txt_alerta normal2 w_100c" style="margin-bottom:10px">Os cartões de novos funcionários serão criados automaticamente após a solicitação de benefícios.</p>
+				<div class="text-wrapper">
+				<h3 class="first left">Produto e Nº de Contrato</h3>
+					<select class="select_produto" style="width:200px; margin:15px 0 15px 20px;">
+                    	<option>Selecione</option>
+						<option>Refeição Visa Vale (00010005811)</option>
+						<option>Alimentação Visa Vale (75342108690)</option>
+					</select>
+				<div id="step_1">
+					<h3>Quais funcionários farão parte do pedido</h3>						
+					<div class="pd_20">
+							<form>
+							<ul class="normal normal4">
+                                <li>
+                                    <input type="radio" checked id="mesmos" name="func"/>
+                                    <label for="mesmos"><strong>Utilizar funcionários que você acabou de cadastrar</strong></label>
+                                </li>
+								<li>
+									<input type="radio" id="localizar" name="func" />
+									<label for="localizar">Localizar e incluir funcionários manualmente</label>
+								</li>
+								<li>
+									<input type="radio" id="excel" name="func" />
+									<label for="excel">Importar dados do pedido via tabela Excel</label>
+								</li>
+							</ul>
+							</form>
+						</div>
+				</div>
+
+				<div class="table-footer"></div>
+				</div>
+				
+				<br class="clear" />
+				
+				<a href="javascript:void(0);" class="btn_continuar_pddo right" title="Continuar"><span class="screen_reader_text">Continuar</span></a>
+				
+			</div>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

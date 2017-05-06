@@ -1,0 +1,872 @@
+/*
+a, h1, h2, h3, h4, h5, h6, ul, li, img, dl, dt, dd, span{
+	margin:0px; 
+	padding:0px;
+	border:0px;
+	outline:none;
+	font-family:Verdana, Geneva, sans-serif;
+	display:block;
+	color:#989898;}
+*/	
+@import url('../../css/alerts_estilos.css');
+
+/*span{display:block}*/	
+.clear{
+	clear:both; width:100%; display:block;}
+span.clearAll{
+	clear:both; width:100%; display:block; line-height:0px; height:0px; font-size:0px;}
+span.linha{
+	background:#e9e9e9; height:1px;	line-height:0px; font-size:0px; margin:0px -6px 0px -4px; display:block;}
+span.icoPrefeitura{
+	background:url(../../imgs/icones.png) 0px -66px; width:19px; height:22px; float:left; margin:4px;}
+
+.left{float:left;}	
+.right{float:right;}
+.btn span{display:none;}	
+.mCenter{margin:0 auto;}
+.bt_voltar{
+	background:url(../../imgs/botoes.png) 0 0; width:98px; height:24px; text-indent:-9999em;}
+.btn_voltar{
+	background:url(../cadastro/_img/bt_back.png); width:119px; height:34px;}
+.btn_continuar{
+	background:url(../_img/buttons/btn_continuar2.png); width:154px; height:36px;}
+.btn_fazer_primeiro_pedido{
+	background:url(../_img/buttons/btn_fazer_primeiro_pedido.png); width:234px; height:35px;}	
+.bt_excluir{
+	background:url(../_img/buttons/botoes_02.png) -112px 0; width:90px; height:24px; text-indent:-9999em;}
+.bt_inicio{
+	background:url(../../imgs/botoes.png) -665px 0; width:98px; height:24px; text-indent:-9999em; display:block;}
+.bt_confirmar{
+	background:url(../../imgs/botoes.png) -114px 0; width:192px; height:43px; text-indent:-9999em;}
+.bt_autorizar{
+	background:url(../_img/buttons/btn_autorizar.png); width:187px; height:44px; text-indent:-9999em;}
+.btn_quero_contratar{
+	background:url(../_img/buttons/btn_quero_contratar.png); width:253px; height:43px; display:block;}
+.btn_consultar_disable{
+	background:url(../_img/buttons/btn_consultar_disable.png); width:109px; height:30px; display:block;}
+.btn_contratar{
+	background:url(../_img/buttons/btn_contratar.png); width:191px; height:43px; display:block;}
+.bt_trocar_empresa{
+	background:url(../../imgs/botoes.png) -319px 0; width:109px; height:23px; text-indent:-9999em;}
+.bt_imprimir_selecionados{
+	background:url(../_img/bt_alerts.png) -437px -39px; width:177px; height:24px; text-indent:-9999em; display:block; clear:both;}
+.bt_salvar_selecionados{
+	background:url(../_img/bt_alerts.png) -649px -39px; width:177px; height:24px; text-indent:-9999em; display:block; clear:both;}
+a.bt_salvar{
+	background:url(../../imgs/botoes.png) -440px 0px; width:97px; height:24px; display:block; text-indent:-9999em;}
+a.bt_adicionar{
+	background:url(../../imgs/botoes.png) -840px 0px; width:110px; height:24px; display:block; text-indent:-9999em;}
+a.bt_imprimir{
+	background:url(../../imgs/botoes.png) -553px 0px; width:99px; height:24px; display:block; text-indent:-9999em;}
+a.bt_imprimir_texto{font-size:11px;}
+	a.bt_imprimir_texto span{
+		background:url(../../imgs/icones.png) 0px -31px; width:17px; height:14px; float:left; text-indent:-9999em; margin-right:6px;}
+a.pedidos span{
+	background:url(../../imgs/icones.png) 0px 0px; width:15px; height:12px; text-indent:-9999em; margin:10px auto;
+	display:block;}	
+a.no_underline{ text-decoration:none; }	
+
+/* Modal Corner */
+table{
+	font-size:12px;}
+	table tr td{ padding:6px 4px; color:#989898; position:relative;}
+	table.less tr td{ padding:3px 4px; position:relative;}
+		table tr td p.aberto, table tr td p.pago, table tr td p.cancelado{ text-align:center; }
+		table tr td p.aberto span, table tr td p.pago span, table tr td p.cancelado span{ width:16px; height:16px; display:block; margin:5px auto; }
+		table tr td p.pago span{ background:url(../../imgs/icones.png) -104px -48px;}
+		table tr td p.aberto span{ background:url(../../imgs/icones.png) -131px -48px;}
+		table tr td p.cancelado span{ background:url(../../imgs/icones.png) -158px -48px;}
+	
+table.grid{margin:10px 0px 10px -4px; width:879px;}
+	table.grid tr{border-bottom:1px solid #e9e9e9; height:50px;}
+		table.grid tr td{padding:5px 15px; background:url(../_img/bg_separa_td.png) center left no-repeat}
+		table.grid tr td:first-child{background:none;}
+			table.grid tr td p{margin:0px;}
+		
+	table tr.tr_header{background:url(../_img/bg_degrade_td_header.png); height:53px; color:#008568; border-bottom:none;}
+		table tr.tr_header td{color:#008568; background:none;font-family:'museo-sans'; font-size:13px;}
+	
+	table tr td.aviso, table tr td.interrogacao{font-size:11px; padding-left:15px;}
+		table tr td.aviso span, span.aviso{background:url(../../imgs/icones.png) 0 -47px; width:17px; height:16px; display:inline-block; margin:0 10px 0 5px}
+		table tr td.interrogacao span{background:url(../../imgs/icones.png) -3px -90px; width: 15px; height:15px; display:inline-block; margin:0 10px 0 3px}
+		table tr td a{ color:#989898;}
+			table tr td a span.lupa{ background:url(../../imgs/icones.png) 0px 0px; width:15px; height:12px; display:inline-block; margin:0px 10px; text-indent:-9999em;}
+	
+	table tr td p a.folder, table tr td p a.boleto{ text-decoration:none; }
+	table tr td p a.boleto{ text-decoration:none; text-align:center; }
+		table tr td p a.folder span{
+			background:url(../../imgs/icones.png) -25px -49px; width:18px; height:12px; display:block; text-indent:-9999em; margin:5px auto;}
+		table tr td p a.boleto span{
+			background:url(../../imgs/icones.png) -58px -46px; width:27px; height:19px; display:block; text-indent:-9999em; margin:5px auto;}
+
+.alertOver{
+	position:absolute;color:#989898; left:120px; top:190px; z-index:999; padding:45px 20px 20px 40px; background:url(../../imgs/bgOverAlert.png) 0px 0px; width:319px; height:177px;}
+	.alertOver a.fechar{background:url(../../imgs/botoes.png) -782px 0; width:38px; height:24px; text-indent:-9999em; display:block;}
+	.alertOver strong{padding:0; margin:0; font-size:11px; padding:20px 0 20px; display:block;}
+	.alertOver ul, .alertOver ul li, .alertOver ul li strong{font-size:10px; margin:0; padding:0}
+	.alertOver ul{width:319px;}
+	.alertOver ul li{padding:2px 0px; margin:0; font-size:10px; float:left; width:98px; height:18px; list-style-type:disc}
+
+.popup-inner p{
+	font-size:12px; color:#989898;}		
+		
+/* Consulta de Documentos de Faturamento */	
+
+/* Alert Boleto Bancário */	
+.boxMsgBoletoBancario{
+	background:url(../../imgs/boxes.png) 0px 0px; width:274px; height:138px; position:absolute; top:-5px; right:3px; _right:0px !important; text-align:center; z-index:99999}	
+	.boxMsgBoletoBancario p, .boxMsgBoletoBancario a, .boxMsgBoletoBancario em{
+ 		color:#989898; text-align:left; font-size:11px;}	
+	.boxMsgBoletoBancario div.verBoleto{
+		background:url(../../imgs/boxes.png) -280px 0px; width:251px; height:29px; margin:15px auto;}	
+		.boxMsgBoletoBancario div.verBoleto p{
+			float:left; padding:6px 8px;}	
+			.boxMsgBoletoBancario div.verBoleto p strong{
+				color:#989898;}	
+		.boxMsgBoletoBancario div.verBoleto a{
+			float:right; padding:6px 0px; margin:0px 15px; font-size:11px;}	
+	
+	.boxMsgBoletoBancario p{font-weight:bold; line-height:17px; padding:0px 10px;}
+		.boxMsgBoletoBancario p strong{color:#008568; word-spacing:-1pt;}
+		.boxMsgBoletoBancario em{word-spacing:-1pt; padding:3px 0px 3px 10px; display:block;}	
+
+.visualizarDocFaturamento{}
+	.visualizarDocFaturamento p{
+		margin:0px; color:#989898; padding:10px;}
+	.visualizarDocFaturamento ul{ padding-top:10px; float:left; margin:0px 10px -45px;}
+		.visualizarDocFaturamento ul li{list-style:none; list-style-type:none; float:left; width:164px; text-align:center; height:103px; padding-top:10px;}
+		.visualizarDocFaturamento ul li.menor{list-style:none; list-style-type:none; float:left; width:130px; text-align:center; height:103px; padding-top:10px;}
+		.visualizarDocFaturamento ul li.selected{background:url(../_img/bg_consulta_item_selecionado.png) top center;}
+			.visualizarDocFaturamento ul li.selected p{color:#5e5e5e;}
+			.visualizarDocFaturamento ul li p{font-weight:bold; padding:5px;}
+				.visualizarDocFaturamento ul li a{color:#989898; text-decoration:underline;}
+				.visualizarDocFaturamento ul li em{font-weight:normal; font-size:11px; word-spacing:-1pt;}
+		
+			.visualizarDocFaturamento ul li.boletoBancario span{background:url(../../imgs/icones.png) -21px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.notaFiscal span{background:url(../../imgs/icones.png) -77px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoPedidos span{background:url(../../imgs/icones.png) -133px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoTarifas span{background:url(../../imgs/icones.png) -189px 0px; width:49px; height:34px; margin:0 auto;}
+			.visualizarDocFaturamento ul li.demonstrativoDescontos span{background:url(../../imgs/icones.png) -245px 0px; width:49px; height:34px; margin:0 auto;}
+	
+	.visualizarDocFaturamento ul.acoes{float:right; width:110px;}
+		.visualizarDocFaturamento ul.acoes li{padding:0 0 6px;  text-align:left; height:auto;}
+			.visualizarDocFaturamento ul.acoes li a{font-size:11px; text-align:left; color:#989898;}
+			.visualizarDocFaturamento ul.acoes li.bt_salvar span{background:url(../../imgs/icones.png) 0px -14px; width:14px; height:16px; float:left; text-indent:-9999em; margin-right:10px;}
+			.visualizarDocFaturamento ul.acoes li.bt_imprimir span{background:url(../../imgs/icones.png) 0px -31px; width:17px; height:14px; float:left; text-indent:-9999em; margin-right:6px;}
+		
+#main .content{
+	position:relative; clear:both; margin:16px 0px}
+	#main .opened{ position:absolute; margin:47px -10px; z-index:-1; }
+.text-wrapper-delivery{padding:10px; font-size:12px;}	
+.topDegradeBox{background:url(../_img/bg_consulta_selecionado.png); width:877px; height:52px; position:absolute; top:-5px; left:7px; z-index:9999}
+
+ul.botoes_acoes{
+	width:230px; margin:0px auto; padding:50px 0 40px}		
+	ul.botoes_acoes li{
+		float:left; margin:0px 5px;}		
+
+/**/
+.boxAlertaMsg{
+	background:url(../_img/bg_verde_msg.png) top left; height:31px; float:right; margin:5px 30px 15px; padding-left:15px; position:relative;*width:430px !important; *text-align:center !important;}		
+	.boxAlertaMsg p{
+		background:url(../_img/bg_verde_msg.png) top right; height:15px; float:right; padding:8px 15px 8px 0; margin-right:-10px; color:#989898;}		
+
+/**/
+.yellowMsg880{
+	position:relative; width:883px; background:url(../_img/bgsMsgs.png) top left; padding-top:15px; margin:10px auto;}
+	.yellowMsg880 .yellowMsgCont{
+		background:url(../_img/bgsMsgs.png) #fff bottom left; padding:0 20px 15px;}
+		.yellowMsg880 .yellowMsgCont p{
+			color:#505050; font-size:11px; font-weight:bold;}
+		.yellowMsg880 .yellowMsgCont p.normal{
+			color:#505050; font-size:12px; font-weight:normal;}
+/**/
+.greenMsg880{
+	position:relative; width:883px; background:url(../_img/bgsMsgs.png) -901px top; padding-top:15px; margin:10px auto;}
+	.greenMsg880 .greenMsgCont{
+		background:url(../_img/bgsMsgs.png) #fff -901px bottom; padding:0 20px 15px;}
+		.greenMsg880 .greenMsgCont p{
+			color:#008568; font-size:29px; font-weight:normal; font-family:'museo-sans'}
+		.greenMsg880 .greenMsgCont span.icoVisto{
+			background:url(../../imgs/icones.png) -193px -48px; width:33px; height:33px; float:left; margin-right:8px;}	
+		
+/* Visualizar Extratos e Relatórios de Usuários Gerados */	
+body #wrapper #main form.search-filters fieldset p{ font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#989898;}
+body #wrapper #main form.search-filters fieldset .n_protocolo{ margin: -10px 10px 0 20px;}
+body #wrapper #main form.search-filters fieldset a.more_options{font-size:10px; color:#989898; padding:4px 0;}
+body #wrapper #main form.search-filters fieldset .produto_contrato{ margin: -10px 10px 0 20px;}
+body #wrapper #main form.search-filters fieldset .tipo_documento{ margin: -10px 40px 0 10px;}
+body #wrapper #main form.search-filters fieldset .filial_fat{ margin: -10px 50px 0 30px;}
+
+body #wrapper #main .search-footer .bt_salvar_new{background:url(../../imgs/icones.png) -302px -5px; width: 178px; height:24px; float:left; margin: 0 0 0 0; text-indent:-99999px}
+body #wrapper #main .search-footer .bt_imprimir_new{background:url(../../imgs/icones.png) -490px -5px; width: 178px; height:24px; float:left; margin: 0 0 0 20px; text-indent:-99999px}
+body #wrapper #main .search-footer a.text_zip{ font:Verdana, Geneva, sans-serif; font-size:11px; color:#989898; width:500px; text-decoration:underline; float:left; margin: 40px 0 0 15px;}
+body #wrapper #main .search-footer .cont_bt_interrogacao{width:800px;float:left; margin: 20px 0 0 5px;}
+body #wrapper #main .search-footer .cont_bt_interrogacao a.bt_interrogacao{ background:url(../../imgs/icones.png) -3px -90px; width: 15px; height:15px; float:left; }
+body #wrapper #main .search-footer .cont_bt_interrogacao span{ font:Verdana, Geneva, sans-serif; font-size:11px; color:#989898; margin-left:5px}
+
+
+/**/
+
+table.personTable, table.personTable tr, table.personTable th, table.personTable td, table.personTable tbody, table.personTable thead{border:0px;}
+	table.personTable thead tr{height:40px;}
+		table.personTable thead tr th{background:url(../_img/bgTable.png) -20px 0px; text-align:left; padding:0 5px;}
+			table.personTable thead tr th img{margin-top:8px;}
+		table.personTable thead tr th:first-child{padding:0 15px;}
+		table.personTable thead tr th.tbl_bg_left{background:url(../_img/bgTable.png) 0px 0px;}
+		table.personTable thead tr th.tbl_bg_right{background:url(../_img/bgTable.png) right 0px;}
+		table.personTable thead tr a{font-family:'museo-sans'; color:#008568; font-weight:normal; font-size:13px; text-decoration:none; padding:3px 3px 3px 0; word-spacing:-0.1em}
+		table.personTable thead tr a.ordered_by_this{background:url(../_img/ico_order_by.png) right center no-repeat; padding-right:5px;margin-right:3px; display:block;}
+
+	table.personTable tbody tr td{background:url(../_img/bgTable.png) -20px -40px;}
+		table.personTable tbody tr td.tbl_bg_left{background:url(../_img/bgTable.png) left -40px;}
+		table.personTable tbody tr td.tbl_bg_right{background:url(../_img/bgTable.png) right -40px;}
+	
+	table.personTable tbody tr.tr_selected td{ background:url(../_img/bgTable.png) -20px -292px; margin:10px}
+	table.personTable tbody tr.tr_selected td.tbl_bg_left{ background:url(../_img/bgTable.png) left -292px; margin:10px}
+	table.personTable tbody tr.tr_selected td.tbl_bg_right{ background:url(../_img/bgTable.png) right -292px; margin:10px}
+		
+		
+		table.personTable tbody tr td{padding:0px;}
+		table.personTable tbody tr td.linkP a, table.personTable tbody tr td.linkP em,
+		table.display tbody tr td.linkP a, table.display tbody tr td.linkP em{font-size:11px; display:block; width:100%}
+		table.personTable tbody tr td.linkP em, table.display tbody tr td.linkP em{padding-left:20px; }
+		table.personTable tbody tr td span.novo, table.display tbody tr td span.novo{background:#c1d82f; color:#2b6776; font-weight:bold; font-size:10px; padding:2px 4px; margin:0 0 0 80px;}
+		
+			table.personTable tbody tr td.tick img{margin:0px 14px}
+			table.personTable tbody tr td p{padding:5px 5px; margin:8px 0; border-left:1px solid #cfcfcf; word-spacing:-0.1em}
+			table.personTable tbody tr td:first-child p{padding:5px 15px; border-left:none; }
+	table.personTable tbody tr:first-child{
+		border-top:none;}
+		table.personTable tbody tr td:first-child{
+			border-left:none;}
+			table.personTable tbody tr td a.pdf, table.personTable tbody tr td a.csv, table.personTable tbody tr td a.exc,
+			table.display tbody tr td a.pdf, table.display tbody tr td a.csv, table.display tbody tr td a.exc{
+				padding:3px 12px 3px 22px; float:left;}
+			table.personTable tbody tr td strong.today, table.display tbody tr td strong.today{
+				color:#008568; font-size:11px;}
+			
+	table.personTable tfoot tr{
+		background:url(../_img/bgTable.png) 0px bottom; height:18px;}
+
+table.personTableLightBox, table.personTableLightBox tr, table.personTableLightBox th, table.personTableLightBox td, table.personTableLightBox tbody, table.personTableLightBox thead{border:0px;}
+	table.personTableLightBox thead tr{height:40px;}
+		table.personTableLightBox thead tr th{background:url(../_img/bgTableLightBox.png) -20px 0px; text-align:left; padding:0 5px;}
+		table.personTableLightBox thead tr th:first-child{padding:0 15px;}
+		table.personTableLightBox thead tr th.tbl_bg_left{background:url(../_img/bgTableLightBox.png) 0px 0px;}
+		table.personTableLightBox thead tr th.tbl_bg_right{background:url(../_img/bgTableLightBox.png) right 0px;}
+		table.personTableLightBox thead tr a{font-family:'museo-sans'; color:#008568; font-weight:normal; font-size:12px; text-decoration:none; padding:3px 3px 3px 0; word-spacing:-0.1em}
+
+	table.personTableLightBox tbody tr td{background:url(../_img/bgTableLightBox.png) -20px -40px;}
+		table.personTableLightBox tbody tr td.tbl_bg_left{background:url(../_img/bgTableLightBox.png) left -40px;}
+		table.personTableLightBox tbody tr td.tbl_bg_right{background:url(../_img/bgTableLightBox.png) right -40px;}
+	
+	table.personTableLightBox tbody tr.tr_selected td{ background:url(../_img/bgTableLightBox.png) -20px -292px; margin:10px}
+	table.personTableLightBox tbody tr.tr_selected td.tbl_bg_left{ background:url(../_img/bgTableLightBox.png) left -292px; margin:10px}
+	table.personTableLightBox tbody tr.tr_selected td.tbl_bg_right{ background:url(../_img/bgTableLightBox.png) right -292px; margin:10px}
+		
+		
+		table.personTableLightBox tbody tr td{padding:0px;}
+		table.personTableLightBox tbody tr td.linkP a, table.personTableLightBox tbody tr td.linkP em{font-size:11px; display:block}
+		table.personTableLightBox tbody tr td.linkP em{padding-left:20px;}
+		table.personTableLightBox tbody tr td span.novo{background:#c1d82f; color:#2b6776; font-weight:bold; font-size:10px; padding:2px 4px; margin:0 0 0 80px;}
+		
+			table.personTableLightBox tbody tr td.tick img{margin:0px 14px}
+			table.personTableLightBox tbody tr td.situacao p.inativo{color:#d50000;}
+			table.personTableLightBox tbody tr td.adicionado p{color:#9bbc00; text-align:center;}
+			table.personTableLightBox tbody tr td p{padding:5px 5px; margin:8px 0; border-left:1px solid #cfcfcf; word-spacing:-0.1em}
+			table.personTableLightBox tbody tr td:first-child p{padding:5px 15px; border-left:none; }
+	table.personTableLightBox tbody tr:first-child{
+		border-top:none;}
+		table.personTableLightBox tbody tr td:first-child{
+			border-left:none;}
+			table.personTableLightBox tbody tr td a.pdf, table.personTableLightBox tbody tr td a.csv, table.personTableLightBox tbody tr td a.exc{
+				padding:3px 12px 3px 22px; float:left;}
+			table.personTableLightBox tbody tr td strong.today{
+				color:#008568; font-size:11px;}
+			
+	table.personTableLightBox tfoot tr{
+		background:url(../_img/bgTableLightBox.png) 0px bottom; height:18px;}
+
+		
+/* Visualizar Extratos e Relatórios de Usuários Gerados */	
+body #wrapper #main form.search-filters fieldset p{ font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#989898;}
+body #wrapper #main form.search-filters fieldset .n_protocolo{ margin: 0px 10px 0 20px; *margin: -10px 10px 0 0px !important;}
+body #wrapper #main form.search-filters fieldset .produto_contrato{ margin: -10px 10px 0 20px;}
+body #wrapper #main form.search-filters fieldset .tipo_documento{ margin: -10px 40px 0 10px;}
+body #wrapper #main form.search-filters fieldset .filial_fat{ margin: 0px 50px 0 30px;}
+
+body #wrapper #main .search-footer .bt_salvar_new{background:url(../../imgs/icones.png) -302px -5px; width: 178px; height:24px; float:left; margin: 0 0 0 0; text-indent:-99999px}
+body #wrapper #main .search-footer .bt_imprimir_new{background:url(../../imgs/icones.png) -490px -5px; width: 178px; height:24px; float:left; margin: 0 0 0 20px; text-indent:-99999px}
+body #wrapper #main .search-footer a.text_zip{ font:Verdana, Geneva, sans-serif; font-size:11px; color:#989898; width:500px; text-decoration:underline; float:left; margin: 40px 0 0 15px;}
+body #wrapper #main .search-footer .cont_bt_interrogacao{width:800px;float:left; margin: 20px 0 0 5px;}
+body #wrapper #main .search-footer .cont_bt_interrogacao a.bt_interrogacao{ background:url(../../imgs/icones.png) -3px -90px; width: 15px; height:15px; float:left; }
+body #wrapper #main .search-footer .cont_bt_interrogacao span{ font:Verdana, Geneva, sans-serif; font-size:11px; color:#989898; margin-left:5px}
+
+
+body #wrapper #main #main form .text-wrapper .cartao_flex{ margin: 20px 0 20px 84px;}
+
+body #wrapper #main #main form .text-wrapper ul{*margin-top:0px !important;  padding-top:0px; *padding-top:0 !important; /*margin-left: 30px; width:800px;*/}
+body #wrapper #main #main form .text-wrapper ul li{ padding:20px 30px 20px; *padding-bottom:0px !important; border-bottom:1px solid #e9e9e9 }
+body #wrapper #main #main form .text-wrapper ul li input{float:left; }
+body #wrapper #main #main form .text-wrapper ul p{ margin:0 0 0 35px; float:left; font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898;  }
+
+body #wrapper #main #main form .text-wrapper .periodo_extrato{ margin: 20px 0 15px 84px; font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato input{ border:2px solid #C4C4C4; padding: 5px; height:9px; font-size:11px; margin:0;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato a{ background:url(../../imgs/icones.png) -26px -90px; width: 19px; height:17px; text-indent:-99999px; margin: 0 10px 0 5px; text-decoration:none;}
+
+body #wrapper #main #main form .text-wrapper .periodo_extrato2{ margin: 20px 0 15px 5px; font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato2 input{ border:2px solid #C4C4C4; padding: 5px; height:9px; font-size:11px; margin:0; width:40px}
+body #wrapper #main #main form .text-wrapper .periodo_extrato2 a{ background:url(../../imgs/icones.png) -26px -90px; width: 19px; height:17px; text-indent:-99999px; margin: 0 10px 0 5px; text-decoration:none;}
+
+body #wrapper #main #main form .text-wrapper .periodo_extrato3{ margin: 20px 0 15px 84px; *margin-top:20px; font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato3 input{ border:2px solid #C4C4C4; padding: 5px; height:9px; font-size:11px; margin:0;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato3 a{ background:url(../../imgs/icones.png) -26px -90px; width: 19px; height:17px; text-indent:-99999px; margin: 0 10px 0 5px; text-decoration:none;}
+
+body #wrapper #main #main form .text-wrapper .periodo_extrato a.bt_exclamacao{background:url(../../imgs/icones.png) 0 -47px; width:17px; height:16px; display:inline-block; margin:0 10px}
+body #wrapper #main #main form .text-wrapper .periodo_extrato .text_aviso{font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; text-decoration:underline; background:none;}
+body #wrapper #main #main form .text-wrapper .periodo_extrato span{color:#da0000;}
+
+body #wrapper #main #main form .text-wrapper .periodo_extrato p{font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; margin-bottom:14px;}
+
+body #wrapper #main #main form .text-wrapper .bt_localizar{ background:url(../../imgs/icones.png) -311px -41px; width:161px; height:24px; float:left; text-indent:-99999px; margin: 20px 0 0 20px; z-index:20;}
+
+body #wrapper #main #main form .text-wrapper .cont_periodo{ float:left; margin:20px 0 0 220px; width:200px;}
+body #wrapper #main #main form .text-wrapper .cont_periodo a{font:Verdana, Geneva, sans-serif; font-size:11px; color:#008568; text-decoration:underline;}
+body #wrapper #main #main form .text-wrapper .cont_periodo .bt_periodo{background:url(../../imgs/icones.png) -53px -89px; width:19px; height:18px; float:left; margin-right: 10px}
+
+.input_tabela{ margin:0 20px;}
+.aplicado{ background-color:#eafedf;}
+
+body #wrapper #main #main form .text-wrapper strong{ font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#989898;}
+body #wrapper #main #main form .text-wrapper .n_protocolo{ margin: 30px 10px 0 60px; width: 560px;}
+body #wrapper #main #main form .text-wrapper .n_protocolo input{ border:2px solid #C4C4C4; padding: 5px; height:9px; font-size:11px; margin:0;}
+body #wrapper #main #main form .text-wrapper .n_protocolo p{ margin-left:330px; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#989898; }
+body #wrapper #main #main form .text-wrapper .cpf{ margin: 0px 10px 0 500px;}
+body #wrapper #main form.search-filters fieldset .produto_contrato{ margin: -10px 10px 0 20px;}
+body #wrapper #main form.search-filters fieldset .tipo_documento{ margin: -10px 40px 0 10px;}
+body #wrapper #main form.search-filters fieldset .filial_fat{ margin: 0px 0px 0 30px;}
+
+.imprimir_documentos p.subtitle{margin-top:-40px;}
+body #wrapper #main form.search-filters fieldset .divFilters div.n_protocolo{margin:0; padding:4px 7px;}
+table tr td p.txtAprovado{color:#00b106; text-align:center;}
+table tr td p.txtRejeitado{color:#ab0200; text-align:center;}
+table tr td p.txtEmAnalise{color:#ac8101; text-align:center;}
+table tr td p.txtCancelado{color:#6a6060; text-align:center;}
+table tr td p.txtCanceladoParcialmente{text-align:center;}
+
+
+
+
+/************************ AJUSTES DO CADASTRO PARA FINANCEIRO *************************/
+
+#main > h2{
+	font-weight:normal;}
+#main > h2 .button{
+	float:right;
+	*margin-right:10px;
+	*margin-top:-26px;}
+#main > p.subtitle{	margin-top:-10px;}
+
+.button.search{	display:block;}
+.button.search2{
+	background:url('../cadastro/_img/bt_search.png');	
+	width:78px;
+	display:block;
+	float:right;
+	*margin-top:-20px;}
+	
+.button.consult{
+	background:url(../_img/buttons/btn_consultar.png);	
+	width:98px;
+	height:24px;
+	display:block;
+	float:right;
+	*margin-top:-20px;}
+
+.button.save2{
+	background:url(../../imgs/icones.png) -490px -41px;
+	width:189px;
+	height:44px;
+	float:right;
+}
+.button.save3{
+	background:url(../../imgs/icones.png) -490px -41px;
+	width:189px;
+	height:44px;
+	float:right;
+}
+
+/*  Locais de entregra - Filtros da Busca */
+.search-filters{height:19px;}
+
+.search-filters div.divSearch{
+	float:right; padding-top:4px; padding-right:0px;}
+	.search-filters div.divSearch button, .search-filters div.divSearch a{
+		float:left; margin-right:10px;}
+.tworows{
+	background:url(../_img/bgsMsgs.png) -1805px 0px;
+	height:60px;
+	margin-bottom:20px;
+	position:relative;}
+.threerows{
+	background:url(../_img/bgsMsgs.png) -1805px 0px;
+	height:120px;
+	margin-bottom:20px;
+	position:relative;}
+	form.threerows div.divSearch{
+		padding-top:10px;}
+	.tworows span.closer, .threerows span.closer{
+		background:url(../_img/bgsMsgs.png) -1805px bottom;
+		height:20px;
+		clear:both;
+		display:block;
+		width:100%;
+		margin-left:-15px;
+		position:absolute;
+		bottom:-20px;
+		top:auto;}
+	.tworows label.labelSpace{
+		visibility:hidden;}
+.lightbox{
+	background:url(../_img/bgsMsgs.png) -2712px 0px;
+	margin-bottom:20px;
+	width:630px; margin:0 auto; position:relative;}
+	.lightbox span.closer{
+		background:url(../_img/bgsMsgs.png) -2712px bottom;
+		height:20px;
+		clear:both;
+		display:block;
+		width:100%;
+		margin-left:-15px;
+		position:absolute;
+		bottom:-20px;
+		top:auto;}
+	.lightbox .search{margin-top:15px;}
+	.lightbox .n_protocolo{padding-right:20px;padding-left:20px; }
+	.lightbox .or{padding:20px 0px; font-size:11px;color:#989898; }
+		
+body #wrapper #main form.tworows fieldset div.n_protocolo{ margin: -10px 5px 0 10px;}
+body #wrapper #main form.tworows fieldset div.filial_fat{ margin-left:10px;}
+body #wrapper #main form.tworows fieldset div.filial_fat p{color:#cbcbcb}
+
+.tip-on{font-size:10px;}
+
+body #wrapper #main #main form .text-wrapper .tip-on strong {
+	font-size:10px;color:#008568;}
+.tip1{left:70px; background:url('../cadastro/_img/bg_tooltip.png');}
+.tip3{width:290px;}
+
+.search-result-header2{
+	padding:30px 10px 0 0;
+	position:relative;
+	height:29px;
+	*margin-top:0px;
+	z-index:-1;
+}
+
+.search-result-header2 p{
+	font-size:13px;
+	font-weight:bold;
+	color:#989898;
+	display:inline-block;
+	line-height:23px;
+}
+
+.search-result-header2 p a{color:#989898;}
+.result-count{float:left; }
+
+p.searh-message1{
+	width:490px;
+	background:url('../cadastro/_img/bg_search_results.png') center center no-repeat;
+	text-align:center;
+	height:29px;
+	line-height:29px;
+	position:absolute;
+	top:10px;
+	left:230px;
+}
+p.searh-message1 a{
+ font-size:11px; font-weight:normal; padding:0px 5px}
+.srhLightbox{
+	left:0px;
+	margin:0px 75px;}
+	.srhLightbox p.searh-message1{
+		left:0px;width:460px;}
+
+.srfLightbox{
+	margin:0px 55px;
+	padding:0px;}
+.search-actions1{
+	text-align:left;
+	margin: 0 0 0 8px;}
+.search-actions2{
+	text-align:left;
+	margin: 0 0 0 8px;}
+.search-actions1 p{
+	margin:0 0 10px 0;}
+.search-actions1 a{
+	padding:5px 0 5px 30px;
+	color:#989898;
+	font-weight:normal;
+	font-size:12px;}
+.search-actions2 a{
+	padding:5px 0 5px 51px;
+	color:#989898;
+	font-weight:normal;
+	font-size:12px;}
+
+.delivery-address .col_17{width:385px;}
+
+/* Listagem de historico de ações */
+.delivery-address.act-log th{padding-left:10p-x;}
+.delivery-address.act-log td{
+	padding-top:10px;
+	padding-bottom:10px;}
+
+.text-wrapper2{
+	background:url('../cadastro/_img/table-body.png');
+	padding:0 5px 18px 6px;
+	position:relative;
+	padding-top:55px;
+	clear:both;
+	max-width:880px;
+	overflow:hidden;}
+
+.crosscell-wrapper h3,
+.left-wrapper h3,
+.text-wrapper2 h3{
+	line-height:55px;
+	background:url('../cadastro/_img/bg_large_div_header_middle.png') left top repeat-x;
+	font-size:14px;
+	color:#99ad1b;
+	font-style:italic;
+	padding:0 20px;}
+
+.text-wrapper2 h3.normal{font-style: normal;}
+.crosscell-wrapper h3.subtitle,
+.left-wrapper h3.subtitle,
+.text-wrapper h3.subtitle,
+.text-wrapper div h3.subtitle{
+	line-height:18px;
+	padding:9px 20px;
+	position:relative;}
+.left-wrapper h3.subtitle,
+.text-wrapper2 h3.subtitle{
+	line-height:18px;
+	padding:9px 20px;
+	position:relative;}
+.crosscell-wrapper h3.subtitle span,
+.left-wrapper h3.subtitle span,
+.text-wrapper h3.subtitle span{
+	font-weight:normal;}
+
+
+.text-wrapper div h3, .text-wrapper div h3:first-child{
+	height:55px;
+	background:url('../cadastro/_img/bg_large_div_header_middle.png') left top repeat-x;
+	font-size:14px;
+	color:#99ad1b;
+	font-style:italic;
+	padding:0 20px;
+	position:relative;
+	width:auto;
+	top:auto;
+	left:auto;}
+.text-wrapper div h3.subtitle, .text-wrapper div h3.subtitle:first-child{
+	height:55px;
+	padding-top:10px;
+	line-height:normal;}
+
+/* Tabelas - Geral */
+table{
+	border-collapse:collapse;
+	/*z-index:2; Tirei pois não dava index no Tooltip*/
+	position:relative
+}
+
+/***************************ALTERADO 08/12 PAGINA 018_01**************************/
+.table-wrapper{
+	padding:0 1px 18px 6px;
+	margin-top: 10px;}
+.table-wrapper1{
+	background:url('../cadastro/_img/table-body.png');
+	color:#989898;
+	padding:0 1px 18px 6px;
+	margin-top: 10px;	
+	position:relative;
+    width: 882px;}
+.table-wrapper2{
+	color:#989898;
+	padding:0 1px 18px 6px;
+	margin-top: 10px;
+	margin-left: -5px;
+	position:relative;
+    width: 882px;}
+.table-wrapper1 a{color:#989898}
+.table-wrapper2 a{color:#989898}
+.table-wrapper1 th{
+	height:24px;
+	line-height:24px;
+	color:#008568;
+	font-size:12px;
+	text-align:left;
+	font-family:museo-sans;
+	font-weight:normal;}
+.table-wrapper2 th{
+	height:24px;
+	line-height:24px;
+	color:#008568;
+	font-size:12px;
+	text-align:left;
+	font-family:museo-sans;
+	font-weight:normal;}
+
+.table-wrapper1 th select{
+	color:#008568;
+	float:right;}
+.table-wrapper2 th select{
+	color:#008568;
+	float:right;}
+.table-wrapper th a{
+	padding:5px 0 0 5px;
+	float:left;
+	line-height:22px;}
+.table-wrapper1 th a{
+	color:#008568;
+	padding:0 0 0 5px;
+	float:left;
+	line-height:22px;}
+.table-wrapper2 th a{
+	color:#008568;
+	padding:0 0 0 5px;
+	float:left;
+	line-height:22px;}
+.table-header{
+	background:url('../cadastro/_img/table-head-grande.png') left top;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	width:100%;
+	height:52px;}
+.table-header1{
+	background:url('../cadastro/_img/table-head.png') left top;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+	width:100%;
+	height:25px;}
+.table-header2{
+	background:url('../cadastro/_img/table-head.png') left top transparent;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:1;
+
+	width:100%;
+	height:25px;}
+
+.table-footer2{
+	width:100%;
+	height:18px;
+	background:url('../cadastro/_img/table-footer.png') bottom left;
+	position:absolute;
+	bottom:0;
+	left:0;}
+
+#loading{
+	font-weight:italic !important;
+	color:#ff5548;}
+
+.app_war2{
+	background: url('../cadastro/_img/bg_approve_warnning2.png') left center no-repeat;
+	width:500px;
+	height:60px;
+    padding: 12px 0 0 30px;
+	margin-top:-50px;
+	margin-left:10px;}
+.app_war2 p{
+	font:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; line-height:14px; padding-top:8px;}
+
+.popup-inner{
+	background:url('../cadastro/_img/popup-bg.png') repeat-y;
+	width:845px;
+	position:relative;
+	margin:16px 0;}
+.popup-inner .content{ padding:20px; line-height:14px;}
+
+.popup h3{
+	line-height:55px;
+	background:url('../cadastro/_img/bg_large_div_header_middle.png') left top;
+	font-size:14px;
+	color:#989898;
+	font-style:italic;
+	padding:0 70px;}
+#pop586{
+	background:url('../cadastro/_img/popup-bg-586.png') repeat-y;
+	width:586px;
+	position:relative;
+	margin:16px 0;}
+	#pop586 .pop-top{
+		height:16px;
+		width:586px;
+		background:url('../cadastro/_img/popup-top-586.png');
+		position:absolute;
+		left:0;	}
+	#pop586 .pop-bottom{
+		height:16px;
+		width:586px;
+		background:url('../cadastro/_img/popup-bottom-586.png');
+		position:absolute;
+		left:0;	}
+.pop-top{
+	height:16px;
+	width:845px;
+	background:url('../cadastro/_img/popup-top.png');
+	position:absolute;
+	left:0;}
+.popup .search-navigation{
+	float:right;
+	margin:20px 20px 0 0;
+	height:60px;}
+.delivery-address tbody td.errorBorder{
+	background:url('../cadastro/_img/bg-table-td.png') left center no-repeat transparent;
+	text-align:center;
+	font-size:12px;
+	height:46px;}
+.delivery-address tbody td.errorColor{
+	text-align:center;
+	font-size:12px;
+	/*
+	padding:5px 9px 0px 22px;
+	height:30px;
+	*/
+}
+div.topBox{
+	background-image:url('../cadastro/_img/bg_890_top.png');
+	width:891px;
+	height:24px;
+	position:absolute;
+	z-index:1;
+	top:-8px;
+	left:0;}
+div.bottomBox{
+	background-image:url('../cadastro/_img/bg_large_div_bottom.png');
+	width:891px;
+	height:18px;
+	float:left;
+	z-index:1;
+	margin:0px 0px 0px 0px;	}
+.deliveryRegister li.sec_03{
+	border:none;
+	padding:25px 50px 5px 40px;}
+.text-wrapper-delivery{
+	background:url('../cadastro/_img/table-body.png') repeat-y;
+	padding:10px 5px 18px 6px;
+	position:relative;
+	clear:both;}
+
+/* Páginas com barra lateral */
+.left-wrapper .actions{
+	text-align:right;
+	line-height:25px;
+	margin-bottom:10px;
+	*margin-top:555 !important;}
+.left-wrapper .actions a{
+	color:#989898;
+	padding:3px 20px;
+	font-size:12px;
+	*margin-top:555 !important;}
+.left-wrapper a.add{
+	padding-left:15px;
+	color:#008265;
+	text-decoration:none;}
+input.input_line_break{
+	margin: -40px 0 0 189px !important;
+	position: relative;
+	display: block;
+	float: left;}
+input.input_line_break2{
+	margin: -30px 0 0 189px !important;
+	position: relative;
+	display: block;
+	float: left;}
+	
+.text-wrapper h3:first-child{
+	position:absolute;
+	top:0;
+	left:0;
+	width:850px;}
+
+/************************ AJUSTES DO CADASTRO PARA FINANCEIRO *************************/
+table.display{margin:15px 0}
+table.display thead th.ui-state-default{background:url(../_img/bgTable.png) -20px 0px; padding:10px 0; height:20px; border:0; text-align:left; }
+table.display thead th.ui-state-default:first-child{background:url(../_img/bgTable.png) 0px 0px; text-align:center;}
+table.display thead th.ui-state-default:last-child{background:url(../_img/bgTable.png) right 0; }
+table.display thead th div.DataTables_sort_wrapper{text-align:left; padding:0 10px;}
+	table.display thead th div.DataTables_sort_wrapper span{right:10px;}
+	table.display thead th:first-child div.DataTables_sort_wrapper{text-align:center;}
+
+table.display tbody tr.odd.gradeA, table.display tbody tr.odd.gradeB, table.display tbody tr.odd.gradeC, table.display tbody tr.odd.gradeX, table.display tbody tr.odd.gradeU,
+table.display tr.even.gradeA, table.display tr.even.gradeB, table.display tr.even.gradeC, table.display tr.even.gradeX, table.display tr.even.gradeU,
+table.display tbody tr.even.gradeA td.sorting_1, table.display tbody tr.even.gradeB td.sorting_1, table.display tbody tr.even.gradeC td.sorting_1, table.display tbody tr.even.gradeX td.sorting_1, table.display tbody tr.even.gradeU td.sorting_1, 
+table.display tbody tr.odd.gradeA td.sorting_1, table.display tbody tr.odd.gradeB td.sorting_1, table.display tbody tr.odd.gradeB td.sorting_1, table.display tbody tr.odd.gradeX td.sorting_1, table.display tbody tr.odd.gradeU td.sorting_1{
+	background:none}
+table.display tbody tr td, table.display tbody tr.even.gradeA td.sorting_1, table.display tbody tr.odd.gradeA td.sorting_1, 
+table.display tbody tr.even.gradeB td.sorting_1, table.display tbody tr.odd.gradeB td.sorting_1,
+table.display tbody tr.even.gradeC td.sorting_1, table.display tbody tr.odd.gradeC td.sorting_1,
+table.display tbody tr.even.gradeX td.sorting_1, table.display tbody tr.odd.gradeX td.sorting_1,
+table.display tbody tr.even.gradeU td.sorting_1, table.display tbody tr.odd.gradeU td.sorting_1{
+	background:url(../_img/bgTable.png) -20px -40px; padding:10px 0; color:#989898 }
+table.display tbody tr td:first-child, table.display tbody tr.even.gradeA td.sorting_1:first-child, table.display tbody tr.odd.gradeA td.sorting_1:first-child,
+table.display tbody tr.even.gradeB td.sorting_1:first-child, table.display tbody tr.odd.gradeB td.sorting_1:first-child,
+table.display tbody tr.even.gradeC td.sorting_1:first-child, table.display tbody tr.odd.gradeC td.sorting_1:first-child,
+table.display tbody tr.even.gradeX td.sorting_1:first-child, table.display tbody tr.odd.gradeX td.sorting_1:first-child,
+table.display tbody tr.even.gradeU td.sorting_1:first-child, table.display tbody tr.odd.gradeU td.sorting_1:first-child{
+	background:url(../_img/bgTable.png) left -40px; text-align:center; }
+table.display tbody tr td:last-child{
+	background:url(../_img/bgTable.png) right -40px; }
+table.display tbody tr td{ padding:0px;}
+table.display tbody tr td p {
+	padding: 5px 5px;
+	margin: 8px 0;
+	border-left: 1px solid #CFCFCF;
+	word-spacing: -0.1em;}
+table.display tfoot tr td{
+	background:url(../_img/bgTable.png) -20px bottom; height:10px}
+table.display tfoot tr td:first-child{
+	background:url(../_img/bgTable.png) left bottom; }
+table.display tfoot tr td:last-child{
+	background:url(../_img/bgTable.png) right bottom; }
+#bt_ok_tooltip{ background:url(../_img/bt_ok_pequeno.png); width:69px; height:35px; display:block; margin-left:115px;}
+#bt_ok_tooltip span{text-indent:-99999px; position:absolute;}
+/**
+ * @note 	alinhamento de textos
+ * @author	Andrea Zambrana
+ */
+.txt_al_left, .txt_al_left td, .txt_al_left a {
+	text-align:left !important;
+	}
+.txt_al_right, .txt_al_right td, .txt_al_right a {
+	text-align:right !important;
+	}
+.txt_al_center, .txt_al_center td, .txt_al_center a {
+	text-align:center !important;
+	}
+/* Promoções do Saldo e Extrato */	
+div.promocoes .text-wrapper h3 a{color:#989898}
+div.promocoes .text-wrapper dl{float:left; width:140px; margin:5px 3px}
+	div.promocoes .text-wrapper dl dt{text-align:center; margin:0; padding:0;}
+	div.promocoes .text-wrapper dl dd{text-align:center; margin:0; padding:0;}
+		div.promocoes .text-wrapper dl dd a{color:#989898; font-size:11px; padding:5px 20px; text-align:center; display:block}
+/**/
+.pdf.gray.mCenter{padding:0 0px 0 25px; font-size:11px; width:180px; display:block;}
+
+
+
+
+
+
+

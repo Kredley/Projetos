@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Jogo {
+
+	public static void main(String[] args) {
+	
+		
+		System.out.println("Pense em um animal");
+		
+		System.out.println("O Animal que você pensou vive na água?    [S/N]");
+		
+		Scanner s = new Scanner(System.in);
+		
+		String tipo = s.nextLine();
+		
+		while(tipo.equalsIgnoreCase("S") || tipo.equalsIgnoreCase("N")){
+			
+			ArrayList<Animal> animal = new ArrayList<Animal>();
+			
+			if(tipo.equalsIgnoreCase("S")){
+				
+				System.out.println("OK");
+				
+			}else if(tipo.equalsIgnoreCase("N")){
+				
+				System.out.println("NAO OK");
+			}
+			
+			 tipo = s.nextLine();
+			
+		}
+		
+		System.out.println("SAIU");
+
+		
+	}
+}

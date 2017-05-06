@@ -1,0 +1,185 @@
+/* CSS de Preview de Impressão */
+.actions{
+	float:right;
+	width:150px;
+	margin:0 10px;
+	*margin-top:-60px
+}
+.actions a{
+	color:#6f6f6f;
+	font-size:11px;
+	padding-left:25px;
+	height:20px;
+	line-height:20px;
+	margin:5px 0;
+	display:inline-block;
+}
+
+.col:first-child{
+	margin-left:5px;
+}
+.col{
+	width:425px;
+	float:left;
+	margin-top:20px;
+	margin-left:30px;
+}
+.col > div{
+	margin:0 0 20px 0 !important
+}
+#terms{
+	background:url('../_img/print_bg_conditions.png') no-repeat;
+	height:91px;
+}
+#terms strong{
+	margin-bottom:10px;
+}
+
+#total{
+	background:url('../_img/bg_print_total.png') no-repeat;
+	width:425px;
+	float:none;
+	margin:0 0 20px 0;
+	height: 149px;	
+}
+#total h3{
+	line-height:30px
+}
+#total *{
+	background:none !important
+}
+#total table {
+	width:340px;
+}	
+
+
+.w_round_425{
+	margin:0 auto;
+	width:425px;
+	clear:both
+}
+.w_round_425 .tt_outter{background-image:url('../_img/bg_outter_tt_425.png')}
+
+.round_425{
+	position:relative;
+	width:425px;
+	background:url(../_img/bg_425_middle.png);
+	margin:6px 0;
+	padding-top:10px
+}
+.round_425 .r-top,
+.round_425 .r-bottom{
+	width:425px;
+	position:absolute;
+	left:0;
+	background:url(../_img/bg_425_top.png) left bottom no-repeat;	
+	top:-6px;
+	height:6px
+}
+.round_425 .r-bottom{
+	top:auto;
+	bottom:-6px;
+	background:url(../_img/bg_425_bottom.png) left top no-repeat;
+}
+
+.w_round_425 h5,
+.w_round_425 ul li,
+.w_round_425 dl,
+.w_round_425 p{
+	padding: 0 20px 15px 20px;
+	font-size: 11px;
+	margin: 0;
+	color: #6F6F6F;
+}
+.w_round_425 h5{
+	color:#008265;
+	font-size:12px;
+}
+.w_round_425 dt{
+	font-size:11px;
+	font-weight:bold;
+}
+.w_round_425 dd{margin:0}
+
+.footer{
+	margin:0 auto;
+	width:895px;
+	text-align:center;
+	font-family:museo-sans;
+	font-weight:bold;
+	color:#6f6f6f;
+	font-size:16px
+}
+
+.sidebar a{	
+	color:#6f6f6f;
+	text-decoration:underline
+}
+.w_round_425.sidebar p{
+	font-size:11px;
+	color:#6f6f6f;
+	padding-left:30px;
+	background:url('../_img/img_balloon.png') left 5px no-repeat;
+	line-height:1.2em;
+	float:left;
+	width:140px;
+	margin-left:20px
+}
+.sidebar p strong,
+.sidebar p a{
+	display:block;
+	font-weight:bold;
+}
+.w_round_425.sidebar p.sales{
+	background-image:url('../_img/img_call.png');
+}
+
+.table-products.printable{
+	background:url('../_img/bg_table_header_2.png') -5px top no-repeat;
+}
+.printable .table-crosscell-footer{
+	background:url('../_img/bg-table-crosscell-bottom_2.png') bottom left no-repeat;
+	width:865px;
+}
+.printable table,
+.printable{
+	width:863px;
+}
+.printable .product,
+.printable .col_1{
+	width:224px;
+}
+.printable .value,
+.printable .col_2{
+	width:352px
+}
+.printable .quantity,
+.printable .col_3{
+	width:60px
+}
+.printable .subtotal,
+.printable .col_4{
+	width:225px
+}
+.printable .product img{
+	margin-right: 10px;
+}
+
+.printable .subtotal table{
+	width:210px;
+	margin-top:5px;
+}
+.printable .subtotal td{
+	width:120px;
+	text-align:left;
+	font-size:11px;
+	color:#909090;
+	font-weight:normal;
+	background:none;
+	border:0
+}
+.printable .subtotal td:first-child{
+	width:90px;
+	text-align:right;
+}
+.pad{ padding-top:10px}

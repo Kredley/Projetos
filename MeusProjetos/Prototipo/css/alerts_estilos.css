@@ -1,0 +1,44 @@
+/* --- Layout  */
+	body .boxAlertContent{ width: 594px; margin: 0 auto; background-color:#fff; text-align:left;}
+/*Layout --- */
+
+/* --- Alert alert_n_arquivos.html  */
+body .arquivos{ position:relative; height: 332px;}
+	body .arquivos h2{ font-family:"Museo Sans 500"; size:29px; color:#008568; float:left; margin: 15px 0 0 35px;}
+	body .arquivos .linha{ width:594px; border-bottom: #e8e8e8 solid 1px; clear:both;}
+	body .arquivos p{ font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#989898; width: 521px; margin: 15px 35px;}
+	body .arquivos .bt_fechar{ background:url(../imgs/alerts/botoes/bt_alerts.png) -33px -40px; top: 27px; left:460px; width: 105px; height:24px; position:absolute; text-indent:-9999em; }
+/*Alert alert_n_arquivos.html --- */
+
+/* --- Alert alert_confirmacao_vizualizacao.html  */
+	body .confirmacao_visualizacao .bt_ok{ background:url(../imgs/alerts/botoes/bt_alerts.png) -175px -30px; width:91px; margin:20px auto; height:43px; text-indent:-9999em; display:block;}
+	body .confirmacao_visualizacao .custom_checkbox{ cursor:pointer; padding:15px 0 0; width:295px; margin:0 auto}
+	body .confirmacao_visualizacao .custom_checkbox img{float:left;}
+	body .confirmacao_visualizacao .custom_checkbox p{float:left; width:80%; padding:2px 5px; margin:0px;}
+/*Alert alert_confirmacao_vizualizacao.html --- */
+
+/* --- Alert alert_imprimir_documentos.html  */
+body .imprimir_documentos ul{ clear:both; margin:0 -20px; *margin-top:20px !important;  padding-top:20px; *padding-top:0 !important; }
+	body .imprimir_documentos ul li{ float:left; list-style:none; list-style-type:none; border-top:1px solid #ececec; padding:8px 41px; width:100%; _width:594px !important;}
+		body .imprimir_documentos ul li input, body .imprimir_documentos ul li img{ float:left; margin-right:20px; cursor:pointer;}
+		body .imprimir_documentos ul li p{ margin:0px; float:left; width:80%; padding:1px 20px; border-left:1px solid #ececec;}
+		body .imprimir_documentos a.bt_imprimir_selecionados{ margin:0px auto; }
+		body .imprimir_documentos a.bt_salvar_selecionados{ margin:0px auto; }
+		
+/*Alert alert_imprimir_documentos.html ---  */
+
+/**/
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+

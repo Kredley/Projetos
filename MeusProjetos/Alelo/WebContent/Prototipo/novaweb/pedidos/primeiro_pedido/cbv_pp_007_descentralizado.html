@@ -1,0 +1,681 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<script src="../../_js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+		<style type="text/css" title="currentStyle">
+			@import "../../../media/css/demo_page.css";
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+
+		<script type="text/javascript">
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==0){
+							sColValue1 = $(this).find("p").html();
+							sColValueNoSpace1 = retira_acentos(sColValue1.toLowerCase().replace(/\s/gi,''));
+							$('#situacao').append('<option value='+sColValueNoSpace1+'>'+sColValue1+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace1+"</span>");
+						}
+						else if(i==1){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_envio').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==4){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#produto').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==3){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_pedido').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==5){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_contrato').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==6){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#disp').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==7){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_vencimento').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+					} );
+				} );
+
+
+				var  oTable = $('.display').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+				});
+
+				$(".search-filters a.button.search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search-filters input").each(function(){
+					//if(this.value!='')arrFilterValues.push(this.value);
+					})
+					$(".search-filters select").each(function(){
+						if ($(this).attr('id') == 'filial_faturamento' 
+						&& this.value!='') {
+							arrFilterValues.push(this.value);
+						}
+						//if(this.value!='')arrFilterValues.push(this.value);
+					})
+
+					if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+				} );
+				$(".search-filters .tip1").hide();
+
+				$("#tb1").hide();
+				$("#tb_01").css('display', 'block');
+				$("#tb2").hide();
+				$("#tb_02").css('display', 'block');
+				$("#tb3").hide();
+				$("#tb_03").css('display', 'block');
+				
+				var aberto1 = false;
+				$('#top1, #plusminus1, #tb1 .bottom_pddo').click(function(){
+					if (aberto1 == false) {
+						$("#plusminus1").attr('src', "../../_img/backgrounds/minus.png");
+						$("#tb1").show('slow');	
+						aberto1 = true;
+					}
+					else {
+						$("#plusminus1").attr('src', "../../_img/backgrounds/plus.png");
+						$("#tb1").hide('slow');
+						aberto1=false;
+					}
+				});
+				
+				var aberto2 = false;
+				$('#top2, #plusminus2, #tb2 .bottom_pddo').click(function(){
+					if (aberto2 == false) {
+						$("#plusminus2").attr('src', "../../_img/backgrounds/minus.png");
+						$("#tb2").show('slow');	
+						aberto2 = true;
+					}
+					else {
+						$("#plusminus2").attr('src', "../../_img/backgrounds/plus.png");
+						$("#tb2").hide('slow');
+						aberto2=false;
+					}
+				});
+				
+				var aberto3 = false;
+				$('#top3, #plusminus3, #tb3 .bottom_pddo').click(function(){
+					if (aberto3 == false) {
+						$("#plusminus3").attr('src', "../../_img/backgrounds/minus.png");
+						$("#tb3").show('slow');	
+						aberto3 = true;
+					}
+					else {
+						$("#plusminus3").attr('src', "../../_img/backgrounds/plus.png");
+						$("#tb3").hide('slow');
+						aberto3=false;
+					}
+				});
+
+
+			});
+		</script>
+
+
+		<title></title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+				<div id="andamento_pedido"></div>
+				<h2>Conferência dos dados do pedido	</h2>
+				<p class="subtitle">Confira os dados antes de concluir a alteração</p>
+				<div class="text-wrapper">
+				<h3 class="first">Dados do Pedido</h3>
+
+				<div class="pd_20">
+				<div class="right"><a href="cbv_pp_007.html" class="btn_alterar"><span class="screen_reader_text">Alterar</span></a></div>
+				<div id="tb_01">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>Produto e número do contrato</strong></td>
+								<td>Refeição (00010005811) - Boas Vindas</td>
+							</tr>
+							<tr>
+								<td><strong>Funcionários beneficiados</strong></td>
+								<td>99999</td>
+							</tr>
+							<tr>
+								<td><strong>Mês de Referência</strong></td>
+								<td>08/08/2008 <span class="txt_9">com serviço de disponibilização antecipada</span></td>
+							</tr>
+							<tr>
+								<td><strong>Data de disponibilização</strong></td>
+								<td>08/08/2008</td>
+							</tr>
+							<tr>
+								<td><strong>Valor total do benefício</strong></td>
+								<td>999.999.999,00</td>
+							</tr>
+							<tr>
+								<td><strong>Tipo de entrega</strong></td>
+								<td>Descentralizada</td>
+							</tr>
+							<tr>
+								<td><strong>Tipo de faturamento</strong></td>
+								<td>Descentralizado</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<br />
+				<p class="normal4 txt_10">Para o recebimento de novos cartões, por favor, certifique-se que o cadastro do interlocutor de recebimento está atualizado, garantindo assim o sucesso da entrega.</p>
+				</div>
+				
+				<div class="blocoFlex1">
+					<h3>Locais de entrega e beneficiados</h3>						
+					<div class="pd_20">
+					<div class="right txt_al_right">
+							<a href="cbv_pp_confirmar_local_3.html" class="btn_alterar right"><span class="screen_reader_text">Alterar</span></a>
+							<br class="clear" />
+							<a href="javascript: void(0);" class="btn_visualizar_dados_fat right" onClick="alert('O usuário será encaminhado ao módulo financeiro');"><span class="screen_reader_text">Visualizar dados de faturamento</span></a>
+						</div>
+					<ul class="left normal4 normal">
+					<li><strong>40 CARACTERES XXX XXXXXXX XXXXXX</strong></li>
+					<li><strong>Rua do Rócio, 288, cj 101</strong></li>
+					<li><strong>Caiçara do Rio dos Ventos/RN</strong></li>
+					</ul>
+					<ul class="left normal4 normal mg_left_10">
+					<li>Interlocutores de recebimento</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					</ul>
+					<br class="clear" />
+					</div>
+					<div class="pd_20">
+					<div class="tot_pddo">Total de benefícios nesta unidade: R$ 999.999.999,99</div>
+					<div class="top_pddo normal2"><img class="plusminus" id="plusminus1" src="../../_img/backgrounds/plus.png" alt="" /><a href="javascript: void(0)" class="a_top_pddo" id="top1">999 beneficiados</a></div>
+					<div id="tb1" class="tb_mg_top">
+					<table class="display" id="example">
+					<thead>
+					<tr>
+					<th>Nome do funcionário</th>
+					<th>CPF</th>
+					<th>Matrícula</th>
+					<th class="lastChild">Valor do Crédito (R$)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="lastChild">&nbsp;</td>
+					</tr>
+					</tfoot>
+					</table>
+					<span class="bottom_pddo"></span>
+					<br class="clear" />
+					</div>
+					</div>
+				</div>
+				<hr class="cinza" />
+				<div class="blocoFlex1">					
+					<div class="pd_20"><div class="right txt_al_right">
+							<a href="cbv_pp_confirmar_local_3.html" class="btn_alterar right"><span class="screen_reader_text">Alterar</span></a>
+							<br class="clear" />
+							<a href="javascript: void(0);" class="btn_visualizar_dados_fat right" onClick="alert('O usuário será encaminhado ao módulo financeiro');"><span class="screen_reader_text">Visualizar dados de faturamento</span></a>
+						</div>
+					<ul class="left normal4 normal">
+					<li><strong>40 CARACTERES XXX XXXXXXX XXXXXX</strong></li>
+					<li><strong>Rua do Rócio, 288, cj 101</strong></li>
+					<li><strong>Caiçara do Rio dos Ventos/RN</strong></li>
+					</ul>
+					<ul class="left normal4 normal mg_left_10">
+					<li>Interlocutores de recebimento</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+					</ul>
+					<br class="clear" />
+					</div>
+					<div class="pd_20">
+					<div class="tot_pddo">Total de benefícios nesta unidade: R$ 999.999.999,99</div>
+					<div class="top_pddo normal2"><img class="plusminus" id="plusminus2" src="../../_img/backgrounds/plus.png" alt="" /><a href="javascript: void(0)" class="a_top_pddo" id="top2">999 beneficiados</a></div>
+					<div id="tb2" class="tb_mg_top">
+					<table class="display" id="example">
+					<thead>
+					<tr>
+					<th>Nome do funcionário</th>
+					<th>CPF</th>
+					<th>Matrícula</th>
+					<th class="lastChild">Valor do Crédito (R$)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="lastChild">&nbsp;</td>
+					</tr>
+					</tfoot>
+					</table>
+					<span class="bottom_pddo"></span>
+					<br class="clear" />
+					</div>
+					</div>
+				</div>
+				<hr class="cinza" />
+				<div class="blocoFlex1">					
+					<div class="pd_20">
+						<div class="right"><div class="right txt_al_right">
+							<a href="cbv_pp_confirmar_local_3.html" class="btn_alterar right"><span class="screen_reader_text">Alterar</span></a>
+							<br class="clear" />
+							<a href="javascript: void(0);" class="btn_visualizar_dados_fat right" onClick="alert('O usuário será encaminhado ao módulo financeiro');"><span class="screen_reader_text">Visualizar dados de faturamento</span></a>
+						</div>
+						</div>
+						<ul class="left normal4 normal">
+							<li><strong>40 CARACTERES XXX XXXXXXX XXXXXX</strong></li>
+							<li><strong>Rua do Rócio, 288, cj 101</strong></li>
+							<li><strong>Caiçara do Rio dos Ventos/RN</strong></li>
+						</ul>
+						<ul class="left normal4 normal mg_left_10">
+							<li>Interlocutores de recebimento</li>
+							<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+							<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+							<li>40 CARACTERES XXX XXXXXXX XXXXXX</li>
+						</ul>
+						<br class="clear" />
+					</div>
+					<div class="pd_20">
+					<div class="tot_pddo">Total de benefícios nesta unidade: R$ 999.999.999,99</div>
+					<div class="top_pddo normal3"><img class="plusminus" id="plusminus3" src="../../_img/backgrounds/plus.png" alt="" /><a href="javascript: void(0)" class="a_top_pddo" id="top3">999 beneficiados</a></div>
+					<div id="tb3" class="tb_mg_top">
+					<table class="display" id="example">
+					<thead>
+					<tr>
+					<th>Nome do funcionário</th>
+					<th>CPF</th>
+					<th>Matrícula</th>
+					<th class="lastChild">Valor do Crédito (R$)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					<tr>
+					<td><p>João Agnaldo Castilho Cardoso Nascimento</p></td>
+					<td><p>999.999.999-99</p></td>
+					<td><p>99.999</p></td>
+					<td class="linkP lastChild"><p>200,00</p></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td class="lastChild">&nbsp;</td>
+					</tr>
+					</tfoot>
+					</table>
+					<span class="bottom_pddo"></span>
+					<br class="clear" />
+					</div>
+					</div>
+				</div>
+
+				<div class="table-footer"></div>
+				</div>
+				<span class="clear"></span>
+				<div class="text-wrapper">
+					<h3 class="first">Informações sobre novos cartões e disponibilização dos créditos</h3>
+					<div class="pd_20 normal4">
+						<ul class="normal normal4">
+							<li><strong>Novos cartões:</strong></li>
+							<li>- Novos cartões serão emitidos ao creditar benefícios para novos funcionários incluídos na lista de pedidos.</li>
+							<li>- O prazo para entrega de cartões e senhas é de até 7 dias úteis após o pedido.</li>
+						</ul>
+						<br />
+						<ul class="normal normal4">
+							<li><strong>Prazos para disponibilização dos créditos:</strong></li>
+							<li>- Para pagamento a prazo, a carga será realizada 3 dias após o pagamento.</li>
+							<li>- Para pagamento com boleto, a carga será realizada 3 úteis dias após o pagamento.</li>
+							<li>- Para pagamento com através de débito em conta, a carga será realizada 6 dias úteis após o envio do pedido.</li>
+						</ul>
+					</div>
+					<div class="table-footer"></div>
+				</div>
+				<br class="clear" />
+				<a href="cbv_pp_007.html" class="bt_voltar left"><span class="screen_reader_text">Voltar</span></a>
+				<a href="cbv_pp_pedido_realizado.html" class="btn_confirmar right"><span class="screen_reader_text">Continuar</span></a>
+				<div class="img_floppy right normal4"><a href="javascript: alert('Operação executada com sucesso');" class="normal4">Salvar pedido e continuar depois</a></div>
+			</div>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

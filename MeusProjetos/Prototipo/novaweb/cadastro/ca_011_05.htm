@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+		<script src="../_js/jquery.colorbox-min.js"></script>		
+		
+		
+		
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body onLoad="$.colorbox({inline:true, href:'.popup', opacity:0.30, transition:'none'});">
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Níveis de alerta</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>Níveis de alerta</h2>
+	<p class="subtitle">
+		Nosso sistema envia automaticamente para os interlocutores de decisão alertas sobre alterações e pedidos realizados na conta da empresa. Essa é uma ação de segurança para proteger nossos clientes contra fraudes e riscos de violação.
+	</p>
+	
+	<form class="security_levels">
+		<button class="button alert-levels">Compare os níveis de alerta</button>
+		<div class="text-wrapper">
+			<h3>
+				Escolha a configuração do nível de alerta para
+				<select>
+					<option>Nome da Empresa + CNPJ</option>
+				</select>
+			</h3>
+			
+			<ul>
+				<li class="sec_01">
+					<input type="radio" name="security" />
+					
+					
+					<p>
+						<strong>Detalhado</strong>
+						Os responsáveis receberão informações detalhadas sobre todos os acontecimentos na conta da empresa. 
+						Recomendado para empresas durante investigação de possíveis fraudes.
+					</p>
+				</li> 
+				<li class="sec_02">
+					<input type="radio" name="security" checked />
+					
+					<p>
+						<strong>Padrão (Recomendado)</strong>
+						Os responsáveis receberão informações recomendadas sobre realização de pedidos e alterações em contratos, locais de entrega e contas de interlocutores.
+					</p>
+					<span class="security-alert">
+						Faça uma escolha segura para sua empresa. Utilize o Nível Padrão de alertas.
+					</span>
+				</li>
+				<li class="sec_03">
+					<input type="radio" name="security" />
+					<p>
+						<strong>Resumido</strong>
+						Os responsáveis receberão apenas informações resumidas sobre pedidos realizados na conta da empresa.
+					</p>
+				</li>
+				<li class="sec_04">
+					<input type="radio" name="security" />
+					
+					<p>
+						<strong>Nenhum</strong>
+						Os responsáveis não receberão nenhum alerta sobre as movimentações na conta da empresa.
+					</p>
+				</li>
+			</ul>
+
+			<div class="table-footer"></div>
+		</div>
+		
+		<fieldset class="save-form">
+			<button class="button back">Voltar</button>
+			<button class="button save">Salvar</button>
+		</fieldset>
+	</form>
+	
+	
+	<div class="none">
+		<div class="popup large">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2>Compare os níveis de alerta</h2>
+
+				<div class="security-wrapper">
+					<table>
+						<tr>
+							<th class="item-description">&nbsp;</th>
+							<th>Resumido </th>
+							<th>Padrão <span>(Recomendado)</span></th>
+							<th>Detalhado </th>
+						</tr>
+						<tbody>
+						<tr>
+							<td class="item-description"><strong>Acesso</strong></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="item-description">Dados do interlocutor logado (detalhado)</td>
+							<td>X</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description"><strong>Pedido e número do contrato</strong></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="item-description">Novos Pedidos (detalhado)</td>
+							<td>X</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description">Cancelamento de Pedidos (detalhado)</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description">Tentativa de pedido fora do range de IP (detalhado)</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description"><strong>Contato</strong></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="item-description">Alteração de Local de Entrega</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description">Alteração de Interlocutor de Decisão</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description"><strong>Locais de Entrega</strong></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="item-description">Alteração de Interlocutor de Filiais</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description">Alteração de Posto de Trabalho e Departamento</td>
+							<td>&nbsp;</td>
+							<td class="bg">&nbsp;</td>
+							<td>X</td>
+						</tr>
+						<tr>
+							<td class="item-description"><strong>Locais de Entrega</strong></td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="item-description">Inclusão e Alteração de Interlocutores</td>
+							<td>&nbsp;</td>
+							<td class="bg">X</td>
+							<td>X</td>
+						</tr>						
+						<tr>
+							<td class="item-description">Exclusão de Interlocutores</td>
+							<td>&nbsp;</td>
+							<td class="bg">&nbsp;</td>
+							<td>X</td>
+						</tr>						
+						<tr>
+							<td class="item-description">Bloqueios e Esqueci minha senha</td>
+							<td>&nbsp;</td>
+							<td class="bg">&nbsp;</td>
+							<td>X</td>
+						</tr>	
+						</tbody>						
+						<tfoot>						
+						<tr>
+							<td class="item-description">&nbsp;</td>
+							<td><button class="button choose">Escolher</button></td>
+							<td><button class="button choose">Escolher</button></td>
+							<td><button class="button choose">Escolher</button></td>
+						</tr>						
+						</tfoot>						
+					</table>
+					<span class="security-footer2"></span>
+					<span class="security-footer"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

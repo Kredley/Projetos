@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+public abstract class teste {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+	
+		System.out.println("Entre com um número inteiro: ");
+				Scanner scanner = new Scanner( System.in ); 
+				Integer numero = scanner.nextInt();
+				numero++;
+				System.out.println("Os 10 números pares seguintes ao número digitado são: ");
+				for(int i=0; i<20; i++) {
+					if(numero%2 == 0) {
+						System.out.println(numero);
+						numero++;
+					} else {
+						numero++;
+					}
+				}
+			}
+
+}

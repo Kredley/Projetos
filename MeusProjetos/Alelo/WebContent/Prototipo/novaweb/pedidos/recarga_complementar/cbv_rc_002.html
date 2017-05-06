@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<script src="../../_js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.imagetick.js"></script> 
+        <script src="../../_js/jquery.simplemodal.js"></script>  
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+		<style type="text/css" title="currentStyle">
+			@import "../../../media/css/demo_page.css";
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+
+		<script type="text/javascript">
+		
+			
+			$(document).ready(function() {
+
+			$('.jScrollPaneTrack .jScrollPaneDrag').css({'height':'74px'});
+				$('#modal_2').click(function (e) {
+					$.modal('<iframe src="cbv_rc_006.html" height="650" width="560"  frameborder="0" scrolling="no" style="margin-top:10px; margin-left:28px;">', {
+						closeClass:'close',
+						containerCss:{
+							height:700,
+							padding:0,
+							width:595
+						},
+						overlayClose:true
+					});
+				});
+				
+				$('.modelo_recarga').hide();
+				$('.blocoFlex1').hide();
+				$('.atencao_recarga').hide(); 
+				$('.bt_continuar').hide();
+				
+				$('.select_recarga').change(function(){
+					var valorSelect = $(this).val();
+					if(valorSelect == 'Flexcard Visa Vale (00000315608) Novo'){
+						$('.modelo_recarga').hide();
+						$('.blocoFlex1').show('slow');
+						$('.atencao_recarga').show('slow'); 
+						$('.bt_continuar').show('slow');
+					}
+					if(valorSelect == 'Flexcard Visa Vale (00000315608)'){
+						$('.modelo_recarga').show('slow');
+						$('.blocoFlex1').hide();
+						$('.atencao_recarga').hide(); 
+						$('.bt_continuar').hide();
+					}
+					if(valorSelect == 'Selecione'){
+						$('.modelo_recarga').hide();
+						$('.blocoFlex1').hide();
+						$('.atencao_recarga').hide(); 
+						$('.bt_continuar').hide();
+					}
+				});
+			});
+			
+			
+		</script>
+	<style>
+		.modal_content, .modal_msg {display:none;}
+		.close {
+			clear:both;
+			background:url(../../_img/bt_close.png) no-repeat top left;
+			width: 107px;
+			height: 24px;
+			position: absolute;
+			top: 25px;
+			right: 20px;
+			text-indent: -9999em;
+			z-index:5000;
+			
+			}
+		#simplemodal-overlay {
+			border:solid 1px #f00;
+			background-color:#999999;
+			cursor:auto !important;
+		}
+		#simplemodal-container {
+			background:url(../../_img/backgrounds/fundo_lightbox.png);
+			width:595px;
+			height:843px;
+			padding:50px;
+			}
+		.scroll-pane{
+			position:absolute; 
+			padding-right:30px;
+			height:520px; 
+			width:480px;
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:12px;
+			color:#959595;
+		}
+		.scroll-pane li{
+			list-style:circle;
+		}
+	</style>		
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+				<div class="img_andamento"><img src="../../_img/img_andamento1.png" width="305" height="63" /></div>
+				<h2>Recarga Complementar</h2>
+				<p class="subtitle">Com o serviço de Recarga Complementar você programa a disponibilização de créditos para os cartões Flex Car Visa Vale na medida certa, de acordo com os gastos de cada colaborador da sua empresa.</p>
+				<br>
+				<p class="subtitle" ><a href="#" id="modal_2"><strong>Entenda como funciona a Recarga Complementar</strong></a></p>
+				<div class="text-wrapper">
+				<h3 class="first">Produto e N° do Contrato:</h3>
+					<select style="width:300px; margin:20px 0 5px 17px;" class="select_recarga">
+						<option>Selecione</option>
+						<option>Flexcard Visa Vale (00000315608)</option>
+						<option>Flexcard Visa Vale (00000315608) Novo</option>
+					</select>
+					<img src="../../_img/atencao_recarga.png" width="431" height="31" class="atencao_recarga"/>
+					<div class="modelo_recarga cantos">
+						<h4>Existe um modelo de recarga configurado:</h4>
+						<table class="tabela_recarga">
+							<tr>
+								<td><strong>Funcionários beneficiados</strong></td>
+								<td>20</td>
+							</tr>
+							<tr>
+								<td><strong>Total do Benefício</strong></td>
+								<td>R$ 250,00</td>
+							</tr>
+							<tr>
+								<td><strong>Data da última disponibilização</strong></td>
+								<td>20/10/2012</td>
+							</tr>
+							<tr>
+								<td><strong>Próxima disponibilização</strong></td>
+								<td>21/11/2012</td>
+							</tr>
+						</table>
+						<p><strong>Atencão:</strong></p>
+						<p>- Mudanças no modelo de recarga devem ser feitas com até 4 dias de antecedência à disponibilização da data escolhida. Passado esse prazo, as mudanças serão programadas para período posterior.</p>
+						<p>- Para alterar a data de disponibilização ou cancelar o serviço, entre em contato com a <a href="#">Central de atendimento</a>.</p>
+						<a href="cbv_rc_001.html" class="bt_excluir_modelo left" style="margin-top:20px;"><span class="screen_reader_text">Excluir Modelo</span></a>
+						<a href="cbv_rc_004_b.html" class="bt_editar_modelo right" style="margin-top:20px;"><span class="screen_reader_text">Editar Modelo</span></a>						
+					</div>
+				<div class="blocoFlex1">
+					<h3>Quais funcionários farão parte do modelo?</h3>
+					<form class="deliveryRegister">
+						<div class="text-wrapper-delivery2">
+							<ul>
+								<li class="sec_01">
+									<input type="radio" id="localizar" name="radio" />
+									<label for="localizar"><p>Localizar e incluir funcionários manualmente</p></label>
+								</li>
+								<li class="sec_02">
+									<input type="radio" id="japossuem" checked name="radio" />
+									<label for="japossuem"><p>Somente os funcionários que já possuem esse produto</p></label>
+								</li>
+								<li class="sec_02">
+									<input type="radio" id="localentrega" name="radio" />
+									<label for="localentrega"><p>Todos cadastrados em um local de entrega</p></label>
+								</li>
+								<li class="sec_03">
+									<input type="radio" name="radio" id="bt_excel" />
+									<label for="bt_excel"><p>Importar dados do pedido via tabela excel</p>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</form>						
+				</div>
+				<div class="table-footer"></div>
+				</div>
+				<span class="clear"></span>
+				<br class="clear" />
+				<a href="cbv_rc_004_b.html" class="bt_continuar right"><span class="screen_reader_text">Continuar</span></a>
+			</div>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

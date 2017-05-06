@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+		
+	<link href="_css/style.css" rel="stylesheet" />	
+	<link rel="stylesheet" href="../_css/wa_datatables.css" type="text/css" media="screen" />
+	<script type="text/javascript" language="javascript" src="../_js/jquery-1.7.js"></script>
+	<script type="text/javascript" language="javascript" src="../_js/jquery.dataTables.js"></script>	
+    <script src="../_js/jquery.colorbox-min.js"></script>
+	
+	<meta charset="utf-8" />	
+	<title></title>
+    <script type="text/javascript" charset="utf-8">
+
+	var tdToFilter = 2;
+	
+	$(document).ready( function() {
+
+		var heightDefine = 0;
+		$('.default_table tbody td').each(function(index) {
+			if(heightDefine < $(this).find('p').height()){
+				heightDefine = $(this).find('p').height();
+			}
+		});
+		$('.default_table tbody td p').height(heightDefine);
+		
+		var  oTable = $('.default_table').dataTable({
+			"bJQueryUI": true,
+			"aaSorting": [],
+			"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+			"sPaginationType": "full_numbers",
+			"oLanguage": {
+				"sLengthMenu": "Display _MENU_ records per page",
+				"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+				"sInfo": "_START_-_END_ de _TOTAL_",
+				"sInfoEmpty": " ",
+				"sInfoFiltered": " "
+			}
+		});
+
+		function clearFilters(){
+			$(".form_list input").each(function(){
+				$(this).val('');
+			})
+			$(".form_list select").each(function(){
+				$(this).val('');
+			})
+			$(".form_list .filter").click();
+		}
+		
+		$(".form_list .filter").click( function () {
+			var arrFilterValues = new Array();
+			$(".form_list input").each(function(){
+				if(this.value!='')arrFilterValues.push(this.value);
+			})
+			$(".form_list select").each(function(){
+				if(this.value!='')arrFilterValues.push(this.value);
+			})
+								
+			if(arrFilterValues.length==0){$(".form_list .tip1").show()}else{$(".form_list .tip1").hide()};
+
+			
+			var sele = $(".form_list select").find('option:selected').val();
+			if(sele=="Selecione"){
+				sele= "";
+			}
+			oTable.fnFilter( sele, 0 );
+		} );
+
+	})			
+	</script>
+	</script>
+    <style type="text/css">
+	#main{
+		margin:10px auto 0 auto;
+		position: relative;
+    	line-height:1em;
+    	padding:10px;
+    	font-size:12px;
+		color:#989898;
+	}
+	#main h2{
+		line-height: 20px;
+	}
+	</style>
+</head>
+<body>	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Histórico de Ações</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>Histórico de Ações</h2>
+	<p class="subtitle">
+		Você poderá acompanhar as ações realizadas pelos interlocutores durante o acesso ao Sistema de Pedidos de Benefícios.<br>
+		Defina <a href="ca_011_03.htm">restrições de domínio e IPs</a> de acesso ao site e <a href="ca_011_01.htm">níveis de alerta</a> que os interlocutores de decisão receberão.
+	</p>
+	<form class="search-filters form_list">
+		<fieldset>
+			<label>Período:</label>
+			<div>
+				<select class="w280" id="periodo">
+					<option>Selecione</option>
+                    <option>5 últimos dias</option>
+                    <option>7 últimos dias</option>
+                    <option>30 últimos dias</option>
+                    <option>5 últimos meses</option>
+				</select>
+			</div>
+            
+            <div class="icones">
+              <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="print">Imprimir</a>
+              <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar em PDF</a>
+            </div>	
+            <a href="javascript:void(0);" class="button exibir filter bt_buscar_periodo">Buscar</a>		
+		</fieldset>
+	</form>
+		<div class="search-result-header1">
+    	<p class="period">Período exibido: 01/01/2011 a 30/05/2011</p>
+		<p class="result-count-hist">
+			Mostrar por vez: 
+			<span>10</span> |
+			<a href="#">20</a> |
+			<a href="#">40</a>
+		</p>
+	</div>
+		<table class="default_table w_100c">
+	<thead>
+		<tr>
+			<th>Data</th>
+			<th width="20%">Hora</th>
+            <th width="20%">Nome do Interlocutor</th>
+			<th  class="last_child">Tipo de Ação</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+            <th>&nbsp;</th>
+			<th class="last_child">&nbsp;</th>
+		</tr>
+	</tfoot>
+	<tbody class="txt_al_center">
+		<tr>
+			<td><p>01/01/2011</p></td>
+			<td><p>22:00</p></td>
+            <td><p>Carlos Hernandez</p></td>
+			<td class="last_child"><p>40 CARACTERES ESPELHO XXXXXXXXX XXXXXXXXXXXXXXXX</p></td>
+		</tr>
+		<tr>
+			<td><p>23/02/2011</p></td>
+			<td><p>15:00</p></td>
+            <td><p>Thais Ferreira</p></td>
+			<td class="last_child"><p>25 CARACTERES ESPELHO XXXXXXXXX XXXXXXXXXXXXXXXX</p></td>
+		</tr>
+		<tr>
+			<td><p>29/05/2011</p></td>
+			<td><p>12:00</p></td>
+            <td><p>Maria Helena</p></td>
+			<td class="last_child"><p>5 CARACTERES ESPELHO XXXXXXXXX XXXXXXXXXXXXXXXX</p></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

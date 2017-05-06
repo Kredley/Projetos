@@ -1,0 +1,765 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+		<script src="../../_js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+		<link href="../../_css/pe_style.css" rel="stylesheet" />
+		<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    	<link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/jscal2.css" />
+		<style type="text/css" title="currentStyle">
+			@import "../../../media/css/demo_page.css";
+			@import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+		</style>
+		<link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+		<link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+        
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/steel/steel.css" />
+		<script type="text/javascript" src="../../_js/functions.js"></script>
+		<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="../../_js/jscal_src/js/jscal2.js"></script>
+    	<script type="text/javascript" src="../../_js/jscal_src/js/lang/pt.js"></script>
+        <script type="text/javascript" src="../../_js/jquery.infieldlabel.min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+		<script type="text/javascript">
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				$('.btn_continuar').click(function(){
+					$('#cboxClose').click();
+				});
+				$('.btn_aplicar').click(function(){
+					$('#cboxClose').click();
+				});
+				$(".btn_consultar").click( function () {
+					oTable2.fnFilter( $("#nome00").val(), 0 );
+					oTable2.fnFilter( $("#cpf00").val(), 1 );
+
+				} );
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==0){
+							sColValue1 = $(this).find("p").html();
+							sColValueNoSpace1 = retira_acentos(sColValue1.toLowerCase().replace(/\s/gi,''));
+							$('#situacao').append('<option value='+sColValueNoSpace1+'>'+sColValue1+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace1+"</span>");
+						}
+						else if(i==1){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_envio').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==4){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#produto').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==3){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_pedido').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==5){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#tipo_contrato').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==6){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#disp').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+						else if(i==7){
+							sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							//$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$('#mes_vencimento').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+					} );
+				} );
+
+
+				var  oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+				});
+				var  oTable2 = $('#tb_01').dataTable({
+					"bJQueryUI": true,
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+				});
+				
+				$(".bt_buscar").click( function () {
+					oTable.fnFilter( $("#nome").val(), 0 );
+				} );
+
+				$(".search-filters a.button.search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search-filters input").each(function(){
+					//if(this.value!='')arrFilterValues.push(this.value);
+					})
+					$(".search-filters select").each(function(){
+						if ($(this).attr('id') == 'filial_faturamento' 
+						&& this.value!='') {
+							arrFilterValues.push(this.value);
+						}
+						//if(this.value!='')arrFilterValues.push(this.value);
+					})
+
+					if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+				} );
+				$(".search-filters .tip1").hide();
+				
+				
+				$("#ex_01").click(function(){
+					$("#tr_01").hide('slow');
+				});
+				$("#ex_02").click(function(){
+					$("#tr_02").hide('slow');
+				});
+				$("#ex_03").click(function(){
+					$("#tr_03").hide('slow');
+				});
+				$("#ex_04").click(function(){
+					$("#tr_04").hide('slow');
+				});
+				$("#ex_05").click(function(){
+					$("#tr_05").hide('slow');
+				});
+				$("#ex_06").click(function(){
+					$("#tr_06").hide('slow');
+				});
+				$("#ex_07").click(function(){
+					$("#tr_07").hide('slow');
+				});
+				$("#ex_08").click(function(){
+					$("#tr_08").hide('slow');
+				});
+				
+				$("#tip1").hide();
+				$("#a_tip1").mouseover(function(){
+					$("#tip1").fadeIn('fast');
+				});
+				$("#a_tip1").mouseout(function(){
+					$("#tip1").fadeOut('fast');
+				});
+				var cal = Calendar.setup({
+				onSelect: function(cal) { cal.hide() },
+				weekNumbers : false,
+				showTime: true
+			});
+			$("#aplicar_valor").click( function () {
+					var valor = $("#vlCred").val();
+					if(valor!=''){
+						$('.val_aplicar').each(function(){
+							$(this).val(valor);
+						})
+					}
+				} );
+				cal.manageFields("a_btn1", "dtDisp", "%d/%m/%Y"); 
+				
+				
+			$("input[type=checkbox]").each(function(){
+				$(this).imageTick({ 
+					tick_image_path: "../../_img/check.gif", 
+					no_tick_image_path: "../../_img/no_check.gif"
+				});
+			});
+			$("label.infield").inFieldLabels();
+			});
+			
+			
+		</script>
+
+
+		<title></title>
+	</head>
+	<body>
+<div class="none">
+	<div class="popup popInter" id="pop2">
+		<div class="popup-inner">
+			<div class="pop-top"></div>
+			<div class="pop-bottom"></div>
+			<h2>
+				Aplicar valor para grupo
+				<span class="subtitle">
+				Escolha o local de entrega e o valor do crédito para cada funcionário
+				</span>				
+			</h2>
+			<div class="lightbox_po">
+				<ul class="form_list">
+					<li>
+						<label for="localEntrega">Local de Entrega:</label>
+					</li>
+					<li>
+						<select id="localEntrega">
+						<option>TODOS</option>
+						</select>
+					</li>
+					<li>
+						<ul class="left w280">
+							<li>
+							<label for="vlCred">Valor do Crédito por funcionário (R$):</label>
+							</li>
+							<li>
+							<input type="text" id="vlCred" class="w75 left" />
+							<select class="left mg_left_10">
+								<option>Por mês</option>
+								<option>Por Dia</option>
+								<option>Por Ano</option>
+							</select>
+							</li>
+						</ul>
+						<ul class="left mg_left_10 w190">
+							<li>
+								<label for="diasUteis">Nº dias úteis:</label>
+							</li>
+							<li>
+								<input type="text" id="diasUteis" />
+							</li>
+						</ul>
+						<ul class="w100 left">
+						<li>&nbsp;</li>
+							<li>
+								<a href="javascript:void(0);" class="btn_calcular"></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<hr class="linha_po" />
+			<div class="lightbox_po">
+				<table width="100%">
+					<tbody>
+						<tr>
+							<td width="300px"><strong>Total de funcionários no local selecionado:</strong></td>
+							<td>99999</td>
+						</tr>
+						<tr>
+							<td><strong>Total do benefício:</strong></td>
+							<td>R$ 999.999.999,99</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<hr class="linha_po" />
+			<a href="javascript:void(0);" id="aplicar_valor" class="btn_aplicar right mg_right_20 mg_top_10"></a>
+			<br class="clear" />
+		</div>
+	</div>
+</div>
+
+<div class="none">
+	<div class="popup popInter sss">
+		<div class="popup-inner">
+			<div class="pop-top"></div>
+			<div class="pop-bottom"></div>
+			<h2>
+				Cadastrar novo funcionário			
+			</h2>
+			<div class="lightbox_po" style="padding-bottom:1px;">
+				<ul class="form_list">
+					<li>
+						<label for="localEntrega" style="margin-right:30px">CPF do funcionário:</label>
+						<input type="text" style="width:250px" />
+						<p style="display:inline-block; margin-left:5px;"><i>Somente números</i></p>
+					</li>
+				</ul>
+			</div>
+			<hr class="linha_po"/>
+			<div class="lightbox_po" style="padding-bottom:2px; padding-top:1px;">
+				<ul class="form_list">
+					<li>
+						<label for="localEntrega" style="margin-right:19px">Nome do funcionário:</label>
+						<input type="text" style="width:250px" />
+						<p style="display:inline-block; margin-left:5px;"><i>Ex.: José da Silva</i></p>
+					</li>
+					<li>
+						<label for="localEntrega" style="margin-right:21px">Data de Nascimento:</label>
+						<input type="text" style="width:30px" /><span style="margin:0 5px">/</span><input type="text" style="width:30px" /><span style="margin:0 5px">/</span><input type="text" style="width:60px" />
+					</li>
+					<li>
+						<label for="localEntrega" style="margin-right:42px">Local de Entrega:</label>
+						<select style="width:438px;">
+							<option>Selecione</option>
+						</select>
+					</li>
+					<li style="width:600px">
+						<a href="#" onClick="alert('Operação realizada com sucesso');" class="right"><img src="../../_img/buttons/bt_cadastrar_novo_local_entrega.png" width="235" height="23" alt="Cadastrar novo local de entrega" /></a>
+					</li>
+				</ul>
+			</div>
+			<a href="javascript:void(0);" class="btn_continuar mg_right_20 mg_top_10" style="margin:40px auto 0 auto;"></a>
+			<br class="clear" />
+		</div>
+	</div>
+</div>
+<div class="none">
+	<div class="popup popInter qqq">
+		<div class="popup-inner">
+			<div class="pop-top"></div>
+			<div class="pop-bottom"></div>
+			<h2>
+				Serviço de Disponibilização Antecipada				
+			</h2>
+			<div class="lightbox_po">
+				<ul class="form_list">
+					<li>
+						<p class="verde_bold">O que é?</p>
+					</li>
+					<li>
+						<p>Este serviço possibilita ao cliente antecipar o prazo de disponibilização dos benefícios nos cartões dos seus usuários. Observados os requisitos de contratação, o benefício será disponibilizado no dia útil seguinte ao envio do pedido de benefícios.</p>
+					</li>
+					<li>
+						<p class="verde_bold">Como funciona?</p>
+					</li>
+					<li>
+						<p>O Serviço de Disponibilização Antecipada poderá ser contratado somente pelos interlocutores de operação e decisão, indicados pelo cliente, por meio da área logada do website da Alelo exclusivamente.</p>
+					</li>
+					<li>
+						<p class="verde_bold">Como Contratar?</p>
+					</li>
+					<li>
+						<p>Para a contratação, deve-se atender aos seguintes requisitos:
+							<br>
+							- O cliente deve estar livre de pendências financeiras.
+							<br>
+							- O pedido de benefícios deve ser enviado até as 16 horas do dia útil anterior à data prevista para a
+							disponibilização do benefício.
+							<br>
+							- Não haver solicitação de cartão novo no pedido.
+						</p>
+					</li>
+					<li>
+						<p class="verde_bold">Como consultar as tarifas cobradas pelo serviço?</p>
+					</li>
+					<li>
+						<p>Ligue para a Central de Atendimento para consultar a condição comercial contratada. A tarifa será
+						cobrada na próxima fatura emitida.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="none">
+		<div class="popup popInter func">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+                <h2>
+					Aplicar valor para grupo
+					<span class="subtitle">
+					Escolha o local de entrega e o valor do crédito para cada funcionário
+					</span>				
+				</h2>
+                <div class="lightbox_po">
+                    <ul class="form_list">
+                        <li>
+							<label for="localEntrega">Local de Entrega:</label>
+						</li>
+						<li>
+							<select id="localEntrega">
+							<option>TODOS</option>
+							</select>
+						</li>
+						<li>
+							<ul class="left w280">
+								<li>
+								<label for="vlCred">Valor do Crédito por funcionário (R$):</label>
+								</li>
+								<li>
+								<input type="text" id="vlCred" class="w75 left" />
+								<select class="left mg_left_10">
+									<option>Por mês</option>
+									<option>Por Dia</option>
+									<option>Por Ano</option>
+								</select>
+								</li>
+							</ul>
+							<ul class="left mg_left_10 w190">
+								<li>
+									<label for="diasUteis">Nº dias úteis:</label>
+								</li>
+								<li>
+									<input type="text" id="diasUteis" />
+								</li>
+							</ul>
+                            <ul class="w100 left">
+                            <li>&nbsp;</li>
+                            	<li>
+                                	<a href="javascript:void(0);" class="btn_calcular"></a>
+                                </li>
+                            </ul>
+						</li>
+                    </ul>
+                </div>
+                <hr class="linha_po" />
+                <div class="lightbox_po">
+                	<table width="100%">
+                    	<tbody>
+                        	<tr>
+                            	<td width="300px"><strong>Total de funcionários no local selecionado:</strong></td>
+                                <td>99999</td>
+                            </tr>
+                            <tr>
+                            	<td><strong>Total do benefício:</strong></td>
+                                <td>R$ 999.999.999,99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="linha_po" />
+                <a href="javascript:void(0);" class="btn_aplicar right mg_right_20 mg_top_10"></a>
+                <br class="clear" />
+			</div>
+		</div>
+	</div>
+    
+		<div id="wrapper">
+			<div class="header">
+				<ul><!--<img src="../_img/logo.png" />-->
+					<li class="logo"><a href="#">Alelo</a></li>
+					<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+					<li class="combo">
+					<select name="teste">
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+					</li>
+					<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+					<li>
+						<div class="rideMenu">
+							<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+				</ul>
+			</div>
+			<div id="main">
+            <div id="tip1" class="tip_pddo txt_9 txt_al_center">Defina o mês de referência do pedido para controle</div>
+				<div id="andamento_pedido_2"></div>
+				<h2 class="left">Valores e data do pedido</h2>
+                <a href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.fff', opacity:0.30, transition:'none'});" class="btn_instrucoes left mg_top_5" title="Instruções"><span class="screen_reader_text">Instruções</span></a>
+                <span class="clear"></span>
+				<p class="subtitle mg_top_5 al_left">Informe os valores para cada funcionário e depois a data de disponibilização do crédito</p>
+                <br class="clear"/><br />
+				<p class="subtitle al_left">Produto: <strong>Refeição Visa Vale (00010005811)</strong></p><br class="clear" />
+				<p class="subtitle al_left">Pedido: <strong>7077654</strong></p>
+                <br class="clear" />
+                <div class="rounded_box" style="width:830px;">
+                    <form>
+                    	<ul class="normal normal2 al_left">
+                        	<li><strong>Localizar funcionário no pedido:</strong></li>
+                        	<li style="margin-top:-5px;">
+                                <label for="nome" style="position: absolute !important; margin-left: 5px; margin-top: 5px; opacity: 1;" class="infield">Digite nome do funcionário ou CPF</label>
+                                <input type="text" id="nome" class="w_230 al_left" />
+                                
+                        <a href="javascript:void(0);" class="al_left bt_buscar mg_left_10"></a> 
+                            </li>
+                        </ul>
+                        <a href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.sss', opacity:0.30, transition:'none'});" class="al_right btn_cadastrar_funcionarios mg_left_10 mg_top_15"></a>
+                        <a href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.ab', opacity:0.30, transition:'none'});"  class="al_right btn_incluir_funcionarios_pedido mg_top_15"></a>
+                        <br class="clear" />
+                    </form>
+                <div class="aux_01"></div>
+                <div class="aux_02"></div>
+                <div class="aux_03"></div>
+                <div class="aux_04"></div>
+                </div>
+                <form>
+                <div class="search-result-header hide">
+
+				<p class="searh-message1">&nbsp;</p>
+
+            </div>			
+
+				<a href="javascript:void(0)" onClick="$.colorbox({inline:true, href:'#pop2', opacity:0.30, transition:'none'});" class="al_right txt_11 bg_lapis txt_cinza mg_top_10 mg_bottom_10">aplicar valor para grupo</a>
+                <table class="display" id="example" style="visibility:visible !important;">
+                	<thead>
+                    	<tr>
+                        	<th><p>Nome do Funcionário</p></th>
+                        	<th><p>CPF</p></th>
+                        	<th><p>Matrícula</p></th>
+                        	<th><p>Local de Entrega</p></th>
+                        	<th><p>Valor do Crédito (R$)</p></th>
+                        	<th width="10%" class="lastChild"><p>Remover do Pedido</p></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                    	<tr>
+                        	<td><p>&nbsp;</p></td>
+                        	<td><p>&nbsp;</p></td>
+                        	<td><p>&nbsp;</p></td>
+                        	<td><p>&nbsp;</p></td>
+                        	<td><p>&nbsp;</p></td>
+                        	<td class="lastChild"><p>&nbsp;</p></td>
+                        </tr>
+                    </tfoot>
+                    <tbody class="text_center">
+                    	<tr id="tr_01">
+                        	<td><p>José Pereira da Silva</p></td>
+                        	<td><p>437.635.613-15</p></td>
+                        	<td><p>15734478</p></td>
+                        	<td><p>Av. Piracema, 578</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="8,60" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_01">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_02">
+                        	<td><p>Maria Antonieta Juarez</p></td>
+                        	<td><p>163.485.945-64</p></td>
+                        	<td><p>169745</p></td>
+                        	<td><p>Av. 21 de Maio, 1879</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="20,00" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_02">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_03">
+                        	<td><p>Júlio César de Andrade</p></td>
+                        	<td><p>434.283.212-78</p></td>
+                        	<td><p>117854</p></td>
+                        	<td><p>Rua Maria Helena, 581</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="15,80" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_03">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_04">
+                        	<td><p>Sonia de Oliveira Costa</p></td>
+                        	<td><p>242.463.625-73</p></td>
+                        	<td><p>554878</p></td>
+                        	<td><p>Rua 9 de Abril, 18</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="15,80" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_04">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_05">
+                        	<td><p>Reinaldo Azigoth</p></td>
+                        	<td><p>477.134.086-22</p></td>
+                        	<td><p>96547</p></td>
+                        	<td><p>Av. dos Bandeirantes, 2147</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="18,00" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_05">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_06">
+                        	<td><p>Alexandre Heringer Viana</p></td>
+                        	<td><p>222.362.561-40</p></td>
+                        	<td><p>45697</p></td>
+                        	<td><p>Rua das Almas, 17</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="20,00" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_06">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_07">
+                        	<td><p>Henrique Oliveira Rocha</p></td>
+                        	<td><p>293.643.291-04</p></td>
+                        	<td><p>4785</p></td>
+                        	<td><p>Travessa das Pedras, 18</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="8,60" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_07">X</a></p></td>
+                        </tr>
+                    	<tr id="tr_08">
+                        	<td><p>Carlúcia Amorim Alves</p></td>
+                        	<td><p>359.606.583-64</p></td>
+                        	<td><p>77844</p></td>
+                        	<td><p>Alameda Madeira, 55</p></td>
+                        	<td><p><input type="text" class="w100 val_aplicar" value="10,50" /></p></td>
+                        	<td class="lastChild"><p><a class="verde_bold no_underline" id="ex_08">X</a></p></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+                <div class="al_left txt_11 mg_top_30_n mg_left_10 txt_cinza">Os locais de entrega dos cartões poderão estar centralizados em um único local, dependendo<br>
+                das condições contratuais do produto.</div>
+                <div class="content">
+                <form>
+                    <div class="text-wrapper-delivery txt_cinza_2">
+                    	<div class="div_50p left">
+                        	<div class="left w135">
+                                <p class="left"><label for="mes">Mês de referência</label>&nbsp;</p><a id="a_tip1" href="javascript:void(0);" class="btn_ajuda left"></a>
+                                <span class="clear"></span>
+                                <p>
+                                    <input id="mes" class="w_40" type="text" value="10"> /
+                                    <select>
+                                        <option>2011</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="left mg_left_20 w_230">
+                            	<p><label for="dtDisp">Data de disponibilização dos créditos:</label></p>
+                                <p><input type="text" id="dtDisp" /><a href="javascript:void(0);" class="btn_calendar" id="a_btn1" ><span class="screen_reader_text">Cal</span></a></p>
+                                <br />
+                                <div class="left"><input type="checkbox" id="dispAntecipada" checked='checked' ></div>
+                                <div class="left w190 mg_left_10">Desejo contratar o serviço de <a class="txt_cinza_2" href="javascript:void(0);" onClick="$.colorbox({inline:true, href:'.qqq', opacity:0.30, transition:'none'});">Disponibilização antecipada</a></div>
+                                <br class="clear" />
+                            </div>
+                             <br class="clear" />
+                                <p class="txt_10 mg_top_55">Caso a data escolhida não seja um dia útil, a disponibilização ocorrerá no próximo dia útil</p>
+                            <span class="clear"></span>
+                        </div>
+                    	<div class="div_50p right">
+                        	<h3 class="cor_verde">Resumo</h3>
+                            <p class="mg_top_20 al_left"><strong>Funcionários com valor zero: </strong>999</p>
+                             <a href="javascript:void(0);" class="txt_10 txt_cinza_2 mg_top_20 al_right">Destacar valores zerados</a>
+                             <span class="clear"></span>
+                            <p class="mg_top_5"><strong>Funcionários com benefício: </strong>999999</p>
+                            <p class="mg_top_5"><strong>Disponibilização antecipada: </strong>Solicitada para 01/03/2012</p>
+                            <h3 class="cor_verde mg_top_20">Valor total do benefício: R$ 999.999.999,99</h3>
+                                <p class="txt_10 mg_top_20">Tarifas serão cobradas no boleto de acordo com suas condições contratuais</p>
+                        </div>
+                        <div class="linha_1px left">&nbsp;</div>
+                        <span class="clear"></span>
+                    </div>
+                    <div class="topBox"></div>
+                    <div class="bottomBox"></div>
+                </form>
+                </div>
+                
+                
+                
+				<br class="clear" />
+				<a href="cbv_po_003.html" class="bt_voltar left" title="Voltar"><span class="screen_reader_text">Voltar</span></a>
+				<a href="cbv_po_001_centralizado.html" class="btn_continuar_pddo right" title="Continuar"><span class="screen_reader_text">Continuar</span></a>
+				<div class="img_floppy right normal4"><a href="javascript:void(0)" onClick="alert('Operação realizada com sucesso')" class="normal4" title="Salvar pedido e continuar depois">Salvar pedido e continuar depois</a></div>
+			</div>
+			<div class="footer">
+				<ul>
+					<li class="content">
+						<p>Alelo © Copyright 2012</p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Quem Somos</a></p>
+						<p class="prtSeparacao">|</p>
+						<p><a href="#">Opine sobre o site</a></p>
+						<p class="prtSeparacao">|</p>
+						<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+					</li>
+				</ul>
+			</div>
+			<div class="none">
+		<div class="popup popInter ab">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+                <h2 class="no-border">Localizar funcionário para incluir no pedido</h2>
+                <div class="lightbox_po">
+                	<div class="rounded_box" style="width:750px;">
+                    	<form>
+                        <div class="left filters" style="padding:20px 10px 20px 0">
+                        	<strong>Pesquisar por:</strong>
+                        </div>
+                        <div class="left">
+                        	<ul>
+                            	<li>&nbsp;<label for="nome00"><strong>Nome de usuário:</strong></label></li>
+                                <li><input type="text" id="nome00" class="mg_top_5"/></li>
+                            </ul>
+                        </div>
+                        <div class="left pd_20">
+                        	ou
+                        </div>
+                        <div class="left">
+                        	<ul>
+                            	<li><label for="cpf00"><strong>CPF:</strong></label></li>
+                                <li><input type="text" id="cpf00" class="mg_top_5"/></li>
+                            </ul>
+                        </div>
+                    	</form>
+                        <div class="left pd_20">
+                        	<a href="javascript:void(0);" class="btn_consultar"></a>
+                        </div>
+                        
+                        <br class="clear" />
+                        <div class="aux_01"></div>
+                        <div class="aux_02"></div>
+                        <div class="aux_03"></div>
+                        <div class="aux_04"></div>
+                    </div>
+					
+                    <table class="display" id="tb_01">
+                    	<thead>
+                        	<th>Nome do funcionário</th>
+                            <th>CPF</th>
+                            <th>Matrícula</th>
+                            <th>Local da Entrega</th>
+                            <th class="last_child">&nbsp;</th>
+                        </thead>
+                        <tfoot>
+							<tr>
+								<td><p>&nbsp;</p></td>
+								<td><p>&nbsp;</p></td>
+								<td><p>&nbsp;</p></td>
+								<td><p>&nbsp;</p></td>
+								<td class="lastChild"><p>&nbsp;</p></td>
+							</tr>
+                    </tfoot>
+                        <tbody class="txt_al_center">
+                        	<tr nowrap="nowrap">
+                            	<td style="white-space:nowrap;"><p>Maria Edinalva Dos Santos</p></td>
+                                <td style="white-space:nowrap;"><p>385.562.728-27</p></td>
+                                <td style="white-space:nowrap;"><p>999.472</p></td>
+                                <td style="white-space:nowrap;"><p>Rua Neves Carvalho de Azevedo 258</p></td>
+                                <td class="last_child" style="white-space:nowrap;"><p>uassuhas</p></td>
+                            </tr>
+                        	<tr height="auto">
+                            	<td><p>Geraldo Aquino dos Santos</p></td>
+                                <td><p>086.574.677-04</p></td>
+                                <td><p>78.421</p></td>
+                                <td style="white-space:nowrap;"><p>Rua Guilhermina 78</p></td>
+                                <td class="last_child" style="white-space:nowrap;"><p>uassuhas</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span class="verde_bold">Deseja <a href="javascript:void(0);">cadastrar novo funcionário</a>?</span>
+                </div>
+			</div>
+			<br class="clear">
+		</div>
+	</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+		<script src="../_js/jquery.colorbox-min.js"></script>		
+		
+		
+		
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body onLoad="$.colorbox({inline:true, href:'.popup', opacity:0.30, transition:'none'});">
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Locais de Entrega</li>
+			</ul>
+		</div>
+<div id="main">
+	<div id="main">
+        <h2>Cadastrar novo local de entrega</h2>
+        <p class="subtitle">
+            Aqui você poderá cadastrar, alterar e excluir os locais de entrega dos seus cartões-benefício.
+        </p>
+		<form class="deliveryRegister">        
+          <div class="topBox"></div>
+          <div class="text-wrapper-delivery">
+		    <ul>
+			  <li class="sec_01">
+			    <input type="radio" name="radio"/>
+				  <p>
+				    <strong>Filial</strong>
+					Unidade de entrega que possui CNPJ próprio, diferente do da matriz.
+                  </p>
+		      </li>
+			  <li class="sec_02">
+			    <input type="radio" name="radio"/>
+				  <p>
+				    <strong>Posto de Trabalho</strong>
+					Unidade de entrega que não possui CNPJ próprio. Atrelada a uma filial, pode ser dividida em departamentos.
+                  </p>
+		      </li>
+			  <li class="sec_03">
+			    <input type="radio" name="radio"  checked="checked" />
+				  <p>
+				    <strong>Departamento</strong>
+					Grupo de funcionários ou área da empresa dentro de uma filial ou posto de trabalho.
+                  </p>
+		      </li>
+            </ul>
+          </div>
+          <div class="bottomBox"></div>
+	    </form>          
+	  </div>
+		<h3 id="register_header">Cadastrar novo Departamento</h3>
+	<form>
+		<div class="text-wrapper">
+			<h3>
+				Dados Cadastrais
+			</h3>
+			<fieldset class="form-wrapper">
+				<p>
+					<label>Código do Departamento*:<img src="_img/img_-.png" id="question"></label>
+					<input type="text" size="60" /> Ex.:001
+				</p>
+				<p>
+					<label>Nome do Departamento*:</label>
+					<input type="text" size="60" /> Ex.: Posto Coleta Perdizes
+				</p>
+				<p>
+					<label class="label_break">A qual filial os funcionários<br> do posto de trabalho</br>	estão vinculados?*:<img src="_img/img_-.png" id="question"></label>
+					<select class="w86">
+						<option>Selecione</option>
+						<option>Selecione</option>
+						<option>Selecione</option>
+					</select>			
+				</p>
+			</fieldset>
+			
+			<h3 class="subtitle">
+				Interlocutores Responsáveis pelo Recebimento
+				<span>Informe os autorizados a receber e a distribuir os cartões e as senhas enviadas para esse local de entrega.</span>
+			</h3>
+			
+			<fieldset class="form-wrapper">
+				<p>
+					<label>Interlocutor de Recebimento 1*:</label>
+					<span class="desc">	
+						<input type="text" size="75" />	
+						<button class="button callers-saved">Lista de interlocutores cadastrados</button>
+						<button class="button callers-new">Cadastrar novo interlocutor</button>
+					</span>	
+				</p>
+			</fieldset>
+			<div class="table-footer"></div>			
+		</div>
+		<fieldset class="save-form">
+			<button class="button back">Voltar</button>
+			<button class="button save">Salvar</button>
+		</fieldset>	
+	</form>
+</div>
+	<div class="none">
+		<div class="popup">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2>Cadastrar novo Interlocutor de Correspondência</h2>
+				<form>
+					<fieldset class="form-wrapper border">
+						<p id="warning"><img src="_img/ico_alert.png" id="warning_ico">
+							<div id="warning_text">
+								<strong>O CPF já é cadastrado em nossa base de dados. Deseja incluí-lo como responsável<br /> pelo recebimento de comunicações dos produtos da Alelo?</strong>
+							</div>
+						</p>  
+						<p>
+							<label>CPF do Interlocutor:</label>
+							<input type="text" size="40" />
+							<span class="tip ex">Somente números</span>
+						</p>
+					</fieldset>
+					<fieldset class="form-wrapper">
+						<p>
+							<label>Nome Completo:</label>
+							<input type="text" size="60" />
+							<span class="tip">Ex.: José da Silva</span>
+						</p>
+						<p>
+							<label>Data de Nascimento:</label>
+							<input type="text" size="3" /> /
+							<input type="text" size="3" /> /
+							<input type="text" size="6" />
+						</p>
+						<p>
+							<label>Sexo:</label>
+							<span class="radio"><input type="radio" name="sex" /> Feminino</span>
+							<span><input type="radio" name="sex" /> Masculino</span>
+						</p>
+					</fieldset>
+					<h3>Dados Empresariais</h3>
+					<fieldset class="form-wrapper">
+						<p>
+							<label>Departamento:</label>
+							<input type="text" size="60" />
+						</p>	
+						<p>
+							<label>E-mail:</label>
+							<input type="text" size="60" />
+						</p>
+						<p>
+							<label>Telefone Principal:</label>
+							<span class="desc">
+								<input type="text" size="2" />
+								DDD
+							</span>
+							<span class="desc">
+								<input type="text" size="15" />
+								Número
+							</span>
+							<span class="desc">
+								<input type="text" size="13" />
+								Ramal
+							</span>
+						</p>	
+						<p>
+							<label>Telefone Secundário:</label>
+							<span class="desc">
+								<input type="text" size="2" />
+								DDD
+							</span>
+							<span class="desc">
+								<input type="text" size="15" />
+								Número
+							</span>
+							<span class="desc">
+								<input type="text" size="13" />
+								Ramal
+							</span>
+						</p>		
+						<p>
+							<label>Cargo:</label>
+							<select class="w310">
+								<option>Selecione</option>
+							</select>
+						</p>					
+
+						<button class="button add">Cadastrar</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

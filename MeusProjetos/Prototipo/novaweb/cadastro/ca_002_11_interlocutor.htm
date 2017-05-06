@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+		
+		
+		
+	<link href="_css/style.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+	<script src="../_js/jquery.colorbox-min.js"></script>	
+	<meta charset="utf-8" />	
+	<title></title>
+
+  
+   
+</head>
+<body>
+   
+
+<style> #cboxClose{ display:none !important; } </style>
+<div class="none">
+		<div class="popup popup2">
+			<div class="popup-inner595">
+				<div class="pop-top595"></div>
+                <div class="middle595">
+				  <h2 class="no-borderCenter">Processando...</h2>
+				  <div class="marginProgress">
+                    <div id="progress-wrapper">
+					  <div id="progress-bar"></div>
+				    </div>
+                    <div class="textoPopup">
+                     
+                    </div>
+                    <div class="textoPopupMargin">                    
+                      Aguarde alguns instantes.
+                    </div>
+                    <div class="button cancel">Cancelar</div>
+                  </div>
+                </div>
+				<div class="pop-bottom595"></div>
+			</div>
+		</div>
+    </div>
+    
+<div class="none">
+		<div class="popup popup1" id="popup1">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2 class="no-border">Importação concluída.</h2>
+				<form>
+					<fieldset class="form-wrapper vertical no-padding border">
+						<p class="info">
+							<strong>Validação do arquivo .csv:</strong>
+						</p>
+					</fieldset>
+					<fieldset class="form-wrapper border">
+						<p class="info check">
+							Registros carregados: 123456
+						</p>
+					</fieldset>
+					<fieldset class="form-wrapper border">
+						<p class="info alert">
+							Registros recusados: <span class="fails">14</span>&nbsp;&nbsp;&nbsp;<a href="ca_003_01_interlocutor.htm"><strong>Veja os erros encontrados</strong></a>
+						</p>
+					</fieldset>
+					<fieldset class="form-wrapper">
+						<p class="pp10">
+							Corrija os erros e envie a tabela novamente.<br />
+							<strong>Dica: você pode enviar novamente apenas os registros recusados.</strong>
+						</p>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+    
+
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar locais via tabela Excel</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>Cadastrar interlocutores via tabela Excel</h2>
+	<p class="subtitle">
+		É possível cadastrar vários locais de entrega de uma só vez importando uma tabela Excel.
+	</p>
+	<div class="text-wrapper">
+		<h3 class="normal">
+			Etapa 1 - Crie a Tabela Excel
+		</h3>
+		<fieldset class="form-wrapper">
+			<div class="right update-database">Se preferir, você pode exportar a base de<br /> locais de entrega já cadastrada. Atualize o<br /> arquivo e depois importe na etapa 2.<br />
+				<a href="#">
+					Importar para meu computador o <br />
+					arquivo .csv com os dados atuais.
+				</a>
+				</div>
+			<p class="info arrow">
+				Preencha a Tabela “Locais de Entrega” disponível abaixo seguindo as<br /> instruções.<br />
+				<br />
+				<br />
+				<a href="#">Tabela Modelo - Locais de Entrega</a> <span>(Arquivo Excel)</span><br />
+				<br />
+				Consulte as <a href="#" class="light">Instruções de Preenchimento da tabela</a> <span>(Arquivo PDF)</span>
+			</p>
+		</fieldset>
+		<h3 class="normal">
+			Etapa 2 - Importe a tabela para nosso site
+		</h3>
+		<fieldset class="form-wrapper">
+			<p class="info arrow">
+				Salve a tabela Excel preenchida como arquivo .csv.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="light">O que é isso?</a><br />
+				<br/>
+			</p>
+			<p class="info arrow">
+				Selecione o arquivo gerado, escolha o formato das datas e envie.<br />
+				<br />
+				<input type="text" size="60" /><input type="button" class="button select"><br />
+				<br >
+				<strong>Formato das datas no arquivo importado</strong><br />
+				<select class="w390">
+					<option value="dd/mm/aaaa">dd/mm/aaaa (padrão)</option></a>
+				</select>&nbsp;&nbsp;&nbsp;<a href="#" class="light">O que é isso?</a><br />
+				<br />
+				<br />
+				<strong>Dica: Para melhor performance, envie a tabela a partir do horário X.</strong>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+			</p>
+			<a class="button send" id="bt_enviar_excel" href="javascript:void(0);">Enviar</a>
+		</fieldset>
+		<div class="table-footer"></div>
+	</div>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var size = 0;
+	
+	$('#bt_enviar_excel').click(function(){
+		progress = setInterval ( "changeClass( size )", 20 );
+		$.colorbox({inline:true, href:'.popup2', opacity:0.30, transition:'none'});		
+	});
+	
+	
+	function changeClass( size ){
+		if( size <= 500 ){
+			window.size = window.size+5;
+			document.getElementById('progress-bar').style.width = size+'px';
+		} else {
+			clearInterval( progress );
+			$.colorbox({inline:true, href:'#popup1', opacity:0.30, transition:'none'});	
+		
+		}	
+	}
+</script>  
+</body>
+</html>

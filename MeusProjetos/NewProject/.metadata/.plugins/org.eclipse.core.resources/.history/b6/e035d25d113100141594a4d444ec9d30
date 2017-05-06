@@ -1,0 +1,9 @@
+package br.com.provaEntrevista;
+
+public class Interface2 {
+	
+	public void metodo(Interface2 i2){
+		System.out.println("Interface 3");
+	}
+
+}

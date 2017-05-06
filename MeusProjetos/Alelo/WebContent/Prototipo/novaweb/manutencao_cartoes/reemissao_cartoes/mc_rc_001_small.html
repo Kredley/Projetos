@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="../../_css/ped_ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<script type="text/javascript" src="../../_js/jquery-1.7.js"></script>
+	<script type="text/javascript" src="../../_js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+	<script type="text/javascript" src="../../_js/wa_functions.js"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+	<link rel="stylesheet" href="../../_css/wa_datatables.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/ped_general.css" type="text/css" media="screen" />
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<script type="text/javascript" src="../../_js/jquery.infieldlabel.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	
+		var tdToFilter = 5;
+		
+		$(document).ready( function() {
+			$('.btn_adicionar').click(function(){
+				$($(this).parents('p')[0]).html('<span class="txt_verde_claro">Adicionado</span>')
+			})
+			
+			$('#cboxClose').click(function(){
+				location.href="mc_rc_002_big.html";
+			})
+			$("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+	
+			var heightDefine = 0;
+			$('.default_table tbody td').each(function(index) {
+				if(heightDefine < $(this).find('p').height()){
+					heightDefine = $(this).find('p').height();
+				}
+			});
+			$('.default_table tbody td p').height(heightDefine);
+			
+			var  oTable = $('#tabela1').dataTable({
+				"aaSorting": [],
+				"bJQueryUI": true,
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});
+			var  oTable2 = $('#tabela2').dataTable({
+				"aaSorting": [],
+				"bJQueryUI": true,
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});
+	
+			$(".filters .filtering").click( function () {
+				var arrFilterValues = new Array();
+				$(".filters input").each(function(){
+					if(this.value!='')arrFilterValues.push(this.value);
+				})
+
+				oTable.fnFilter( $("#nome_cpf").val(), 0 );
+			} );
+
+			$(".apply").click( function () {
+				var sele = $("#motivo").find('option:selected').val();
+				if(sele=="Selecione"){
+					sele= "";
+				}else {
+					$('.motivo').each(function(){
+						$(this).val(sele);
+					})
+				}
+			} );
+			
+			$('.btn_fechar_pequeno').click(function(){
+				$($(this).parents('tr')[0]).hide('slow');
+			});
+			
+			$("#esconder,  .btn_continuar, .subtitle, .btn_adicionar_usuario, #nenhum").hide();
+			
+			$("#produto").change(function(){
+				var selected = $("#produto option:selected").val();
+				if (selected != 0) {
+					$("#esconder, .btn_continuar, .subtitle, .btn_adicionar_usuario, #nenhum").show();
+				}
+				else {
+					$("#esconder, .btn_continuar, .subtitle, .btn_adicionar_usuario	, #nenhum").hide();
+				}
+			})
+			
+		})			
+	</script>
+</head>
+<body id="cancelamento">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="index.html">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cancelamento de cartões</li>
+			</ul>
+		</div><!--.header-->
+		<div id="main">
+        	<h2>Reemissão de Cartões</h2>
+            <p class="sub_title">Aqui você solicita a reemissão de um ou mais cartões. Para isso, selecione o produto e número do contrato e, em seguida, localize os cartões que deseja reemitir, informando o motivo de reemissão.</p>
+			<div class="text-wrapper">
+				<h3 class="first left"><strong>Produto e N° do Contrato</strong></h3>
+				<select id="produto" style="width:350px; margin:15px;">
+					<option selected="selected" value="0">Selecione</option>
+                    <option value="1">VISA VALE (0138901829041)</option>
+                    <option value="2">VALE REFEICAO (0138901829041)</option>
+				</select>
+				<h3 class="subtitle"><strong>Lista de cartões para cancelamento:</strong><span>Localize e adicione na lista os cartões para os quais deseja solicitar cancelamento.</span></h3>
+				<div id="esconder">
+					<a href="#" class="btn_localizar_cartoes" onClick="$.colorbox({inline:true, href:'.ab', opacity:0.30, transition:'none'});" style="margin:15px 60px 15px 15px; float:left"><span class="screen_reader_text">Localizar Cartões</span></a>
+					<a class="exc" href="#" style="display:inline-block; padding-left:22px; margin-top:19px; float:left">Importar dados de cancelamento (via tabela excel)</a>
+					<hr class="cinza" />
+					<div class="search-result-header">
+						<p class="searh-message1" style="top:1px; left:-5px;">&nbsp;</p>
+					</div>
+					<table class="default_table" id="tabela1">
+						<thead>
+							<tr>
+								<th>Nome e CPF</th>
+								<th>Local de Entrega</th>
+								<th>Número do Cartão</th>
+								<th>Motivo da Reemissão</th>
+								<th class="last_child">Remover da lista</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td style="visibility:hidden"><p>Amanda Santos <span class="no_wrap">280.021.545-22</span></p></td>
+								<td style="visibility:hidden"><p>30 CARACTERES XX XXXXXX XX XXXXXXX</p></td>
+								<td style="visibility:hidden"><p><a href="#">9878546628</a></p></td>
+								<td style="visibility:hidden"><p>
+									<select class="motivo" style="width:200px;">
+										<option>Selecione</option>
+										<option>Roubo</option>
+										<option>Perda</option>
+									</select>
+								</p></td>
+								<td style="visibility:hidden" width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Fechar</span></a></p></td>
+							</tr>
+							<tr>
+								<td style="visibility:hidden"><p>Carlos Almeida <span class="no_wrap">525.744.304-09</span></p></td>
+								<td style="visibility:hidden"><p>30 CARACTERES XX XXXXXX XX XXXXXXX</p></td>
+								<td style="visibility:hidden"><p><a href="#">1254789352</a></p></td>
+								<td style="width:260px; visibility:hidden"><p>
+									<select class="motivo" style="width:200px;">
+										<option>Selecione</option>
+										<option>Roubo</option>
+										<option>Perda</option>
+									</select>
+									<span id="check_reemitir">
+									<input type="checkbox" name="checkbox" id="cartao_auto" /> <label for="cartao_auto">Reemitir cartão automaticamente</label>
+									</span>
+								</p></td>
+								<td style="visibility:hidden" width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_fechar_pequeno"><span class="screen_reader_text">Fechar</span></a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<a href="#" class="btn_adicionar_usuario" style="margin:0 0 0 15px;"><span class="screen_reader_text">Adicionar Usuário</span></a> 
+				<div class="table-footer"></div>
+			</div>
+			<a href="javascript:void(0);" class="btn_voltar" style="display:inline-block"><span class="screen_reader_text">Voltar</span></a>
+			<span id="nenhum" style="position:absolute; top:490px; left:50px;"><p>Nenhum cartão encontrado na lista</p></span>
+		</div><!--#main-->
+		<div class="footer">
+			<ul>
+				<li class="content">
+					<p>Alelo © Copyright 2012</p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Quem Somos</a></p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Opine sobre o site</a></p>
+					<p class="prtSeparacao">|</p>
+					<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+				</li>
+			</ul>
+		</div><!--.footer-->
+	</div><!--#wrapper-->
+	<div id="tip_localizar" class="tip_bubble">
+		<h4>Localizar na lista</h4>
+		<ul class="al_left_li filters">
+			<li style="position:relative;">
+				<label for="nome_cpf">Digite nome do funcionário ou CPF</label>
+				<input type="text" name="nome_cpf" id="nome_cpf" style="width:250px;" />
+			</li>
+			<li><a href="javascript:void(0);" class="bt_buscar filtering"><span class="screen_reader_text">buscar</span></a></li>
+		</ul>
+		<span id="loc_fechar">Fechar</span>
+	</div>
+	<div id="tip_aplicar" class="tip_bubble">
+		<h4>Aplicar motivo na lista</h4>
+		<ul class="al_left_li filters">
+			<li style="position:relative;">
+				<select id="motivo" style="width:250px;">
+					<option>Selecione</option>
+					<option>Roubo</option>
+					<option>Perda</option>
+				</select>
+			</li>
+			<li><a href="javascript:void(0);" class="bt_buscar apply"><span class="screen_reader_text">buscar</span></a></li>
+		</ul>
+		<span id="loc_fechar2">Fechar</span>
+	</div>
+	<div class="none">
+		<div class="popup popInter ab">
+			<div class="popup-inner">
+				<div class="pop-top"></div>
+				<div class="pop-bottom"></div>
+				<h2 class="no-border">Localizar cartões para reemissão</h2>
+				<div style="padding:0 20px;">
+					<div class="rounded_box" style="width:750px;">
+                    	<form id="filters2">
+							<div class="al_left" style="padding:20px 10px 20px 0">
+								<strong>Pesquisar por:</strong>
+							</div>
+							<ul class="al_left_li">
+								<li>
+									<label for="nome2"><strong>Nome de usuário:</strong></label>
+									<input type="text" id="nome2" class="mg_top_5" style="width:300px;" />
+								</li>
+								<li><span class="block" style="margin-top:20px;">ou</span></li>
+								<li>
+									<label for="cpf2"><strong>CPF:</strong></label>
+									<input type="text" id="cpf2" class="mg_top_5"/>
+								</li>
+								<li><a href="javascript:void(0);" class="btn_buscar" style="margin-top:16px;"><span class="screen_reader_text">Consultar</span></a></li>
+							</ul>
+                    	</form>
+						<span class="clearfix_2">&nbsp;</span>
+						<span class="aux_01">&nbsp;</span>
+						<span class="aux_02">&nbsp;</span>
+						<span class="aux_03">&nbsp;</span>
+						<span class="aux_04">&nbsp;</span>
+					</div>
+					<table class="default_table" id="tabela2">
+						<thead>
+							<tr>
+								<th>Nome e CPF</th>
+								<th>Número do cartão</th>
+								<th>Local de Entrega</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th class="last_child">&nbsp;</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td><p>Amanda Santos <span class="no_wrap">280.021.545-22</span></p></td>
+								<td><p><span class="no_wrap">1235 7899 6544 2321</span></p></td>
+								<td><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td><p>Carlos Almeida <span class="no_wrap">587.854.264-25</span></p></td>
+								<td><p><span class="no_wrap">3254 1126 5445 9856</span></p></td>
+								<td><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td><p>Luan Silva <span class="no_wrap">236.214.542-51</span></p></td>
+								<td><p><span class="no_wrap">6546 4561 1321 5154</span></p></td>
+								<td><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+							<tr>
+								<td><p>Marcos Ivanovich <span class="no_wrap">122.548.875-58</span></p></td>
+								<td><p><span class="no_wrap">4896 5465 4548 6548</span></p></td>
+								<td><p>30 Caracteres xxxxxx xxxxxxxxxx</p></td>
+								<td width="10" class="last_child txt_al_center"><p><a href="javascript:void(0);" class="btn_adicionar al_center"><span class="screen_reader_text">Adicionar</span></a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+	</div>
+</body>
+</html>

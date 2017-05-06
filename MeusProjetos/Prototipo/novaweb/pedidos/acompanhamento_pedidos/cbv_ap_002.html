@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-BR">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="../../_css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/wa_general.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../_css/wa_print.css" type="text/css" media="print" />
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="../../_css/wa_ie.css" type="text/css" media="screen" />
+	<![endif]-->
+	<link rel="stylesheet" href="../../_css/wa_datatables.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../../../js/jquery-1.7.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+		var tdToFilter = 5;
+		
+		$(document).ready( function() {
+	
+			var heightDefine = 0;
+
+			$('.default_table tbody td').each(function(index) {
+				if(heightDefine < $(this).find('p').height()){
+					heightDefine = $(this).find('p').height();
+				}
+			});
+			$('.default_table tbody td p').height(heightDefine);
+			
+			var  oTable = $('.default_table').dataTable({
+				"aaSorting": [],
+				"bJQueryUI": true,
+				"sDom": '<"top_table_info"iflp<"clear">>rt<"bottom_table_info"iflp<"clear">>',
+				"sPaginationType": "full_numbers",
+				"oLanguage": {
+					"sLengthMenu": "Display _MENU_ records per page",
+					"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <\/br>Por favor, preencha novamente.",
+					"sInfo": "_START_-_END_ de _TOTAL_",
+					"sInfoEmpty": " ",
+					"sInfoFiltered": " "
+				}
+			});
+		})
+	</script>
+</head>
+<body id="detalhe_pedido">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+   								<p class="prt1"><a href="../webadmin/index.html">Início</a></p>
+								<p class="prt2"><a href="../gestao_conteudo/index.html">Gestão de conteúdo</a></p>
+								<p class="prt2"><a href="../atendimento/index.html">Atendimento</a></p>
+								<p class="prt2"><a href="../sustentacao/index.html">Sustentação e produção</a></p>
+								<p class="prt2"><a href="../infra/index.html">Infra e capacity</a></p>
+								<p class="prt2"><a href="../seguranca/index.html">Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>
+							<li class="sideRight"></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+    			<li class="navigation"><a href="../webadmin/atendimento/index.html">Início</a> > <a href="../webadmin/atendimento/index.html">Sustentação e produção</a> > <a href="../webadmin/atendimento/index.html">Indicadores</a> > Pedidos Processados</li>
+			</ul>
+		</div><!--.header-->
+		<div id="main">
+			<h2>Detalhe do pedido</h2>
+			<div class="rounded_box_2">
+				<div class="tit">
+					<ul class="txt_verde txt_bold">
+						<li class="al_left">N° do Pedido: 1029384756</li>
+						<li class="center_li">Situação: Processado</li>
+					</ul>
+					<span class="clearfix_2">&nbsp;</span>
+					<span class="aux_03">&nbsp;</span>
+					<span class="aux_04">&nbsp;</span>
+				</div>
+				<div class="cont">
+					<div class="alert_msg">
+						<div>
+							<p><span class="icon">&nbsp;</span> Este pedido teve alterações. <a href="#" class="txt_bold txt_cinza">Ver histórico</a>.</p>
+						</div>
+					</div>
+					<table class="simple_table">
+						<tbody>
+							<tr>
+								<td class="txt_bold">Tipo de Pedido</td>
+								<td>(Pedido Padrão / Recarga Complementar)</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Origem do Pedido</td>
+								<td>(Anexar / Online / Visão Todas Empresas / Pedido Modelo)</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Produto e N° do Contrato</td>
+								<td>Cesta Alimentação Visa Vale 00010005811 - Boas Vindas</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">N° de Funcionários</td>
+								<td>99999</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Data da Solicitação</td>
+								<td>09/09/2009</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Mês de Referência</td>
+								<td>09/2009</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Data de Disponibilização</td>
+								<td>09/09/2009</td>
+							</tr>
+							<tr>
+								<td class="txt_boldz">Serviços de Disponibilização Antecipada</td>
+								<td>Não</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Tipo de Entrega <span class="ic_help">&nbsp;</span></td>
+								<td class="txt_underline">Descentralizada</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Tipo de Faturamento <span class="ic_help">&nbsp;</span></td>
+								<td class="txt_underline">Descentralizada</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Valor Total do Benefício</td>
+								<td>R$ 999.999.999,00</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Data de Vencimento</td>
+								<td>09/09/2009</td>
+							</tr>
+							<tr>
+								<td class="txt_bold">Forma de Pagamento</td>
+								<td>Antecipada via boleto</td>
+							</tr>
+						</tbody>
+					</table>
+					<p id="vis_link"><a href="javascript:void(0);" onclick="alert('O usuários será re-direcionado para o módulo Financeiro')"><span class="ic_zoom">&nbsp;</span>Visualizar Boletos, Notas Fiscais e Relatórios Financeiros</a></p>
+                    <div class="w_300 al_right" style="margin-top:-20px; *padding-top:-20px;">
+                    	<a href="../cancelamento_alteracao_pedidos/cbv_cap_005.html" class="btn_alterar_pedidos2"><span class="screen_reader_text">Alterar Pedidos</span></a>
+                        <a href="../cancelamento_alteracao_pedidos/cbv_cap_003.html" class="btn_cancelar_pedidos2"><span class="screen_reader_text">Cancelar Pedidos</span></a>
+                   	</div>
+				</div>
+				<hr />
+				<div class="sub_cont">
+					<div class="al_left">
+						<h4>Download de Protocolo</h4>
+						<p>Informações da inclusão do pedido</p>
+						<ul id="list_01" class="form_al_left_list exp_links">
+							<li><a href="javascript:void(0);" onclick="alert('Operação realizada com sucesso')" class="icon_pdf">Arquivo PDF</a></li>
+						</ul>
+					</div>
+					<div class="al_right">
+						<h4>Download de Relatório Analítico de Pedido</h4>
+						<p>Informações detalhadas de pedido, como beneficiários, locais de entrega, valores, etc.</p>
+						<p>O arquivo .csv pode ser usado para abertura em planilha Excel.</p>
+						<ul class="form_al_left_list margin_top exp_links">
+							<li><a href="javascript:void(0);" onclick="alert('Operação realizada com sucesso')" class="icon_pdf">Arquivo PDF</a></li>
+							<li><a href="javascript:void(0);" onclick="alert('Operação realizada com sucesso')" class="icon_csv">Arquivo CSV</a></li>
+						</ul>
+					</div>
+				</div>
+				<span class="clearfix_2">&nbsp;</span>
+				<span class="aux_01">&nbsp;</span>
+				<span class="aux_02">&nbsp;</span>
+				<span class="aux_03">&nbsp;</span>
+				<span class="aux_04">&nbsp;</span>
+			</div>
+			<table class="default_table">
+				<caption>Histórico de Cancelamentos e Alterações do Pedido</caption>
+				<thead>
+					<tr>
+						<th><p>Data da Solicitação</p></th>
+						<th><p>Tipo de Solicitação</p></th>
+						<th><p>Interlocutor Solicitante</p></th>
+						<th><p>N° de Funcionários</p></th>
+						<th><p>Total Cancelado (R$)</p></th>
+						<th class="last_child"><p>Arquivos</p></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th><p>&nbsp;</p></th>
+						<th><p>&nbsp;</p></th>
+						<th><p>&nbsp;</p></th>
+						<th><p>&nbsp;</p></th>
+						<th><p>&nbsp;</p></th>
+						<th class="last_child"><p>&nbsp;</p></th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td><p>10/04/2011</p></td>
+						<td><p>Cancelamento do Pedido</p></td>
+						<td class="no_wrap"><p>Maria da Graça Santos</p></td>
+						<td><p>999</p></td>
+						<td><p>1.205,00</p></td>
+						<td class="last_child">
+							<p>
+								<a class="btn_pdf">Protocolo de Cancelamento</a><br />
+								<a class="btn_pdf">Relatório de Cancelamento</a><br />
+								<a class="btn_csv">Protocolo de Cancelamento</a>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td><p>15/08/2011</p></td>
+						<td><p>Alteração do Pedido</p></td>
+						<td class="no_wrap"><p>Ricardo da Silva</p></td>
+						<td><p>200</p></td>
+						<td><p>12.205,00</p></td>
+						<td class="last_child">
+							<p>
+								<a class="btn_pdf">Protocolo de Alteração</a><br />
+								<a class="btn_pdf">Relatório de Alteração</a><br />
+								<a class="btn_csv">Relatório CSV da Alteração</a>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!--div class="rounded_box w_500 al_left">
+				<p class="arrow"><a href="#">Ver Locais de Entrega. Unidades de Faturamento e Unidades Beneficiadas</a></p>
+				<span class="aux_01">&nbsp;</span><span class="aux_02">&nbsp;</span><span class="aux_03">&nbsp;</span><span class="aux_04">&nbsp;</span>
+			</div-->
+			<div class="rounded_box rounded w_500 al_left">
+				<div class="tit">
+                    <p class="arrow"><a href="javascript:;" onclick="$('.contentLocais').show(); $('.rounded_box.rounded.w_500.al_left').attr('class','rounded_box_2 rounded w_500 al_left') ">Ver Locais de Entrega. Unidades de Faturamento e Unidades Beneficiadas</a></p>
+					<span class="clearfix_2">&nbsp;</span>
+					<span class="aux_03">&nbsp;</span>
+					<span class="aux_04">&nbsp;</span>
+				</div>
+				<div class="contentLocais" style="display:none;">
+                    <p class="txt_verde txt_bold al_left">Locais de Entrega</p>
+                    <div class="top_table_info" style="margin:0; padding:0">
+                    <div class="dataTables_info">1-2 de 2</div>
+    
+                    
+                    <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers">
+                        <span class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled">primeiro</span>
+                        <span class="previous fg-button ui-button ui-state-default ui-state-disabled">anterior</span>
+                        <span class="next fg-button ui-button ui-state-default ui-state-disabled">próximo</span>
+                        <span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled">último</span></div><div class="clear">
+                     </div>
+                    </div>
+                    <hr />
+                    <dl>
+                        <dt>Maria da Graça Santos ME</dt>
+                        <dd>
+                            <p>Rua do Sócio, 288 - cj.101<br />Caiçara do Rio dos Ventos/RN</p>
+                            <a class="textoMenor" href="javascript:;"><span class="ic_zoom"></span>Visualizar dados do local de entrega</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Maria da Graça Santos ME</dt>
+                        <dd>
+                            <p>Rua do Sócio, 288 - cj.101<br />Caiçara do Rio dos Ventos/RN</p>
+                            <a class="textoMenor" href="javascript:;"><span class="ic_zoom"></span>Visualizar dados do local de entrega</a>
+                        </dd>
+                    </dl>
+                    <span class="clearfix_2">&nbsp;</span>
+                    <hr />
+                    <dl>
+                        <dt>Maria da Graça Santos ME</dt>
+                        <dd>
+                            <p>Rua do Sócio, 288 - cj.101<br />Caiçara do Rio dos Ventos/RN</p>
+                            <a class="textoMenor" href="javascript:;"><span class="ic_zoom"></span>Visualizar dados do local de entrega</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Maria da Graça Santos ME</dt>
+                        <dd>
+                            <p>Rua do Sócio, 288 - cj.101<br />Caiçara do Rio dos Ventos/RN</p>
+                            <a class="textoMenor" href="javascript:;"><span class="ic_zoom"></span>Visualizar dados do local de entrega</a>
+                        </dd>
+                    </dl>
+                    <span class="clearfix_2">&nbsp;</span>
+                    <hr />
+                    <div class="bottom_table_info">
+                    <div class="dataTables_info">1-2 de 2</div>
+                    <div class="dataTables_filter">
+                        <label>Search: <input type="text"></label></div><div class="dataTables_length"><label>Display <select size="1"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> records per page</label></div><div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers"><span class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled">primeiro</span><span class="previous fg-button ui-button ui-state-default ui-state-disabled">anterior</span><span><span class="fg-button ui-button ui-state-default ui-state-disabled">1</span></span><span class="next fg-button ui-button ui-state-default ui-state-disabled">próximo</span><span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled">último</span></div><div class="clear"></div>
+                    </div>
+
+                </div>
+				<span class="aux_01">&nbsp;</span><span class="aux_02">&nbsp;</span><span class="aux_03">&nbsp;</span><span class="aux_04">&nbsp;</span>
+			</div>
+            
+            
+            
+			<div class="rounded_box w_280 al_right none">
+				<h4 class="txt_italic txt_verde_claro">Arquivo do Pedido</h4>
+				<p id="ic_sust_down"><span class="ic_download al_left margin_right"></span><a href="#">Salvar arquivo .CSV com os dados dos funcinários desse pedido.</a></p>
+				<p class="txt_italic">Dica: este arquivo pode servir de modelo para próximos pedidos</p>
+				<span class="aux_01">&nbsp;</span>
+				<span class="aux_02">&nbsp;</span>
+				<span class="aux_03">&nbsp;</span>
+				<span class="aux_04">&nbsp;</span>
+			</div>
+            <span class="clearfix_2">&nbsp;</span>
+			<a href="cbv_ap_001.html" class="btn_voltar btn"><span>Voltar</span></a>
+
+		</div>
+        
+        <!--#main-->
+		<div class="footer">
+			<ul>
+				<li class="content">
+					<p>Alelo © Copyright 2012</p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Quem Somos</a></p>
+					<p class="prtSeparacao">|</p>
+					<p><a href="#">Opine sobre o site</a></p>
+					<p class="prtSeparacao">|</p>
+					<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+				</li>
+			</ul>
+		</div><!--.footer-->
+	</div><!--#wrapper-->
+</body>
+</html>

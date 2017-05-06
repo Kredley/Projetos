@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+	<link href="../../cadastro/_css/fi_style.css" rel="stylesheet" />
+	<link href="../../_css/estilos.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>		
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			 $("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+		});    
+    </script> 
+
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body>
+    <div class="none">
+        <div class="popup popImprimir">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Imprimir documentos</h2>
+                <div class="content imprimir_documentos">
+                    <p class="subtitle">Escolha os documentos que deseja imprimir:</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox1" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Boleto Bancário</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox2" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>RPS</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox3" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Pedidos</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox4" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Tarifas</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox5" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Descontos</p>
+                        </li>
+                    </ul> 
+                    <a class="bt_imprimir_selecionados" href="#" title="Imprimir selecionados" onClick="alert('Operação realizada com sucesso')">Imprimir selecionados</a>
+                    <span class="clearAll">&nbsp;</span>       
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="../../financeiro/index.html">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Contrato enviado para aprovação do Interlocutor de decisão</li>
+			</ul>
+		</div>
+        <div id="main">
+            <div class="fund-operation textoNormal backgroundOperation3">
+                <p class="section-title">Contrato enviado para aprovação do Interlocutor de decisão.</p>
+                <p>
+                    <strong class="gray">Sua solicitação foi feita com sucesso.</strong><br>
+                    
+                    Um e-mail foi enviado para os interlocutores de decisão para aprovação do novo produto contratado.<br><br>
+
+                    Após a aprovação, você receberá no e-mail <strong>&lt;interlocutor.operacao@empresa.com.br&gt;</strong> com<br>instruções de como realizar o pedido de benefícios do novo produto contratado.<br><br>
+                     
+                    Caso o responsável não receba o e-mail de aprovação, ela estará disponível como pendência<br>na página inicial dos interlocutores de decisão da empresa.<br><br>
+                     
+                    Dúvidas? Consulte nossa <a href="javascript:void(0)" class="darkGray"><b>Central de Atendimento</b></a>.
+                </p> 
+                <div class="icones-operation">
+                    <a href="javascript:void(0)" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar em PDF</a>  
+                    <a href="#" class="print" onClick="alert('Operação realizada com sucesso');">Imprimir</a>
+                </div>			   
+            </div>
+            
+            <a class="button begin left" href="index.html"><span>Início</span></a>
+        </div>
+
+        <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+        </div>
+</div>
+</body>
+</html>

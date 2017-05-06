@@ -1,0 +1,48 @@
+/**
+ * CSS IE FIX
+ * @note    Normalmente não utilizo hacks para o IE, esta folha de estilo contem so alguns
+ *          que são realmente necessarios
+ *          [modifique com moderação]
+ *
+ * @author			Andrea Zambrana [c3] [andrea@c3ai.com]
+ * @media			screen
+ * @note            utiliza propriedades CSS2.1 e algumas CSS3 suportadas por alguns navegadores
+ *                  mais atualizados, no entanto a maioria das propriedades funcionam no ie6
+ * @tested			ie7+
+ * @package			web_admin
+ *
+ * @project			Web admin
+ * @customer		Alelo
+ * @date			27-12-2011 12:00 (GMT -2:00 Brasilia)
+ * @lastmodified
+ */
+/**
+ * @workaround	focus in elements like div and fieldset
+ * @css-for		ie8
+ * @valid		yes
+ */
+html:focus, body:focus, div:focus, fieldset:focus {
+	outline:none;
+	}
+/**
+ * @workaround	clearfix solution
+ * @css-for		ie6+
+ * @valid		yes
+ */
+.clearfix {
+	zoom:1;
+	}
+/**
+ * @workaround	Arrumando bug de espaçamento a mais no ie7
+ * @css-for		ie7
+ * @valid		yes
+ */
+*+html .rounded_box {
+	padding:12px 30px 30px 30px;
+	}
+*+html #btn_ie7 {
+	padding:20px 0 0 0;
+	}
+*+html .search-result-header {
+	top:18px;
+	}

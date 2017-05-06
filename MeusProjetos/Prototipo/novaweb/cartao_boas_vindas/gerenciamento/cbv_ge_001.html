@@ -1,0 +1,432 @@
+<!doctype html>
+<html>
+<head>
+    <script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+    
+	<link href="../../_css/fi_style.css" rel="stylesheet" />
+	<link href="../../_css/estilos.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+	<style type="text/css" title="currentStyle">
+        @import "../../../media/css/demo_page.css";
+        @import "../../_css/fi_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/fi_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+        var tdToFilter = 8
+        var tdResults="";
+        $(document).ready(function() {
+            
+            $("table.display tbody tr").each( function () {
+                $(this).find("td").each( function ( i ) {
+                    if(i==0){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('#situacao').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+                        }
+                        
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+					
+                   if(i==3){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('#produto').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+                        }
+                        
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+					
+                   
+                } );
+            } );
+			
+            
+            var  oTable = $('#example').dataTable({
+                "bJQueryUI": true,
+                "sDom": '<"top_search_engine"iflp<"clear"><"add">>rt<"texto"><"bottom_search_engine"iflp<"clear">>',
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sLengthMenu": "Display _MENU_ records per page",
+                    "sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+                    "sInfo": "_START_-_END_ de _TOTAL_",
+                    "sInfoEmpty": " ",
+                    "sInfoFiltered": " "
+                }
+            });
+			$('.add').html('<a href="javascript:void(0);" class="ocultar_portador"><img src="../../_img/ocultar_dados_portador.png" width="231" height="44" alt="Ocultar dados do Portador" /></a><a href="javascript:void(0);" class="mostrar_portador"><img src="../../_img/ocultar_dados_portador_mais.png" width="231" height="44" alt="Ocultar dados do Portador" /></a>');
+			
+            
+            $(".search-filters a.button.search").click( function () {
+                var arrFilterValues = new Array();
+				$('.search-result-header').show();
+                $(".search-filters select").each(function(){
+                    if(this.value!='')arrFilterValues.push(this.value);
+                })
+                                    
+                if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+                //oTable.fnFilter( $(".search-filters input#company_name").val());
+                oTable.fnFilter( $("#situacao").find('option:selected').val(), 0 );
+				oTable.fnFilter( $("#nome_cartao").val());
+				oTable.fnFilter( $("#id_cartao").val(), 2 );
+				oTable.fnFilter( $("#n_contrato").val(), 3 );
+				oTable.fnFilter( $("#produto").find('option:selected').val());
+				oTable.fnFilter( $("#nome_portador").val());
+				oTable.fnFilter( $("#cpf_portador").val(), 1 );
+				oTable.fnFilter( $("#local_entrega").val(), 4 );
+            } );
+            $(".search-filters .tip1").hide();
+			$("#n_empresa").hide();
+
+			$("#main form").removeClass("tworows");
+			$(".more_options").click(function(){
+				$("#main form").attr('class',"search-filters tworows");
+				$("div.moreOptions").show();
+			});
+			$(".more_options").click(function(){
+				$("#n_empresa").show();
+			});
+			$("div.moreOptions").hide();
+			$('.texto').html("<p style='font-family:verdana; font-size:11px; color:#989898;'>Saldo para simples conferência - sujeito a alterações.</p>");
+			
+			$('.mostrar_portador').hide();
+			$('.ocultar_portador').click(function(){								  
+				$('.ocultar').hide();
+				$('.mostrar_portador').show();
+				$('.ocultar_portador').hide();
+			});
+			$('.mostrar_portador').click(function(){								  
+				$('.ocultar').show();
+				$('.mostrar_portador').hide();
+				$('.ocultar_portador').show();
+			});
+        } );
+    </script>
+
+</head>
+<body>
+
+    <div class="none">
+        <div class="popup popZip">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Não consegue abrir<br>arquivos .zip?</h2>
+                <span class="linha">&nbsp;</span>
+                <div class="content">
+                	<p>
+                    Arquivos .zip são utilizados para diminuir o tamanho dos arquivos, reduzindo o tempo para que eles sejam baixados pela internet 
+                    e diminuindo o espaço de disco necessário para guardá-los. Um arquivo .ZIP pode conter um ou mais arquivos individuais, compactados 
+                    como se fossem um único arquivo.
+                    <br /><br />
+                    Para abrir arquivos em .zip é necessário um programa descompactador. O programa trará o arquivo (ou arquivos) ao seu tamanho e formato 
+                    originais, pronto para uso.
+                    <br /><br />
+                    O formato .ZIP é um formato aberto, o que significa que ele é de domínio público e pode ser livremente utilizado. Há vários gratuitos 
+                    disponíveis como <strong>WinRAR</strong>, <strong>BraZip</strong>, <strong>7-Zip</strong> e <strong>Universal Extractor</strong>. Uma pesquisa em um bom mecanismo de busca pode oferecer ainda mais opções. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="none">
+        <div class="popup popImprimir">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Imprimir documentos</h2>
+                <div class="content imprimir_documentos">
+                	<p class="subtitle">Escolha os documentos que deseja imprimir:</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxImprimir1" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Boleto Bancário</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxImprimir2" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>RPS</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxImprimir3" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Pedidos</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxImprimir4" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Tarifas</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxImprimir5" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Descontos</p>
+                        </li>
+                    </ul> 
+                    <a class="bt_imprimir_selecionados" href="javascript:void(0);" onClick="alert('Operação realizado com sucesso')" title="Imprimir selecionados">Imprimir selecionados</a>
+                    <span class="clearAll">&nbsp;</span>       
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="none">
+        <div class="popup popSalvar">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Salvar Documentos</h2>
+                <div class="content imprimir_documentos">
+                	<p class="subtitle">Escolha os documentos que deseja salvar:</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxSalvar6" title="Boleto Bancário" value="checkbox" />
+                            <p>Boleto Bancário</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxSalvar7" title="RPS" value="checkbox" />
+                            <p>RPS</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxSalvar8" title="Demonstrativo de Pedidos" value="checkbox" />
+                            <p>Demonstrativo de Pedidos</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxSalvar9" title="Demonstrativo de Tarifas" value="checkbox" />
+                            <p>Demonstrativo de Tarifas</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkboxSalvar10" title="Demonstrativo de Descontos" value="checkbox" />
+                            <p>Demonstrativo de Descontos</p>
+                        </li>
+                    </ul> 
+                    <a class="bt_salvar_selecionados" href="javascript:void(0);" onClick="alert('Operação realizada com sucesso'); $('#cboxClose').click();" title="Salvar selecionados">Imprimir selecionados</a>
+                    <span class="clearAll">&nbsp;</span>       
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="none">
+        <div class="popup redir1">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Confirmar visualização</h2>
+                <span class="linha">&nbsp;</span>
+                <div class="content confirmacao_visualizacao">
+                	<p>A visualização do boleto para pagamento ficará registrada em nosso sistema.</p>
+                    <a class="bt_ok" href="javascript:void(0);" onClick="alert('Operação realizada com sucesso');$('#cboxClose').click();" title="ok">ok</a>
+                    <div class="custom_checkbox">
+                        <input name="checkbox" type="checkbox" id="checkbox565656" title="Não visualizar mais esta mensagem" value="checkbox" />
+                        <p>Não visualizar mais esta mensagem</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="none">
+        <div class="popup redir2">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Confirmar visualização</h2>
+                <span class="linha">&nbsp;</span>
+                <div class="content confirmacao_visualizacao">
+                	<p>A visualização do boleto para pagamento ficará registrada em nosso sistema.</p>
+                    <a class="bt_ok" href="javascript:void(0);" onClick="alert('Operação realizada com sucesso');$('#cboxClose').click();" title="ok">ok</a>
+                    <div class="custom_checkbox">
+                        <input name="checkbox" type="checkbox" id="checkbox565656" title="Não visualizar mais esta mensagem" value="checkbox" />
+                        <p>Não visualizar mais esta mensagem</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="index.html">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar novo local</li>
+			</ul>
+		</div>
+      	<div id="main">
+        	<h2 title="Notas Fiscais e Relatórios de Faturamento">Gerenciador de Cartões Boas-Vindas</h2>
+            <p class="subtitle" style="padding-bottom:0px;">Aqui você acessa as informações gerenciais de todos os cartões Boas-vindas de sua empresa, como saldo, extrato, dados do portador, entre outros detalhes importantes para a administração do uso dos cartões.</p>
+            <form class="search-filters tworows">
+                <fieldset>
+                    <label>Pesquisar por:</label>
+                    <div class="divFilters" style="float:left; width:750px">
+                    
+                        <div class="n_protocolo">
+                            <p><strong>Situação:</strong></p>
+                            <select name="situacao" id="situacao" style="width:120px">
+	                        	<option value=""></option>
+                        	</select>
+                            <span class="tip-on tip1">
+                                <strong>Dica:</strong>
+                                Preencha um ou mais campos da pesquisa
+                            </span>	
+                        </div>        
+                      	<div class="n_protocolo">
+                            <p><strong>Nome do cartão:</strong></p>
+                            <input type="text" id="nome_cartao" style="width:115px" value="" />
+                        </div>
+						<div class="n_protocolo">
+                            <p><strong>Id do cartão:</strong></p>
+                            <input type="text" id="id_cartao" style="width:115px" value="" />
+                        </div>
+						<div class="n_protocolo">
+                            <p><strong>N° do contrato:</strong></p>
+                            <input type="text" id="n_contrato" style="width:115px" value="" />
+                        </div>
+                        <div class="divSearch right">
+                            <!--button class="button search">Buscar</button-->
+                            <a href="javascript:;" class="button search">Buscar</a>
+                            <a class="more_options left" href="javascript:;" title="Mais opções">Mais opções</a>
+                        </div>
+                    </div>
+					<span class="clearAll" style="height:30px;">&nbsp;</span>
+					<div class="moreOptions">
+						<div class="n_protocolo">
+						<p><strong>Produto:</strong></p>
+						<select name="produto" id="produto" style="width:207px">
+							<option value=""></option>
+						</select>
+						</div>
+						<div class="n_protocolo">
+							<p><strong>Nome do portador:</strong></p>
+							<input type="text" id="nome_portador" style="width:200px" value="" />
+						</div>
+						<div class="n_protocolo">
+							<p><strong>CPF do portador:</strong></p>
+							<input type="text" id="cpf_portador" style="width:120px" value="" />
+						</div>
+						<div class="n_protocolo">
+							<p><strong>Local de entrega:</strong></p>
+							<input type="text" id="local_entrega" style="width:200px" value="" />
+						</div>
+					</div>
+                </fieldset>
+                <span class="closer">&nbsp;</span>
+            </form>
+            <div class="search-result-header hide" style="margin-bottom:10px;">
+                <p class="searh-message1">Busca Aplicada: 10.000 resultados encontrados. <a href="#">Desfazer</a> </p>
+            </div>
+            <table class="display" id="example" valign="center" cellpadding="0" cellspacing="0" border="0" width="890">
+				<thead>
+                	<tr>
+                    	<th>Situação</th>
+                    	<th>Nome do Cartão e dados do Portador</th>
+                    	<th>ID do Cartão</th>
+                    	<th>Produto e nº de contrato</th>
+                    	<th>Local de entrega</th>
+                    	<th class="lastChild">Saldo disponível (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                   	  	<td><p>Ativo</p></td>
+                    	<td><p><a href="cbv_ge_002_1.html">Meu Visa Vale</a><br><span class="ocultar">Carlos Pereira da Silva<br>352.410.288-78</span></p></td>
+                        <td><p>4521</p></td>
+                        <td><p>Alimentação Visa Vale<br/>14587521314</p></td>
+                        <td><p>Rua Brasil 452 São Paulo  SP</p></td>
+                        <td class="lastChild"><p>200,00</p></td>
+                    </tr>
+					<tr>
+                   	  	<td><p>Ativo</p></td>
+                    	<td><p><a href="cbv_ge_002_1.html">Flex Card</a><br><span class="ocultar italic">Portador não preenchido</span></p></td>
+                        <td><p>3201</p></td>
+                        <td><p>Cesta Alimentação<br/>140107551314</p></td>
+                        <td><p>Rua Africa 10 São Paulo  SP</p></td>
+                        <td class="lastChild"><p>850,00</p></td>
+                    </tr>
+					<tr class="disabled">
+                   	  	<td><p>Bloqueio apartir do emissor DF</p></td>
+                    	<td><p><a href="cbv_ge_002_1.html">Flex Card</a><br><span class="ocultar">Maria Aparecida<br>201.785.412-02</span></p></td>
+                        <td><p>6230</p></td>
+                        <td><p>Cesta Natal<br/>41523201214</p></td>
+                        <td><p>Rua Estados Unidos 521 São Paulo SP</p></td>
+                        <td class="lastChild"><p>750,00</p></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                	<tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="lastChild">&nbsp;</td>
+                    </tr>
+                </tfoot>
+            </table>
+			<div class="search-footer">	
+                <div class="search-actions">
+                    <p>Mais ações:</p>
+                    <p>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar arquivo em PDF</a>
+                        <a href="javascript:void(0)"  onclick="alert('Operação realizada com sucesso')" class="csv">Exportar arquivo .csv atual</a>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="lapis">Realizar pedido de benefícios e novos cartões</a>
+                    </p>
+                </div>
+            </div>
+      <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+      </div>
+</div>
+
+</body>
+</html>

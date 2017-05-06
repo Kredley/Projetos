@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public abstract class teste {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		
+		Integer [] str1 = {1, 3, 6, 9, 11, 12, 13, 15, 19, 20};
+		Integer [] str2 = new Integer[10];
+		
+		str2=str1;
+		
+		str2[3]=300;
+
+		for (int k = 0; k < str2.length; k++) { //Impressao do vetor ordenado
+			System.out.println("Vetor valor: " + str1[k]);
+		}
+		
+//		//Instanciando um objeto Fatorial
+//		Fatorial numero = new Fatorial();
+
+	}
+}

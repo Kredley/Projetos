@@ -1,0 +1,31 @@
+package br.com.kredley.refinado;
+
+
+		
+		
+		public abstract class FormaGeometrica {
+			public abstract double calcularArea( );
+		}
+
+		public class Circulo extends FormaGeometrica {
+			private double raio;
+
+			public Circulo( double raio ) {
+				this.raio = raio;
+			}
+
+			public double calcularArea( ) {
+				return Math.PI * raio * raio;
+			}
+
+			public double calcularPerimetro( ) {
+				return 2 * Math.PI * raio;
+			}
+		}
+
+		
+
+	
+	
+
+

@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+<head>
+	<link href="_css/style.css" rel="stylesheet" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script src="../_js/jquery.colorbox-min.js"></script>
+	<meta charset="utf-8" />		
+	<title></title>
+	
+	<script type="text/javascript">
+		function scrollPage(){
+			$('html, body').animate({
+           		scrollTop: $("#ancora").offset().top
+       			}, 500);	
+		}
+		
+		$(document).ready(function(){						 
+			$('.visualiza_contratos').hide();
+			$('.visualiza_contratos2').hide();
+			$('#cmb_contrato').val('0');
+			$('#cmb_contrato').change(function(){
+				if($(this).val().length == 0 
+						|| $(this).val() == '0') {
+					$('.visualiza_contratos').hide('fast');
+					$('.visualiza_contratos2').hide('fast');
+				}else if($(this).val() == '1') {
+					$('.visualiza_contratos').hide('fast');
+					$('.visualiza_contratos2').hide('fast');
+					$('.visualiza_contratos').show('fast');
+					scrollPage();
+				}else if($(this).val() == '2') {
+					$('.visualiza_contratos').hide('fast');
+					$('.visualiza_contratos2').hide('fast');
+
+					$('.visualiza_contratos2').show('fast');
+					scrollPage();
+
+				}else {
+					$('.visualiza_contratos').hide('fast');
+					$('.visualiza_contratos2').hide('fast');
+					$('.visualiza_contratos').show('fast');
+					scrollPage();
+				}
+			});
+			$('.change_button').click(function(){
+				location.href = 'ca_008_03.htm';
+			});
+			$('.change_button2').click(function(){
+				location.href = 'ca_008_03_pf.htm';
+			});
+		});
+
+	</script>
+	
+</head>
+<body>
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Produtos Contratados</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>Produtos Contratados</h2>
+	<p class="subtitle">Escolha um dos contratos abaixo para visualizar as informações.</p>
+
+	<div id="left-content">
+		<p class="box-subtitle">
+			Selecione o contrato:
+			<select class="w380" name="cmb_contrato" id="cmb_contrato">
+				<option value="0">Selecione</option>
+				<option value="1">10957710 - Refeição Visa Vale / Bradesco</option>
+                <option value="2">10957711 - Refeição Visa Vale / Santander</option>
+                <option value="3">10957712 - Refeição Visa Vale / Banco do Brasil</option>
+                <option value="4">10957810 - Alimentação Visa Vale / Bradesco</option>
+                <option value="5">10957910 - Flex Car Visa Vale / Bradesco</option>
+			</select>
+		</p>
+		
+	    <p id="ancora"></p>
+		<h3 id="register_header" class="visualiza_contratos">Visualização de Contratos</h3>
+
+		<div class="left-wrapper visualiza_contratos">
+			<p class="actions">
+				<a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="print">Imprimir</a>
+				<a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar em PDF</a>
+				<a href="ca_009_01.htm" class="preview">Veja o contrato jurídico</a>
+			</p>
+			<h3 class="subtitle">
+				Interlocutor de Decisão
+				<span>
+					Pessoa física autorizada pelo cliente com poderes para conceder, liberar e efetuar a manutenção de acesso a outros interlocutores.
+				</span>
+			</h3>
+			<fieldset class="saved-data thirds">
+				<p>
+					<label>Nome</label>
+					Veridiana Saloman
+				</p>
+				<p>
+					<label>CPF</label>
+					123.456.789-01
+				</p>
+				<p>
+					<label>Telefone Principal</label>
+					(11) 1234-5678
+				</p>
+				
+				<button class="button change_button change_decision">Alterar interlocutor de decisão</button>				
+			</fieldset>
+			<h3>
+				Dados do Contrato
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Número do contrato:</label>
+					<strong>10957710</strong>
+				</p>
+				<p class="saved_data">
+					<label>Produto:</label>
+					<strong>Refeição Visa Vale</strong>
+				</p>
+				<p class="saved_data">
+					<label>Status:</label>
+					<strong>Ativo</strong>
+				</p>
+				<p class="saved_data">
+					<label>Vendedor:</label>
+					<strong>CBSS</strong>
+				</p>
+				<p class="saved_data">
+					<label>Filial Contratante:</label>
+					<strong>
+						40183873000100
+						<a href="#" class="add">+ Nome da Filial</a>
+					</strong>
+				</p>
+				<p class="saved_data">
+					<label>Tipo de Entrega:</label>
+					<strong>Centralizado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Filial de Entrega:</label>
+					<strong>Filial 1</strong>
+				</p>
+
+				<button class="button change_button change_delivery">Alterar interlocutor de decisão</button>				
+			</fieldset>
+			<h3>
+				Dados Cadastrais
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Razão Social:</label>
+					<strong>Saloman ltda</strong>
+				</p>
+				<p class="saved_data">
+					<label>Nome Fantasia:</label>
+					<strong>Ativo</strong>
+				</p>
+				<p class="saved_data">
+					<label>Inscrição Estadual:</label>
+					<strong>XXX</strong>
+				</p>
+				<p class="saved_data">
+					<label>Inscrição Municipal:</label>
+					<strong>XXX</strong>
+				</p>
+				<p class="saved_data">
+					<label class="label_break">Número de Inscrição no PAT:</label>
+					<strong>XXX</strong>
+				</p>
+				<p class="saved_data">
+					<label>Total de Funcionários:</label>
+					<strong>XXX</strong>
+				</p>
+				<p class="saved_data">
+					<label>Nome da Filial:</label>
+					<strong>(Nome da Filial)</strong>
+				</p>
+				<p class="saved_data">
+					<label class="label_break">Nome da Empresa para gravar nos cartões deste contrato:</label>
+					<strong>Saloman Ltda</strong>
+				</p>
+				
+				<button class="button change_button change-personal-data">Alterar dados cadastrais</button>
+			</fieldset>
+			<h3>
+				Dados de Cobrança
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Forma de Pagamento:</label>
+					<strong>Antecipado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Meio de Pagamento:</label>
+					<strong>Boleto Online</strong>
+				</p>
+				<p class="saved_data">
+					<label>Tipo de Faturamento:</label>
+					<strong>Centralizado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Filial de Faturamento:</label>
+					<strong>Filial 1</strong>
+				</p>
+				
+				<button class="button change_button change_billing">Alterar interlocutor de decisão</button>								
+			</fieldset>	
+			<h3>
+				Tarifas e Descontos
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Emissão de cartões:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Entrega de cartões:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Disponibilização:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Manutenção mensal:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Bonificação:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+			</fieldset>	
+			<h3>
+				Informações Adicionais
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>% de multa por atraso:</label>
+					<strong>15%</strong>
+				</p>
+				<p class="saved_data">
+					<label class="label_break">% de juros por atraso no pagamento:</label>
+					<strong>10%</strong>
+				</p>
+				<p class="saved_data">
+					<label>Data de reajuste:</label>
+					<strong>15/06/2012</strong>
+				</p>
+				<p class="saved_data">
+					<label>Indice de reajuste:</label>
+					<strong>4,0</strong>
+				</p>
+			</fieldset>	
+			
+			<span class="left-wrapper-top"></span>
+			<span class="left-wrapper-bottom"></span>
+		</div>
+		
+		<a class="button back visualiza_contratos" href="index.html">Voltar</a>
+	</div>
+
+	<div id="right-content">
+		<img src="_img/fake-banner.png" alt="banner placeholder" />
+	</div>
+    
+    <h3 id="register_header2" class="visualiza_contratos2">Visualização de Contratos</h3>
+
+		<div class="left-wrapper visualiza_contratos2">
+			<p class="actions">
+				<a href="javascript:void(0);" class="print" onClick="alert('Operação realizada com sucesso')">Imprimir</a>
+				<a href="javascript:void(0);" class="pdf" onClick="alert('Operação realizada com sucesso')">Salvar em PDF</a>
+				<a href="ca_009_01.htm" class="preview">Veja o contrato jurídico</a>
+			</p>
+			<h3 class="subtitle">
+				Interlocutor de Decisão
+				<span>
+					Pessoa física autorizada pelo cliente com poderes para conceder, liberar e efetuar a manutenção de acesso a outros interlocutores.
+				</span>
+			</h3>
+			<fieldset class="saved-data thirds">
+				<p>
+					<label>Nome</label>
+					Veridiana Saloman
+				</p>
+				<p>
+					<label>CPF</label>
+					123.456.789-01
+				</p>
+				<p>
+					<label>Telefone Principal</label>
+					(11) 1234-5678
+				</p>
+				
+				<button class="button change_button2 change_decision">Alterar interlocutor de decisão</button>				
+			</fieldset>
+			<h3>
+				Dados do Contrato
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Número do contrato:</label>
+					<strong>10957710</strong>
+				</p>
+				<p class="saved_data">
+					<label>Produto:</label>
+					<strong>Refeição Visa Vale</strong>
+				</p>
+				<p class="saved_data">
+					<label>Status:</label>
+					<strong>Ativo</strong>
+				</p>
+				<p class="saved_data">
+					<label>Vendedor:</label>
+					<strong>CBSS</strong>
+				</p>
+				<p class="saved_data">
+					<label>Nome do Contratante:</label>
+					<strong>
+						Augusto Pereira
+					</strong>
+				</p>
+				<p class="saved_data">
+					<label>Tipo de Entrega:</label>
+					<strong>Centralizado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Local de Faturamento:</label>
+					<strong>Rua São Paulo, 1558, Barueri/SP</strong>
+				</p>
+
+				<button class="button change_button2 change_delivery">Alterar interlocutor de decisão</button>				
+			</fieldset>
+			<h3>
+				Dados Cadastrais
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Nome do Contratante:</label>
+					<strong>Augusto Pereira</strong>
+				</p>
+				<p class="saved_data">
+					<label>Total de Beneficiários:</label>
+					<strong>XXX</strong>
+				</p>
+				<p class="saved_data">
+					<label>Nome da Empresa para gravar nos cartões deste contrato:</label>
+					<strong>Filial 1</strong>
+				</p>
+				
+				<button class="button change_button2 change-personal-data">Alterar dados cadastrais</button>
+			</fieldset>
+			<h3>
+				Dados de Cobrança
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Forma de Pagamento:</label>
+					<strong>Antecipado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Meio de Pagamento:</label>
+					<strong>Boleto Online</strong>
+				</p>
+				<p class="saved_data">
+					<label>Tipo de Faturamento:</label>
+					<strong>Centralizado</strong>
+				</p>
+				<p class="saved_data">
+					<label>Local de Faturamento:</label>
+					<strong>Filial 1</strong>
+				</p>
+				
+												
+			</fieldset>	
+			<h3>
+				Tarifas e Descontos
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>Emissão de cartões:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Entrega de cartões:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Disponibilização:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Manutenção mensal:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+				<p class="saved_data">
+					<label>Bonificação:</label>
+					<strong>R$ 9999,00</strong>
+				</p>
+			</fieldset>	
+			<h3>
+				Informações Adicionais
+			</h3>
+			<fieldset class="saved-data">
+				<p class="saved_data">
+					<label>% de multa por atraso:</label>
+					<strong>10%</strong>
+				</p>
+				<p class="saved_data">
+					<label class="label_break">% de juros por atraso no pagamento:</label>
+					<strong>5%</strong>
+				</p>
+				<p class="saved_data">
+					<label>Data de reajuste:</label>
+					<strong>20/07/2012</strong>
+				</p>
+				<p class="saved_data">
+					<label>Indice de reajuste:</label>
+					<strong>3,0</strong>
+				</p>
+			</fieldset>	
+			
+			<span class="left-wrapper-top"></span>
+			<span class="left-wrapper-bottom"></span>
+		</div>
+		
+		<a class="button back visualiza_contratos2" href="index.html">Voltar</a>
+	</div>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html> 

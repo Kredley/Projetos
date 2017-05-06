@@ -1,0 +1,67 @@
+package br.com.kredley.java;
+
+public class ExpressaoRegular {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		System.out.print("1 ");
+		String padrao = "Java";
+		String texto = "java";
+		boolean b = texto.matches(padrao); //verifica se ta no padrao
+		
+		System.out.println(b);
+		
+		/*Modificadors
+		 * (?i), Ignora maiuscula e minuscula
+		 * (?x), Comentarios
+		 * (?m), Multilinhas
+		 * (?s), Dottal
+		 */
+		
+		System.out.print("2 ");
+		b = "Java".matches("(?im)java");
+		System.out.println(b);
+		
+		/*Metacaracteres
+		 * .qualquer caracter
+		 * \d dígitos [0-9]
+		 * \D nao é digíto [^0-9]
+		 * \s espaços [\t\n\x0B\f\r]
+		 * \S não é espaço [^\s]
+		 * \w letra [a-zA-Z_0-9]
+		 * \W não é letra
+		 */
+		//Apenas 1 caracteres  tem que repetir mais digito \\d\\d = 25
+		System.out.print("3 ");
+		b = "@".matches(".");
+		b = "2".matches("\\d");
+		b = "r".matches("\\w");
+		b = "".matches("\\s");
+		System.out.println(b);
+		
+		//validar cep
+		System.out.print("4 ");
+		String cep = "\\d\\d\\d\\d\\d-\\d\\d\\d";
+		b = "01033-010".matches(cep);
+		System.out.println(b);
+		
+		/*Quantificadores
+		 * X{n}  	X, exatamente n vezes
+		 * X{n,} 	X, pelo menos n vezes
+		 * X{n, m}  X, pelo menos n mais não mais do que m vezes
+		 * X?     	X, 0 ou 1 vez
+		 * X*     	X, 0 ou + vezes
+		 * X+		X, 1 ou + vezes  
+		 */
+		
+		b = "21".matches("\\d{2}");
+		b = "123".matches("\\d{2,}");
+		System.out.println(b);
+		
+		
+	}
+
+}

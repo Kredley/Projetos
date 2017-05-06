@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    <style type="text/css" title="currentStyle">
+        @import "../../../media/css/demo_page.css";
+        @import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+	<meta charset="utf-8" />	
+	<title></title>
+    <script type="text/javascript" charset="utf-8">
+
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				
+				$('#conteudo_form').hide();
+				$('.conteudo_excel').hide();
+				
+				$('#bt_form').click(function(){
+					$('#conteudo_form').show('slow');
+					$('.conteudo_excel').hide();
+				});
+				
+				$('#bt_excel').click(function(){
+					$('.conteudo_excel').show('slow');
+					$('#conteudo_form').hide();
+				});
+				
+				
+				
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==4){
+							sColValue = $("#produto").find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+							sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+							
+							$('.search-filters select').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+						}
+					} );
+				} );
+
+				
+				var  oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+            	});
+				
+				$(".search-filters a.button.search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search-filters select").each(function(){
+						if(this.value!='')arrFilterValues.push(this.value);
+					})
+										
+					if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+					
+					oTable.fnFilter( $("#produto").find('option:selected').val(), 4 );
+				} );
+				$(".search-filters .tip1").hide();
+				$('.dataTables_info').hide();
+				$('#example_paginate').hide();
+				
+				
+				$('#tr2').hide();
+				$('#tr3').hide();
+				$('#bt_excluir').click(function(){
+					$('#tr2').hide('slow');
+				});
+				$('#bt_cancelar').click(function(){
+					$('#tr3').hide('slow');
+				});
+				$('#bt_ok').click(function(){
+					$('#tr3').hide();
+					$('#tr2').show('slow');
+				});
+				$('#bt_cadastrar').click(function(){
+					$('#tr2').show('slow');
+				});
+				$('#bt_alterar').click(function(){
+					$('#tr2').hide();
+					$('#tr3').show('slow');
+				});
+			} );
+		</script>
+</head>
+<body id="cd_func_emp">
+<div class="none">
+        <div class="popup popImprimir">
+            <div id="pop586" class="popup-inner">
+                <div class="pop-top"></div>
+                <div class="pop-bottom"></div>
+                <h2 class="no-border">Imprimir documentos</h2>
+                <div class="content imprimir_documentos">
+                	<p class="subtitle">Escolha os documentos que deseja imprimir:</p>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox1" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Boleto Bancário</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox2" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>RPS</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox3" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Pedidos</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox4" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Tarifas</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="checkbox" id="checkbox5" title="Não visualizar mais esta mensagem" value="checkbox" />
+                            <p>Demonstrativo de Descontos</p>
+                        </li>
+                    </ul> 
+                    <a class="bt_imprimir_selecionados" href="#" title="Imprimir selecionados" onClick="alert('Operação realizada com sucesso')">Imprimir selecionados</a>
+                    <span class="clearAll">&nbsp;</span>       
+                </div>
+            </div>
+        </div>
+    </div>
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="index.html">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Título Atual</li>
+			</ul>
+        </div>
+        <div id="main">
+        
+            <h2>Cadastrar funcionários da empresa</h2>
+            <p class="subtitle">Selecione como deseja cadastrar os funcionários que receberão benefício</p>
+            <form class="deliveryRegister">
+            <div class="text-wrapper-delivery">
+                <ul>
+                    <li class="sec_01">
+                        <input type="radio" name="radio" id="bt_form" />
+                        <label for="bt_form"><p style="width:255px; position:absolute" >Cadastrar funcionários via formulário</p></label>
+                    </li>
+                    <li class="sec_03">
+                        <input type="radio" name="radio" id="bt_excel" />
+                        <label for="bt_excel"><p style="width:255px; position:absolute">Cadastrar funcionários via tabela Excel</p>
+							<span id="help_box">
+								<a href="#"><img src="../../_img/icons/help.png" width="14" height="14" alt="Help" /></a>
+								<img src="../../_img/box_help.png" width="395" height="91" alt="" id="box_2"/>
+							</span>
+						</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="topBox"></div>
+            <div class="bottomBox"></div>
+            <div id="conteudo_form">  
+				<h3 id="register_header">Cadastrar funcionários via formulário</h3>
+				<p style="font-size:12px; color:#505050; padding:0 10px 0px 10px;">Preencha os campos abaixo e realize o cadastro dos funcionários de sua empresa</p>
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<thead id="centraliza_thead">
+						<tr>
+							<th>CPF do funcionário</th>
+							<th>Nome do funcionário</th>
+							<th style="width:200px;">Data de Nascimento</th>
+							<th class="lastChild"></th>
+						</tr>
+					</thead>
+					<tbody id="padding_m">
+						<tr id="tr1">
+							<td><p><input type="text" class="w135" id="cpfFunc" /></p></td>
+							<td><p><input type="text" class="w210" id="nomeFunc" /></p></td>
+							<td><p><input type="text" style="width:25px; margin-right:5px;" id="dia" />/<input type="text" style="width:25px; margin-right:5px; margin-left:5px;" id="mes" />/<input type="text" style="width:50px; margin-right:5px; margin-left:5px;" id="ano" /></p></td>
+							<td class="lastChild"><p><a href="#" id="bt_cadastrar" class="bt_cadastrar"></a></p></td>
+						</tr>
+						<tr id="tr2">
+							<td><p>321.141.155-87</p></td>
+							<td><p>José Agnaldo Castilho Cardoso Nascimento</p></td>
+							<td><p>14/01/2072</p></td>
+							<td class="lastChild"><p><a href="#" class="btn_lapis_alterar" id="bt_alterar" style="margin-right:30px;">alterar</a> <a href="#" id="bt_excluir" class="btn_excluir_link">excluir</a></p></td>
+						</tr>
+						<tr id="tr3">
+							<td><p><input type="text" class="w135" id="cpfFunc"  value="321.141.155-87"/></p></td>
+							<td><p><input type="text" class="w210" id="nomeFunc" value="José Agnaldo Castilho Cardoso Nascimento" /></p></td>
+							<td><p><input type="text" style="width:25px; margin-right:5px;" id="dia" value="14" />/<input type="text" style="width:25px; margin-right:5px; margin-left:5px;" id="mes" value="01" />/<input type="text" style="width:50px; margin-right:5px; margin-left:5px;" id="ano" value="1972" /></p></td>
+							<td class="lastChild"><p style="margin-right:20px;"><a href="#" class="btn_certo_ok" id="bt_ok" style="margin-right:30px;">OK</a> <a href="#" id="bt_cancelar" class="btn_excluir_link">Cancelar</a></p></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td class="lastChild">&nbsp;</td>
+						</tr>
+					</tfoot>
+				</table>
+				</form>
+				<a class="bt_voltar" href="cbv_pp_002_fazer_primeiro_pedido_1.html">Voltar</a>
+				<a class="bt_continuar al_right" href="cbv_pp_002_fazer_primeiro_pedido_2.html"><span class="screen_reader_text">Continuar</span></a>
+			</div>
+            
+			
+			<div id="main" class="conteudo_excel">
+            	<h3 id="register_header" class="margin_botton_06">Cadastrar funcionários via tabela Excel</h3>
+            	<p class="subtitle">É possível cadastrar vários funcionários de uma vez importando uma tabela Excel.</p>
+                
+                <form>
+				<div class="text-wrapper">
+					<h3 class="first">Etapa 1 - Crie a Tabela Excel</h3>
+					<p class="normal4 cartao_flex icon_seta">Preencha a Tabela 'Funcionários' disponível abaixo seguindo as<br> instruções de preenchimento.
+                    <br><br><br>
+                    Salvar <a href="javascript:void(0)" class="cinzas strong" onClick="alert('Operação realizada com sucesso')">Modelo Tabela - Funcionário</a> - v1.0 (Arquivo Excel)
+                    <br><br>
+                    Consulte as <a href="javascript:void(0)" class="cinzas" onClick="alert('Operação realizada com sucesso')">Instruções de Preenchimento da tabela</a> (Arquivo PDF)
+                    </p>
+					<div class="blocoFlex1">
+						<h3>Etapa 2 - Importe a tabela para nosso site</h3>
+						<p class="normal4 cartao_flex icon_seta2">Salve a tabela Excel preenchida como arquivo .csv. <a href="javascript:void(0)" class="cinzas">O que é isso?</a></p>
+                        <p class="normal4 cartao_flex icon_seta2">Selecione o arquivo gerado, escolha o formato das datas e envie. </p>
+                        <input type="text" size="60" class="input_text cartao_flex" /><input type="button" class="button select">
+						
+						<p class=" normal4 cartao_flex"><strong>Formato das datas no arquivo importado</strong><br>
+						<select class="w390">
+							<option value="dd/mm/aaaa">dd/mm/aaaa (padrão)</option></a>
+						</select>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="normal4">O que é isso?</a><br />
+                        </p>
+                        <a class="bt_salvar right margin_right_30" href="cbv_pp_002_fazer_primeiro_pedido_2.html">Enviar</a>
+					</div>	
+                    <div class="table-footer"></div>
+                    </div>
+				</form>
+            </div>
+			
+			
+            <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+        </div>
+</div>
+</body>
+</html>

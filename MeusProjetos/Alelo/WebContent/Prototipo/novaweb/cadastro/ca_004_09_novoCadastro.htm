@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+		
+		
+		
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+	<script>
+		function salvar(){
+	
+		var cpf = document.getElementById("cpffake").value;		
+		/*if(cpf=='222.222.222-22'){
+			alert('Funcionário já Cadastrado');
+		}else */if(cpf=="259.462.720-12"){
+					if(confirm('Esse CPF já existe no cadastro de interlocutor deseja reaproveitar os dados?')){
+						window.location.href='ca_004_09_editar_jose.htm';
+					}else{
+						window.location.href='ca_004_09_novoCadastro.htm';
+					}
+				}else{
+					window.location.href='ca_007_02_sucesso.htm';
+				}
+	}
+	</script>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar Novo Interlocutor</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>
+		Cadastrar novo Interlocutor
+	</h2>
+	
+	<form>
+		<div class="text-wrapper vertical no-padding mt30">
+			<div class="text-header"></div>
+			<fieldset class="form-wrapper">
+				<p>
+					<label>
+						CPF do Interlocutor*:
+					</label>
+					<input type="text" size="60" id="cpffake" value="698.321.014-78" />
+					<span class="tip ex">Somente números</span>
+				</p>
+				<p>
+					<label>
+						Nome Completo:
+					</label>
+					<input type="text" size="60" value="Marcos Augusto Oliveira" />
+					<span class="tip ex">Ex.: José da Silva</span>
+				</p>
+				<p>
+					<label>Data de Nascimento*:</label>
+					<input type="text" size="3" value="08" /> /
+					<input type="text" size="3" value="04" /> /
+					<input type="text" size="6" value="1979" />
+				</p>
+				<p>
+					<label>Sexo*:</label>
+					<span class="radio"><input type="radio" name="sex"> Feminino</span>
+					<span><input type="radio" name="sex" checked> Masculino</span>
+				</p>
+				
+			</fieldset>
+			<h3>
+				Dados Empresariais
+			</h3>
+			<fieldset class="form-wrapper">
+				<p>
+					<label>Departamento*:</label>
+					<input type="text" value="Comercial" size="60"  />
+				</p>
+				<p>
+					<label>Cargo*:</label>
+					<span class="desc mr15">
+						<select class="w76">
+							<option value="#">Vendedor</option>
+						</select>
+					</span>
+				</p>
+				<p>
+					<label>E-mail*:</label>
+					<input type="text" value="marcos.augusto@email.com.br" size="60" />
+				</p>			
+				<p>
+					<label>Telefone Principal*:</label>
+					<span class="desc">
+						<input type="text" size="2" value="011" />
+						DDD
+					</span> 
+					<span class="desc">
+						<input type="text" size="22" value="4123-6140" />
+						Número
+					</span>
+					<span class="desc">
+						<input type="text" size="10" value="874" />
+						Ramal
+					</span>
+				</p>
+				<p>
+					<label>Telefone Secundário:</label>
+					<span class="desc">
+						<input type="text" size="2" value="011" />
+						DDD
+					</span> 
+					<span class="desc">
+						<input type="text" size="22" value="4158-9632" />
+						Número
+					</span>
+					<span class="desc">
+						<input type="text" size="10" value="412" />
+						Ramal
+					</span>
+				</p>		
+			</fieldset>
+			
+			<h3 class="subtitle">
+				Perfil do Interlocutor
+				<span>Marque as responsabilidades do Interlocutor</span>
+				
+				<span class="intitle_alert">
+					<strong>Dica:</strong> 
+					Interlocutores de Decisão (administradores) são registrados pelo Banco parceiro ou pela nossa Central de Suporte.
+				</span>
+			</h3>
+			
+			<fieldset class="form-wrapper">
+				<ul class="user-saved-data checkboxes">	
+					<li>
+						<span>
+							<input type="checkbox"  checked/>
+							<strong> Operação</strong>
+							<span>Autorizado a realizar pedidos, efetuar operações e cadastros online.</span>
+						</span>
+					</li>
+					<li>
+						<span>
+							<input type="checkbox" />					
+							<strong> 
+								Faturamento
+							</strong>
+							<span>Acessa funções financeiras, recebe notas fiscais, boletos e efetua pagamentos de pedidos.</span>
+						</span>
+					</li>
+					<li>
+						<span>	
+							<input type="checkbox" /> 
+							<strong>Recebimento</strong>
+							<span>Autorizado a receber distribuir os cartões e as senhas enviados à empresa pelo correio.</span>
+						</span>
+					</li>
+					<li class="no-border">
+						<span>			
+							<input type="checkbox" id="check_prof" /> 
+							<strong>
+							Correspondência <span>Novo!</span></strong>
+							<span>Responsável em receber comunicações da Alelo.</span>
+							
+							<p>
+								O interlocutor representará a correspondência de qual unidade?*
+								<select>
+									<option>Selecione</option>
+								</select>
+							</p>
+						</span>
+					</li>				 
+				</ul>			
+			</fieldset>
+
+			
+			<div class="table-footer"></div>			
+		</div>
+		<fieldset class="save-form">
+			<a href="ca_007_02.htm" class="button back">Voltar</a>
+			<a href="javascript:;" class="button save" onClick="salvar()">Salvar</a>
+		</fieldset>	
+	</form>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+<head>
+    <script src="../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../_js/jquery.colorbox-min.js"></script>
+
+    <script type="text/javascript" src="../../js/jquery.imagetick.js"></script>
+	<link href="_css/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+	<style type="text/css" title="currentStyle">
+        @import "../../media/css/demo_page.css";
+        @import "../_css/jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../_css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../_js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf-8">
+
+        var tdToFilter = 2
+        var tdResults="";
+        $(document).ready(function() {
+            
+            $("table.display tbody tr").each( function () {
+                $(this).find("td").each( function ( i ) {
+                    if(i==5){
+                        sColValue = $(this).find("p").html().replace('<br>',' ').replace('<br/>',' ').replace(' - ',' ');
+                        sColValueNoSpace = retira_acentos(sColValue.toLowerCase().replace(/\s/gi,''));
+                        if(tdResults.indexOf(sColValueNoSpace)==-1){
+                            $('.search-filters select#locais_entrega').append('<option value='+sColValueNoSpace+'>'+sColValue+'</option>');}
+                        tdResults += sColValueNoSpace;
+                        $(this).append("<span class='hideValue'>"+sColValueNoSpace+"</span>");
+                    }
+                } );
+            } );
+                        
+            var  oTable = $('#example').dataTable({
+                "bJQueryUI": true,
+                "sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sLengthMenu": "Display _MENU_ records per page",
+                    "sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+                    "sInfo": "_START_-_END_ de _TOTAL_",
+                    "sInfoEmpty": " ",
+                    "sInfoFiltered": " "
+                }
+            });
+			
+			$(".search-filters input").focus(function(){
+				$(this).val('')	;
+			});
+            $(".search-filters a.button.search").click( function () {
+                var arrFilterValues = new Array();
+                $(".search-filters input").each(function(){
+                    if(this.value!='')arrFilterValues.push(this.value);
+                })
+                $(".search-filters select").each(function(){
+                    if(this.value!='')arrFilterValues.push(this.value);
+                })
+         
+                if(arrFilterValues.length==0){$(".search-filters .tip1").show()}else{$(".search-filters .tip1").hide()};
+
+                oTable.fnFilter( $(".search-filters input#nome").val(), 1 );
+                oTable.fnFilter( $(".search-filters input#cpf").val(), 2 );
+                oTable.fnFilter( $(".search-filters input#matricula").val(), 4 );
+                oTable.fnFilter( $(".search-filters select#locais_entrega").find('option:selected').val(), 5 );
+            } );
+            $(".search-filters .tip1").hide();
+            $(".search-filters .tip2").hide();
+			
+    		function scrollPage(elementId){
+    			$('html, body').animate({
+               		scrollTop: $("#"+elementId).offset().top
+           			}, 500);	
+    		}
+			//TODO Ruy - exclusao das linhas selecionadas
+			getRowNumber = function(rowId, oTable_) {
+				var rows = document.getElementById(oTable_.attr("id")).getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+			    for (i = 0; i < rows.length; i++) {
+					if (rowId == rows[i].id) {
+						return i;
+					}
+			    }
+			    return -1;
+			}
+			// Hum 'input:checkbox' para cada linha na tabela
+			deleteCheckeds = function(oTable_) {
+	            $('.input_checkbox').each(function(index) {
+	    			if($(this).is(':checked')){
+	    				var row = $(this).parents("tr").eq(0);
+	    				var rowid = row.attr("id");
+	    				var rowNumber = getRowNumber(rowid, oTable_);
+	    				oTable_.fnDeleteRow( rowNumber );
+	    			}
+	    			
+				});
+				//mensagem de confirmacao
+	            $('#act_message').css('display','block');
+	            scrollPage('act_message');
+			}
+			$('#button_remove').click(function(){
+				deleteCheckeds(oTable);
+				$('.app_warB').hide('fast');
+			});
+
+			$('#act_message').css('display','none');
+			
+        } );
+    </script>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Cadastrar novo Funcionário</li>
+			</ul>
+		</div>
+
+<div id="main">
+    
+	<h2>Funcionários</h2>
+    <div class="app_warB">
+        <h3>Novo Funcionário incluído com sucesso.</h3>
+    </div>
+    <p id="act_message" class="act-message">Funcionário(s) excluído(s) com sucesso.</p>
+	<p class="subtitle">
+		Aqui você poderá cadastrar, alterar e excluir o cadastro de funcionários que receberão os benefícios.
+	</p>
+	
+	<div class="dd_new_delivery">
+		<div class="button official_register">Cadastrar novo funcionário</div>
+		<div class="dropwdown-holder size2">
+			<a href="ca_004_08_novoCadastro_branco.htm">Cadastrar um funcionário por vez (pelo site)</a>
+			<a href="ca_002_11_funcionario.htm">Cadastrar vários funcionários (via tabela Excel)</a>
+		</div>        
+	</div>
+	
+	<form class="search-filters">
+		<fieldset>
+			<label>Pesquisar por:</label>
+			
+			<div>
+            	<p><strong>Nome:</strong></p>
+				<input type="text" id="nome" value="" width="w145" />
+			</div>			
+			<div>
+           		<p><strong>CPF:</strong></p>
+				<input type="text" value="" id="cpf" width="w75" />
+				<span class="tip-on tip1">
+					<strong>Dica:</strong>
+					Preencha um ou mais campos da pesquisa
+				</span>	
+			</div>
+			
+			<div>
+            	<p><strong>Matrícula:</strong></p>
+			  	<input type="text" id="matricula" value="" width="w75" />
+            </div>			
+			<div>
+	            <p><strong>Locais de Entrega:</strong></p>
+				<select class="w190" id="locais_entrega">
+					<option value="" selected></option> 
+				</select>
+			</div>			
+            <div>
+                <a href="javascript:;" class="button search">Buscar</a>
+            </div>		
+		</fieldset>
+	</form>
+	
+            <div class="search-result-header">
+                <p class="searh-message1">Busca Aplicada: 10.000 resultados encontrados. <a href="#">Desfazer</a> </p>
+            </div>
+
+	
+	<table valign="center" class="display" id="example">
+			<thead>
+				<tr>
+					<th class="col_1"><input type="checkbox" name="checkbox" id="gradeCheck0" value="" /></th>
+					<th class="col_2">Nome
+                    	<select style="float:right">
+							<option> A-Z</option>
+						</select>
+                    </th>
+					<th class="col_21" width="15%">CPF</th>
+					<th class="col_15">Data de Nasc.</th>
+					<th class="col_21">Matrícula</th>
+					<th class="col_2">Local de Entrega</th>
+					<th class="lastChild"><font style="visibility:hidden">alterar</font></th>
+				</tr>
+			</thead>
+			<tbody>
+            	<tr id="line0">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck1" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Fernando Soares Pereira</p></a></td>
+					<td><p>251.478.962-88</p></td>
+					<td><p>17/08/1972</p></td>
+					<td><p>8746352</p></td>
+					<td class="col_2"><p>251.478.962-88 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line0">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck1" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar_felipe.htm"><p>Felipe Cardoso de Melo dos Santos</p></a></td>
+					<td><p>789.333.898-24</p></td>
+					<td><p>04/07/1988</p></td>
+					<td><p>25.273</p></td>
+					<td class="col_2"><p>789.333.898-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar_felipe.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line1">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck2" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Ricardo Pedro de Fátima</p></a></td>
+					<td><p>456.768.890-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>456.768.890-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line2">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck3" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Millena Maria de Souza Xis Ipsloun</p></a></td>
+					<td><p>234.566.856-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>234.566.856-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line3">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck4" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>José Cardo de Sousa</p></a></td>
+					<td><p>123.456.978-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>123.456.978-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line4">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck5" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Pedro Álvares Cabral Descobridor</p></a></td>
+					<td><p>385.789.555-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>385.789.555-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line5">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck6" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Xica da Silva</p></a></td>
+					<td><p>222.222.555-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>222.222.555-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line6">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck7" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Diamantino Florescente Esmeraldo dos Santos</p></a></td>
+					<td><p>222.222.555-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>222.222.555-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+				<tr id="line7">
+					<td class="col_1"><input class="input_checkbox" type="checkbox" name="checkbox" id="gradeCheck8" value="" /></td>
+					<td class="col_2"><a href="ca_004_08_visualizar.htm"><p>Lorem Ipsum dolir it Sant's</p></a></td>
+					<td><p>222.222.555-24</p></td>
+					<td><p>24/01/1443</p></td>
+					<td><p>35.568</p></td>
+					<td class="col_2"><p>222.222.555-24 caracteresxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p></td>
+					<td class="col_8 lastChild"><p><a href="ca_004_08_editar.htm">alterar</a></p></td>
+				</tr>
+			</tbody>
+            <tfoot>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="lastChild">&nbsp;</td>
+                </tr>
+            </tfoot>
+
+		</table>
+
+	<div class="search-footer" style="z-index:999999">
+                <div style="margin-top:-20px">
+                    <a id="button_remove" class="button remove" href="javascript:void(0);//ca_005_01.htm">Excluir selecionados</a>
+                </div>	
+                <div class="search-actions">
+                    <p>Mais ações:</p>
+                    <p>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="pdf">Salvar lista em PDF</a>
+                        <a href="ca_002_11_funcionario.htm" class="exc">Adicionar vários (via tabela Excel)</a>
+                        <a href="javascript:void(0);" onClick="alert('Operação realizada com sucesso')" class="csv">Exportar arquivo .csv para meu computador</a>
+                    </p>
+                </div>
+            </div>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

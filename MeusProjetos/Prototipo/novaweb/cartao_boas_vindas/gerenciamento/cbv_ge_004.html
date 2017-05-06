@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+   <script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>
+    
+	<script>
+		$(document).ready(function() {
+			 $("input[name=checkbox]").imageTick({ 
+				tick_image_path: "../../_img/check.gif", 
+				no_tick_image_path: "../../_img/no_check.gif"
+			});
+		});    
+    	
+    </script> 
+	<link href="../../_css/fi_style.css" rel="stylesheet" />
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body id="cbv_004">
+	
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="index.html">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Visualizar Local de Entrega</li>
+			</ul>
+		</div>
+<div id="main">
+	<h2>
+		Alterar dados do cartão
+	</h2>
+	<form class="pos-buttons">
+		<div class="text-wrapper">
+			<h3>
+				Dados Cadastrais
+			</h3>
+			<fieldset class="form-wrapper">
+				<p class="saved_data">
+					<label for="cartao" class="al_left">Nome do Cartão*:</label>
+                    <span id="nomecartao2" style="display:block; float:left">Cartão de Financeiro <a href="javascript:void(0);" onClick="alert('O usuário será redirecionado para o módulo de pedidos')" class="txt_cinza_1 txt_al_right mg_left_10">Deseja alterar o nome do cartão?</a></span>
+                    <br class="clear" />
+					<label style="float:left;">&nbsp;</label>
+					<div style="float:left; font-size:11px; width:70%;"><img src="../../_img/icons/alert.png" width="17" height="15" style="float:left; margin:5px" alt=" ">Máximo de 19 caracteres.<br />
+					Não preencher com caracteres especiais (ex.: vírgulas, barras, pontos etc.).</div>
+				</p>
+                <span class="clearfix_2">&nbsp;</span>
+				<p class="saved_data">
+					<label>ID do Cartão:</label>
+					<strong>1234567890</strong>
+				</p>
+				<p class="saved_data">
+					<label>Produto:</label>
+					<strong>Cesta Natal Alimentação Visa Vale</strong>
+				</p>
+				<p class="saved_data" style="position:relative;">
+					<label for="localEnt">Local de Entrega*:</label>
+					<img class="ic_help" src="../../_img/icons/help.png" width="14" height="14" alt=" " />
+					<select id="localEnt" style="width:375px;">
+						<option>Selecione</option>
+                        <option selected="selected">Rua Caetaninha, 250 - Engenho Novo - Barueri/SP</option>
+					</select>
+				</p>
+				<a class="button block cadastrar_novo_local_entrega" href="javascript:void(0);" onClick="alert('O usuário será encaminhado para o módulo de cadastro')" style="float:right; margin-right:205px">Cadastrar Novo Local de Entrega</a>
+			</fieldset>
+			<h3>
+				Portador e Controle Administrativo:
+			</h3>
+			<fieldset class="form-wrapper" id="outro_form">
+				<p class="saved_data">
+					<label for="nome">Nome do Portador:</label>
+					<input type="text" id="nome" size="60" value="José Soares da Silva"/> Ex.: Filial Fábrica Baurú
+				</p>
+				<p class="saved_data">
+					<label for="cpf">CPF do Portador:</label>
+					<input type="text" id="cpf" size="15" value="997.127.557-03"/>
+				</p>
+				<p class="saved_data">
+					<label for="area">Área:</label>
+					<input type="text" id="area" value="Financiamento" size="40"  />
+				</p>
+				<p class="saved_data">
+					<label for="dt_entrega" style="line-height:15px;">Data de Entrega <br>(novo Portador):</label>
+					<img class="ic_help" src="../../_img/icons/help.png" width="14" height="14" alt=" " style="margin:7px 5px 0 0">
+					<input type="text" id="dt_entrega" size="4" value="15"/> / <input type="text" value="04" size="4" /> / <input type="text" value="2011" size="7" />
+				</p>
+				<p class="saved_data">
+					<label for="dt_dev" style="line-height:15px;">Data de Devolução <br>(último Portador):</label>
+					<img class="ic_help" src="../../_img/icons/help.png" width="14" height="14" alt=" " style="margin:7px 5px 0 0">
+					<input id="dt_dev" type="text" size="4" value="25" /> / <input value="04" type="text" size="4" /> / <input type="text" value="2011" size="7" />
+				</p>
+				<p class="saved_data">
+					<label for="saldo" style="line-height:15px;">Saldo na Devolução <br>(novo Portador):</label>
+					<input type="text" id="saldo" size="4" value="255,59" />
+					<span style="line-height:10px; position:relative; top: 5px; margin-left:10px">
+						<input type="checkbox" name="checkbox" id="gradeCheck1" value="" />
+                    	<label for="gradeCheck1" class="txt_al_left">Preencher com saldo atual</label>
+					</span>
+				</p>
+			</fieldset>
+			<div class="table-footer"></div>			
+		</div>
+		<p style="font-size:12px; color:#989898; margin:0 0 0 6px;">Saldo para simples conferência - sujeito a alterações</p>
+		<fieldset class="save-form">
+			<a href="cbv_ge_002_1.html" class="button back" style="margin-left:-5px;">Voltar</A>
+			<a href="cbv_ge_002.html" class="button save">Salvar</a>
+		</fieldset>
+	</form>
+</div>
+	<div class="footer">
+		<ul>
+			<li class="content">
+				<p>Alelo © Copyright 2012</p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Quem Somos</a></p>
+                <p class="prtSeparacao">|</p>
+				<p><a href="#">Opine sobre o site</a></p>
+                <p class="prtSeparacao">|</p>
+				<p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

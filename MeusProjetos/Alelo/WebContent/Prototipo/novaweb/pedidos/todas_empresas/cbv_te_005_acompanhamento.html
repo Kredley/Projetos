@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+   	<script src="../../_js/jquery-1.7.js" type="text/javascript"></script>
+	<script src="../../_js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.imagetick.js"></script>   
+	<link href="../../_css/pe_style.css" rel="stylesheet" />
+	<link href="../../_css/pe_estilos.css" rel="stylesheet" />
+    <style type="text/css" title="currentStyle">
+        @import "../../../media/css/demo_page.css";
+        @import "../../_css/pe_jquery-ui-1.8.4.custom.css";
+    </style>
+    <link href="../../_css/demo_table_jui.css" rel="stylesheet" />
+    <link href="../../_css/pe_jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+	<script type="text/javascript" language="javascript" src="../../_js/functions.js"></script>
+	<script type="text/javascript" language="javascript" src="../../_js/jquery.dataTables.js"></script>
+	<script src="../../_js/jscal_src/js/jscal2.js"></script>
+    <script src="../../_js/jscal_src/js/lang/pt.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="../../_js/jscal_src/css/steel/steel.css" />
+	<script type="text/javascript" charset="utf-8">
+
+			var tdToFilter = 2;
+			$(document).ready(function() {
+				
+				$("table.display tbody tr").each( function () {
+					$(this).find("td").each( function ( i ) {
+						if(i==0){
+							sColValue1 = $(this).find("p").html();
+							sColValueNoSpace1 = retira_acentos(sColValue1.toLowerCase().replace(/\s/gi,''));
+							$('#situacao').append('<option value='+sColValueNoSpace1+'>'+sColValue1+'</option>');
+							
+							$(this).append("<span class='hideValue'>"+sColValueNoSpace1+"</span>");
+							
+						
+						}
+					} );
+				} );
+				
+				var  oTable = $('#example').dataTable({
+					"bJQueryUI": true,
+					"aaSorting": [],
+					"sDom": '<"top_search_engine"iflp<"clear">>rt<"bottom_search_engine"iflp<"clear">>',
+					"sPaginationType": "full_numbers",
+					"oLanguage": {
+						"sLengthMenu": "Display _MENU_ records per page",
+						"sZeroRecords": "Não encontramos dado(s) que corresponde(m) ao(s) filtro(s) informado(s). <br>Por favor, preencha novamente.",
+						"sInfo": "_START_-_END_ de _TOTAL_",
+						"sInfoEmpty": " ",
+						"sInfoFiltered": " "
+					}
+            	});
+				
+				$(".search_filters .search").click( function () {
+					var arrFilterValues = new Array();
+					$(".search_filters input").each(function(){
+						if(this.value!='')arrFilterValues.push(this.value);
+					})
+					$(".search_filters select").each(function(){
+						if(this.value!='')arrFilterValues.push(this.value);
+					})
+										
+					oTable.fnFilter( $("#situacao").find('option:selected').val(), 0 );
+					oTable.fnFilter( $("#nome_arquivo").val(), 2 );
+					oTable.fnFilter( $("#nome_empresa").val(), 3 );
+					oTable.fnFilter( $("#logDe").val(),1 );
+					oTable.fnFilter( $("#logAte").val() );
+				} );
+				var cal = Calendar.setup({
+					onSelect: function(cal) { cal.hide() },
+					weekNumbers : false,
+					showTime: true
+				});
+				cal.manageFields("a_btn1", "logDe", "%d/%m/%Y"); 
+				cal.manageFields("a_btn2", "logAte", "%d/%m/%Y");
+			} );
+		</script>
+	<meta charset="utf-8" />	
+	<title></title>
+</head>
+<body id="acompanhamento_cbv">
+	<div id="wrapper">
+		<div class="header">
+			<ul><!--<img src="../_img/logo.png" />-->
+				<li class="logo"><a href="#">Alelo</a></li>
+				<li class="login">Olá <b>Veridiana Veridiana Veridiana Veridiana</b>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Meus dados de acesso</a></li>
+				<li class="combo">
+					<select name="teste">
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+						<option>SPEED CALÇADOS - 45.523.366/0001-83</option>
+					</select>
+				</li>
+				<li class="description">Sistema de Pedidos de Benefícios</li>
+					<li class="btnBusiness"><a href="#">Trocar empresa</a></li>
+				<li>
+					<div class="rideMenu">
+						<ul>
+							<li class="sideLeft"></li>
+							<li class="prtText">
+								<p class="prt1"><a href="#">Início</a></p>
+								<p class="prt2"><a href="#">Pedidos</a></p>
+								<p class="prt3"><a href="#">Manutenção de Cartões</a></p>
+								<p class="prt4"><a href="#">Produtos e Serviços</a></p>
+								<p class="prt5"><a href="#">Cadastro</a></p>
+								<p class="prt6"><a href="#">Financeiro</a></p>
+								<p class="prt7"><a href="#">Atendimento</a></p>
+								<p class="prt8"><a href="#">Preferências de Segurança</a></p>
+								<p class="prt9"><a href="#">Sair</a></p>
+							</li>                                      
+							<li class="sideRight"></li>            
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<ul>
+				<li class="navigation"><a href="#">Início</a> > <a href="#">Level 1</a> > <a href="#">Level 2</a> > Acompanhamento de Arquivos Enviados</li>
+			</ul>
+		</div>
+      	<div id="main">
+        	<h2 title="Acompanhamento de Pedidos">Acompanhamento de Arquivos Enviados</h2>
+            <p class="subtitle">Consulte aqui todos os detalhes dos pedidos realizados para várias empresas simultaneamente.</p>
+			<div class="rounded_box">
+				<span class="aux_01">&nbsp;</span>
+				<span class="aux_02">&nbsp;</span>
+				<span class="aux_03">&nbsp;</span>
+				<span class="aux_04">&nbsp;</span>
+				<form class="search_filters">
+				  <fieldset>
+					  <label class="al_left" style="margin-top:40px; margin-right:20px;">Pesquisar por:</label>
+					  <div class="al_left" style="width:640px;">
+							<div class="n_protocolo">
+								<p><strong>Situação:</strong></p>
+								<select name="situacao" id="situacao" style="width:105px" type="text">
+								<option value="" selected></option>
+								</select>
+							</div>
+							<div class="n_protocolo">
+								<p><strong>Nome do Arquivo</strong></p>
+								<input type="text" id="nome_arquivo" style="width:255px" value="" />
+							</div>
+							<div class="n_protocolo" style="margin-top:10px;">
+								<p><strong>Nome da Empresa</strong></p>
+								<input type="text" id="nome_empresa" style="width:255px" value="" />
+							</div>
+							<div class="n_protocolo" style="margin-top:10px;">
+								<p><strong>Data de disponibilização dos créditos:</strong></p>
+								<span style="float:left;margin:3px 3px 0 0;">De:</span>
+								<input type="text" id="logDe" style="width:100px; float:left;" /><a href="javascript:void(0);" class="btn_calendar" id="a_btn1" ><span class="screen_reader_text">Cal</span></a>
+								<span style="float:left;margin:3px 3px 0 3px;">Ate:</span> <input type="text" id="logAte" style="width:100px; float:left;" /><a href="javascript:void(0);" class="btn_calendar" id="a_btn2" ><span class="screen_reader_text">Cal</span></a>
+							</div>
+					  </div>
+					  <div class="al_right" style="margin-top:40px;"><a href="javascript:;" class="button search">Buscar</a> </div>
+				  </fieldset>
+					<span class="closer">&nbsp;</span>
+				</form>
+			</div>
+            <div class="search-result-header hide">
+				<p class="searh-message1">Busca Aplicada: 10.000 resultados encontrados. <a href="#">Desfazer</a> </p>
+            </div>  
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Data da Solicitação</th>
+                        <th>Nome do arquivo</th>
+                        <th>Nome da Empresa</th>
+                        <th class="lastChild">Pedidos Gerados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    	<td class="txt_al_left"><p class="laranja" style="padding-left:10px;">Em Análise</p></td>
+                    	<td><p>04/01/2012</p></td>
+                       <td><p><a href="cbv_te_006_detalhe.html">Arquivo_de_pedido.txt</a></p></td>
+                       <td><p>Maria da Graça Alimentos Ltda/ME</p></td>
+                    	<td class="linkP lastChild"><p>9999</p></td>
+                    </tr>
+                    <tr>
+                    	<td class="txt_al_left"><p class="vermelho" style="padding-left:10px;">2 pedidos rejeitados</p></td>
+                    	<td><p>07/02/2012</p></td>
+                       <td><p><a href="cbv_te_006_detalhe.html">Arquivo_de_pedido2.txt</a></p></td>
+                       <td><p>Advogados Associados SC</p></td>
+                    	<td class="linkP lastChild"><p>546</p></td>
+                    </tr>
+                    <tr>
+                    	<td class="txt_al_left"><p class="verde" style="padding-left:10px;">Processado</p></td>
+                    	<td><p>15/07/2011</p></td>
+                       <td><p><a href="cbv_te_006_detalhe.html">Arquivo_32.txt</a></p></td>
+                       <td><p>Mercadinho Dollar Ltda/ME</p></td>
+                    	<td class="linkP lastChild"><p>1258</p></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td class="lastChild">&nbsp;</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="search-footer">
+            </div>
+      </div>
+
+      <div class="footer">
+            <ul>
+                <li class="content">
+                    <p>Alelo © Copyright 2012</p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Quem Somos</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p><a href="#">Opine sobre o site</a></p>
+                    <p class="prtSeparacao">|</p>
+                    <p>Site desenvolvido para Internet Explorer e preparado para deficientes visuais</p>
+                </li>
+            </ul>
+      </div>
+</div>
+</body>
+</html>
