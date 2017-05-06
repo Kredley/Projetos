@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context-context-3.0.xsd">
+	
+<!-- EXERCICIO3 -->
+
+	<bean id="trianguloId" class="curso.spring.Triangulo">
+<!-- 		JEITO1 -->
+		<property name="pontoA" >
+			<bean  class="curso.spring.Ponto">
+				<property name="x" value="0"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
+<!-- 		JEITO2 de referencia-->
+		<property name="pontoB" ref="pontoDois"></property>
+		<property name="pontoC" ref="pontoTres"></property>
+		
+	</bean>
+	
+	
+	<bean id="pontoDois" class="curso.spring.Ponto">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pontoTres" class="curso.spring.Ponto">
+		<property name="x" value="0"></property>
+		<property name="y" value="-20"></property>
+	</bean>
+	
+	
+	
+<!-- EXERCICIO2	 -->
+<!-- 	<bean id="trianguloId" class="curso.spring.Triangulo"> -->
+
+<!-- 		<constructor-arg name="tipo" value="Retangulo" index="0"></constructor-arg> -->
+<!-- 		<constructor-arg name="altura" value="20" index="1"></constructor-arg> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="trianguloId2" class="curso.spring.Triangulo"> -->
+<!-- 		<constructor-arg name="altura" value="20"></constructor-arg> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="helloBean" class="com.mkyong.core.HelloWorld"> -->
+<!-- 		<property name="name" value="Mkyong" /> -->
+<!-- 	</bean> -->
+
+</beans>
